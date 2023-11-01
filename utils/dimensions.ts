@@ -11,12 +11,12 @@ export const getMargin: GetMargin = (specifiedMargin) => ({
   ...specifiedMargin,
 });
 
-type GetDimension = (
+type GetDimensions = (
   width: number,
   height: number,
   specifiedMargin?: Partial<Margin>
 ) => Dimensions;
-export const getDimension: GetDimension = (
+export const getDimensions: GetDimensions = (
   width,
   height,
   specifiedMargin = defaultMargin
