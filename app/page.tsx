@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { getData } from './data';
+import { getData } from '../utils/data';
 import H2 from '../components/H2';
 import P from '../components/P';
 
