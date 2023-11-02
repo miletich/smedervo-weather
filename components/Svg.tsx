@@ -13,8 +13,8 @@ export default forwardRef<SVGSVGElement, Props>(function Svg(
     <svg
       ref={ref}
       className={` ${className}`}
-      {...rest}
       viewBox={`0 0 ${width} ${height}`}
+      {...rest}
     >
       {children}
     </svg>

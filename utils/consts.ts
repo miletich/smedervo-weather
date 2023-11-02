@@ -8,3 +8,5 @@ const margin: Margin = {
   left: 50,
 };
 export const dimensions = getDimensions(size, size, margin);
+
+export const dotSize = 4;
