@@ -36,3 +36,9 @@ export const gradientStops = d3.range(numOfGradientStops).map((d, i) => {
 export const gradientWidth = 250;
 export const gradientHeight = 25;
 export const gradientOffset = 10;
+export const gradientLabelSize = 12;
+export const gradientLabelOffset = 6;
+export const gradientYear = 2022;
+export const seasonStartDates = ['4-1', '7-1', '10-1'].map(
+  (d) => new Date(`2022-${d}`)
+);

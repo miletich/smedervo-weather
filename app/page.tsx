@@ -2,12 +2,22 @@ import Image from 'next/image';
 import H2 from '../components/H2';
 import P from '../components/P';
 import Chart from '@/components/Chart';
-import { axisLabelOffset, dimensions, dotSize } from '@/utils/consts';
+import {
+  axisLabelOffset,
+  dimensions,
+  dotSize,
+  gradientHeight,
+  gradientId,
+  gradientOffset,
+  gradientWidth,
+} from '@/utils/consts';
 import AxisLeft from '@/components/AxisLeft';
 import { getScaleTicks, getScales } from '@/utils/scales';
 import { getDotProps } from '@/utils/lib';
 import AxisBottom from '@/components/AxisBottom';
 import AxisLabel from '@/components/AxisLabel';
+import Defs from '@/sections/Defs';
+import GradientLegend from '@/sections/GradientLegend';
 
 export default async function Home() {
   const dots = await getDotProps();
@@ -28,6 +38,7 @@ export default async function Home() {
           Visualisation of daily minimum and maximum temperatures in Smederevo,
           Serbia, in 2022...
         </desc>
+        <Defs />
         <rect
           width={dimensions.innerWidth}
           height={dimensions.innerHeight}
@@ -51,6 +62,7 @@ export default async function Home() {
         >
           Maximum Temperature °C
         </AxisLabel>
+        <GradientLegend />
         <g className="dots">
           {dots.map((d, i) => (
             <circle key={`${d.cx}-${d.cy}-${i}`} r={dotSize} {...d} />

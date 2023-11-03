@@ -25,5 +25,3 @@ export const getDotProps: GetDopProps = async () => {
     fill: colorScale(dateAccessor(d)),
   }));
 };
-
-export const parseDate = d3.timeParse('%Y-%m-%d');
