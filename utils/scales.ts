@@ -5,12 +5,13 @@ import {
   tempMaxAccessor,
   tempMinAccessor,
 } from './data';
-import { dimensions } from './consts';
+import { dimensions, gradientWidth } from './consts';
 
 type Scales = {
   xScale: d3.ScaleLinear<number, number>;
   yScale: d3.ScaleLinear<number, number>;
   colorScale: d3.ScaleSequential<string, string>;
+  gradientScale: d3.ScaleLinear<number, number>;
 };
 type GetScales = () => Promise<Scales>;
 export const getScales: GetScales = async () => {
@@ -39,8 +40,12 @@ export const getScales: GetScales = async () => {
     .domain(dateExtent)
     // inverted to make dates in spring/autumn appear green/orange
     .interpolator((d) => d3.interpolateRainbow(-d));
+  const gradientScale = d3
+    .scaleLinear()
+    .domain(colorScale.domain())
+    .range([0, gradientWidth]);
 
-  return { xScale, yScale, colorScale };
+  return { xScale, yScale, colorScale, gradientScale };
 };
 
 export type ScaleTick = {
