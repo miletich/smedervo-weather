@@ -15,10 +15,12 @@ export type Datum = z.infer<typeof datumSchema>;
 
 type NumberAccessor = (d: Datum) => number;
 type DateAccessor = (d: Datum) => Date;
+type LengthAccessor = <T extends unknown[] = unknown[]>(d: T) => number;
 
 export const tempMinAccessor: NumberAccessor = (d) => d.tempmin;
 export const tempMaxAccessor: NumberAccessor = (d) => d.tempmax;
 export const dateAccessor: DateAccessor = (d) => new Date(d.datetime);
+export const lengthAccessor: LengthAccessor = (d) => d.length;
 
 type GetData = () => Promise<Datum[]>;
 export const getData: GetData = async () => {
