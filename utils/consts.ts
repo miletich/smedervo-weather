@@ -11,12 +11,17 @@ const margin: Margin = {
 };
 export const dimensions = getDimensions(size, size, margin);
 
-export const dotSize = 4;
-
 export const gray = '#cfd4d8';
 export const darkGray = '#34495e';
 
-// peripherals
+// scatter plot
+export const dotSize = 4;
+
+// histograms
+const histogramHight = 70;
+const histogramMargin = 10;
+
+// axes
 export const tickSize = 5;
 export const tickLabelSize = 10;
 export const tickLabelOffset = 10;
@@ -24,6 +29,7 @@ export const tickLabelOffset = 10;
 export const axisLabelSize = 14;
 export const axisLabelOffset = 45;
 
+// gradient legend
 export const gradientId = 'legend-gradient';
 export const numOfGradientStops = 10;
 export const gradientStops = d3.range(numOfGradientStops).map((d, i) => {
