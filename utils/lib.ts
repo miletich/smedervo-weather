@@ -49,3 +49,19 @@ export const genRightHistogram: GenHistogram = async () => {
     .value(tempMaxAccessor)
     .thresholds(20);
 };
+
+type GetHistogramBins = () => Promise<d3.Bin<Datum, number>[]>;
+
+export const getTopHistogramBins: GetHistogramBins = async () => {
+  const data = await getData();
+  const histogram = await genTopHistogram();
+
+  return histogram(data);
+};
+
+export const getRightHistogramBins: GetHistogramBins = async () => {
+  const data = await getData();
+  const histogram = await genRightHistogram();
+
+  return histogram(data);
+};
