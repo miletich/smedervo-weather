@@ -9,7 +9,7 @@ import {
   tempMinAccessor,
 } from './data';
 import { getScales } from './scales';
-import { histogramHeight, numOfGradientStops } from './consts';
+import { dimensions, histogramHeight, numOfGradientStops } from './consts';
 
 type DotProps = {
   cx: number;
@@ -25,6 +25,31 @@ export const getDotProps: GetDopProps = async () => {
     cx: xScale(tempMinAccessor(d)),
     cy: yScale(tempMaxAccessor(d)),
     fill: colorScale(dateAccessor(d)),
+  }));
+};
+
+type VoronoiCellProps = {
+  d: string;
+  datum: Datum;
+};
+type GetVoronoiCellProps = () => Promise<VoronoiCellProps[]>;
+export const getVoronoiCellProps: GetVoronoiCellProps = async () => {
+  const data = await getData();
+  const { xScale, yScale } = await getScales();
+
+  const delaunay = d3.Delaunay.from(
+    data,
+    (d) => xScale(tempMinAccessor(d)),
+    (d) => yScale(tempMaxAccessor(d))
+  );
+
+  const voronoi = delaunay.voronoi();
+  voronoi.xmax = dimensions.innerWidth;
+  voronoi.ymax = dimensions.innerHeight;
+
+  return data.map((datum, i) => ({
+    d: voronoi.renderCell(i),
+    datum,
   }));
 };
 
