@@ -93,7 +93,7 @@ export const getHistogramScales: GetHistogramScales = async () => {
 
 type GetHistogramArea = () => Promise<string>;
 
-const getTopHistogramArea: GetHistogramArea = async () => {
+export const getTopHistogramArea: GetHistogramArea = async () => {
   const bins = await getTopHistogramBins();
   const { xScale } = await getScales();
   const { topHistogramYScale } = await getHistogramScales();
@@ -108,7 +108,7 @@ const getTopHistogramArea: GetHistogramArea = async () => {
   return genArea(bins)!;
 };
 
-const getRightHistogramArea: GetHistogramArea = async () => {
+export const getRightHistogramArea: GetHistogramArea = async () => {
   const bins = await getRightHistogramBins();
   const { yScale } = await getScales();
   const { rightHistogramYScale } = await getHistogramScales();

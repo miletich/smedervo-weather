@@ -12,6 +12,7 @@ const margin: Margin = {
 export const dimensions = getDimensions(size, size, margin);
 
 export const gray = '#cfd4d8';
+export const midGray = '#cbd2d7';
 export const darkGray = '#34495e';
 
 // scatter plot
@@ -20,6 +21,7 @@ export const dotSize = 4;
 // histograms
 export const histogramHeight = 70;
 export const histogramMargin = 10;
+export const histogramOpacity = 0.5;
 
 // axes
 export const tickSize = 5;

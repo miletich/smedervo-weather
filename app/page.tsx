@@ -18,6 +18,8 @@ import AxisBottom from '@/components/AxisBottom';
 import AxisLabel from '@/components/AxisLabel';
 import Defs from '@/sections/Defs';
 import GradientLegend from '@/sections/GradientLegend';
+import TopHistogram from '@/sections/TopHistogram';
+import RightHistogram from '@/sections/RightHistogram';
 
 export default async function Home() {
   const dots = await getDotProps();
@@ -63,6 +65,8 @@ export default async function Home() {
           Maximum Temperature °C
         </AxisLabel>
         <GradientLegend />
+        <TopHistogram />
+        <RightHistogram />
         <g className="dots">
           {dots.map((d, i) => (
             <circle key={`${d.cx}-${d.cy}-${i}`} r={dotSize} {...d} />
