@@ -20,6 +20,7 @@ import Defs from '@/sections/Defs';
 import GradientLegend from '@/sections/GradientLegend';
 import TopHistogram from '@/sections/TopHistogram';
 import RightHistogram from '@/sections/RightHistogram';
+import ScatterPlot from '@/sections/ScaterPlot';
 
 export default async function Home() {
   const dots = await getDotProps();
@@ -67,11 +68,7 @@ export default async function Home() {
         <GradientLegend />
         <TopHistogram />
         <RightHistogram />
-        <g className="dots">
-          {dots.map((d, i) => (
-            <circle key={`${d.cx}-${d.cy}-${i}`} r={dotSize} {...d} />
-          ))}
-        </g>
+        <ScatterPlot />
       </Chart>
     </main>
   );

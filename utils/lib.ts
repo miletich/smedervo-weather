@@ -28,9 +28,10 @@ export const getDotProps: GetDopProps = async () => {
   }));
 };
 
-type VoronoiCellProps = {
+export type VoronoiCellProps = {
   d: string;
   datum: Datum;
+  center: [number, number];
 };
 type GetVoronoiCellProps = () => Promise<VoronoiCellProps[]>;
 export const getVoronoiCellProps: GetVoronoiCellProps = async () => {
@@ -50,6 +51,7 @@ export const getVoronoiCellProps: GetVoronoiCellProps = async () => {
   return data.map((datum, i) => ({
     d: voronoi.renderCell(i),
     datum,
+    center: [xScale(tempMinAccessor(datum)), yScale(tempMaxAccessor(datum))],
   }));
 };
 
