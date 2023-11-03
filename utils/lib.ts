@@ -5,6 +5,7 @@ import {
   tempMinAccessor,
 } from './data';
 import { getScales } from './scales';
+import { numOfGradientStops } from './consts';
 
 type DotProps = {
   cx: number;
