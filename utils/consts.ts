@@ -18,6 +18,9 @@ export const darkGray = '#34495e';
 // scatter plot
 export const dotSize = 4;
 
+export const dotHighlightSize = 7;
+export const dotHighlightStrokeWidth = 2;
+
 // histograms
 export const histogramHeight = 70;
 export const histogramMargin = 10;

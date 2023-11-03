@@ -9,7 +9,5 @@ export default function VoronoiCell({ d, datum, center }: VoronoiCellProps) {
     setCurrentDate({ datum, center });
   };
 
-  return (
-    <path onMouseOver={handleHover} fill="transparent" d={d} stroke="black" />
-  );
+  return <path onMouseOver={handleHover} fill="transparent" d={d} />;
 }

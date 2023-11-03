@@ -22,7 +22,8 @@ import TopHistogram from '@/sections/TopHistogram';
 import RightHistogram from '@/sections/RightHistogram';
 import ScatterPlot from '@/sections/ScaterPlot';
 import { CurrentDateContextProvider } from '@/interaction/CurrentDateContext';
-import BlurController from '@/interaction/BlurController';
+import MouseLeaveController from '@/interaction/MouseLeaveController';
+import DotHighlight from '@/interaction/DotHighlight';
 
 export default async function Home() {
   const dots = await getDotProps();
@@ -39,7 +40,7 @@ export default async function Home() {
           aria-labelledby="sdWeatherTitle sdWeatherDescription"
           className="w-[75vw] h-[75vh]"
         >
-          <BlurController>
+          <MouseLeaveController>
             <title>Daily Temperature Ranges</title>
             <desc>
               Visualisation of daily minimum and maximum temperatures in
@@ -73,7 +74,8 @@ export default async function Home() {
             <TopHistogram />
             <RightHistogram />
             <ScatterPlot />
-          </BlurController>
+            <DotHighlight />
+          </MouseLeaveController>
         </Chart>
       </CurrentDateContextProvider>
     </main>
