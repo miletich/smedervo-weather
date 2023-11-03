@@ -4,11 +4,12 @@ import {
   Datum,
   dateAccessor,
   getData,
+  lengthAccessor,
   tempMaxAccessor,
   tempMinAccessor,
 } from './data';
 import { getScales } from './scales';
-import { numOfGradientStops } from './consts';
+import { histogramHeight, numOfGradientStops } from './consts';
 
 type DotProps = {
   cx: number;
@@ -50,7 +51,8 @@ export const genRightHistogram: GenHistogram = async () => {
     .thresholds(20);
 };
 
-type GetHistogramBins = () => Promise<d3.Bin<Datum, number>[]>;
+type HistogramBin = d3.Bin<Datum, number>;
+type GetHistogramBins = () => Promise<HistogramBin[]>;
 
 export const getTopHistogramBins: GetHistogramBins = async () => {
   const data = await getData();
@@ -64,4 +66,27 @@ export const getRightHistogramBins: GetHistogramBins = async () => {
   const histogram = await genRightHistogram();
 
   return histogram(data);
+};
+
+type GetHistogramScales = () => Promise<{
+  topHistogramYScale: d3.ScaleLinear<number, number>;
+  rightHistogramYScale: d3.ScaleLinear<number, number>;
+}>;
+export const getHistogramScales: GetHistogramScales = async () => {
+  const rightHistogramBins = await getRightHistogramBins();
+  const topHistogramBins = await getTopHistogramBins();
+
+  const topHistogramYScale = d3
+    .scaleLinear()
+    .domain(d3.extent(topHistogramBins, lengthAccessor) as [number, number])
+    .range([0, histogramHeight]);
+  const rightHistogramYScale = d3
+    .scaleLinear()
+    .domain(d3.extent(rightHistogramBins, lengthAccessor) as [number, number])
+    .range([0, histogramHeight]);
+
+  return {
+    topHistogramYScale,
+    rightHistogramYScale,
+  };
 };

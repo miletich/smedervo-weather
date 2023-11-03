@@ -18,8 +18,8 @@ export const darkGray = '#34495e';
 export const dotSize = 4;
 
 // histograms
-const histogramHight = 70;
-const histogramMargin = 10;
+export const histogramHeight = 70;
+export const histogramMargin = 10;
 
 // axes
 export const tickSize = 5;
