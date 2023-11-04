@@ -10,6 +10,7 @@ import {
   tooltipLineHeight,
   tooltipFontSizeLg,
   darkGray,
+  dotSize,
 } from '@/utils/consts';
 import TooltipSvg from '@/components/TooltipSvg';
 
@@ -39,7 +40,7 @@ export default function Tooltip() {
   return (
     <g
       className="tooltip pointer-events-none"
-      transform={`translate(${center[0]}, ${center[1]})`}
+      transform={`translate(${center[0]}, ${center[1] - dotSize})`}
     >
       <TooltipSvg
         offset={tooltipOffset}
