@@ -32,7 +32,7 @@ export const tickLabelSize = 10;
 export const tickLabelOffset = 10;
 
 export const axisLabelSize = 14;
-export const axisLabelOffset = 45;
+export const axisLabelOffset = 42;
 
 // gradient legend
 export const gradientId = 'legend-gradient';
@@ -53,3 +53,10 @@ export const gradientYear = 2022;
 export const seasonStartDates = ['4-1', '7-1', '10-1'].map(
   (d) => new Date(`2022-${d}`)
 );
+
+// tooltip
+export const tooltipFontSizeLg = 18;
+export const tooltipFontSize = 16;
+export const tooltipLineHeight = 1.4;
+export const tooltipOffset = 14;
+export const tooltipPadding = 10;
