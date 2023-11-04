@@ -1,11 +1,7 @@
 import * as d3 from 'd3';
-import {
-  dateAccessor,
-  getData,
-  tempMaxAccessor,
-  tempMinAccessor,
-} from './data';
+import { dateAccessor, tempMaxAccessor, tempMinAccessor } from './data';
 import { dimensions, gradientWidth } from './consts';
+import { getData } from './lib';
 
 type Scales = {
   xScale: d3.ScaleLinear<number, number>;

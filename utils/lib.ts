@@ -1,15 +1,27 @@
+import path from 'path';
+import { readFile } from 'fs/promises';
 import * as d3 from 'd3';
 
 import {
   Datum,
+  dataSchema,
   dateAccessor,
-  getData,
   lengthAccessor,
   tempMaxAccessor,
   tempMinAccessor,
 } from './data';
 import { getScales } from './scales';
 import { dimensions, histogramHeight, numOfGradientStops } from './consts';
+
+type GetData = () => Promise<Datum[]>;
+export const getData: GetData = async () => {
+  const csv = (
+    await readFile(path.join('./public', 'sd-weather-2020.csv'))
+  ).toString();
+  const raw = await d3.csvParse(csv);
+
+  return dataSchema.parse(raw);
+};
 
 type DotProps = {
   cx: number;
