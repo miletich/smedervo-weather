@@ -47,6 +47,10 @@ export const gradientStops = d3.range(numOfGradientStops).map((d, i) => {
 export const gradientWidth = 250;
 export const gradientHeight = 25;
 export const gradientOffset = 10;
+export const gradientX = dimensions.innerWidth - gradientWidth - gradientOffset;
+export const gradientY =
+  dimensions.innerHeight - gradientHeight - gradientOffset;
+
 export const gradientLabelSize = 12;
 export const gradientLabelOffset = 6;
 export const gradientYear = 2022;
