@@ -53,6 +53,7 @@ export const gradientYear = 2022;
 export const seasonStartDates = ['4-1', '7-1', '10-1'].map(
   (d) => new Date(`2022-${d}`)
 );
+export const gradientHighlightWidth = gradientWidth * 0.005;
 
 // tooltip
 export const tooltipFontSizeLg = 18;

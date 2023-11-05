@@ -10,7 +10,7 @@ export default forwardRef<SVGRectElement, Props>(function HoverLine(
   return (
     <rect
       ref={ref}
-      className={`mix-blend-color-burn ${className}`}
+      className={`mix-blend-color-burn transition-all duration-200 ease-out ${className}`}
       fill={hoverLineColor}
       {...rest}
     />
