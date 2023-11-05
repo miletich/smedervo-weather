@@ -7,32 +7,28 @@ import TopHistogram from '@/sections/TopHistogram';
 import RightHistogram from '@/sections/RightHistogram';
 import ScatterPlot from '@/sections/ScaterPlot';
 import { CurrentDateContextProvider } from '@/interaction/CurrentDateContext';
-import MouseLeaveController from '@/interaction/MouseLeaveController';
-import DotHighlight from '@/interaction/DotHighlight';
-import Tooltip from '@/interaction/Tooltip';
+import TooltipController from '@/interaction/TooltipController';
 
 export default async function Home() {
   return (
     <main>
-      <CurrentDateContextProvider>
-        <Chart
-          dimensions={dimensions}
-          role="img"
-          aria-labelledby="sdWeatherTitle sdWeatherDescription"
-          className="w-full h-full sm:w-[75vh] sm:h-[75vh]"
-        >
-          <MouseLeaveController>
+      <Chart
+        dimensions={dimensions}
+        role="img"
+        aria-labelledby="sdWeatherTitle sdWeatherDescription"
+        className="w-full h-full sm:w-[75vh] sm:h-[75vh]"
+      >
+        <CurrentDateContextProvider>
+          <TooltipController>
             <Meta />
             <AxesAndCanvas />
             <TopHistogram />
             <RightHistogram />
             <ScatterPlot />
-            <DotHighlight />
             <GradientLegend />
-          </MouseLeaveController>
-          <Tooltip />
-        </Chart>
-      </CurrentDateContextProvider>
+          </TooltipController>
+        </CurrentDateContextProvider>
+      </Chart>
     </main>
   );
 }

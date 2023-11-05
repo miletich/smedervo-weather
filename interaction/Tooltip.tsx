@@ -11,6 +11,8 @@ import {
   tooltipFontSizeLg,
   darkGray,
   dotSize,
+  dotHighlightSize,
+  dotHighlightStrokeWidth,
 } from '@/utils/consts';
 import TooltipSvg from '@/components/TooltipSvg';
 
@@ -42,6 +44,13 @@ export default function Tooltip() {
       className="tooltip pointer-events-none"
       transform={`translate(${center[0]}, ${center[1] - dotSize})`}
     >
+      <circle
+        cy={dotSize}
+        fill="transparent"
+        r={dotHighlightSize}
+        stroke={darkGray}
+        strokeWidth={dotHighlightStrokeWidth}
+      />
       <TooltipSvg
         offset={tooltipOffset}
         width={width + tooltipPadding * 2}
