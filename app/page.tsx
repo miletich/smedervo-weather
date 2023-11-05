@@ -1,7 +1,7 @@
 import { dimensions } from '@/utils/consts';
 import Chart from '@/components/Chart';
 import Meta from '@/sections/Meta';
-import AxesAndCanvas from '@/sections/AxesAndCanvas';
+import Peripherals from '@/sections/Peripherals';
 import GradientLegend from '@/sections/GradientLegend';
 import TopHistogram from '@/sections/TopHistogram';
 import RightHistogram from '@/sections/RightHistogram';
@@ -21,7 +21,7 @@ export default async function Home() {
         <CurrentDateContextProvider>
           <TooltipController>
             <Meta />
-            <AxesAndCanvas />
+            <Peripherals />
             <TopHistogram />
             <RightHistogram />
             <ScatterPlot />

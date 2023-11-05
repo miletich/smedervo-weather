@@ -4,7 +4,7 @@ import AxisBottom from '@/components/AxisBottom';
 import AxisLabel from '@/components/AxisLabel';
 import AxisLeft from '@/components/AxisLeft';
 
-export default async function AxesAndCanvas() {
+export default async function Peripherals() {
   const { xScale, yScale } = await getScales();
   const xScaleTicks = getScaleTicks({ scale: xScale, tickCount: 4 });
   const yScaleTicks = getScaleTicks({ scale: yScale, tickCount: 4 });
