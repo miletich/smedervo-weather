@@ -60,3 +60,7 @@ export const tooltipFontSize = 16;
 export const tooltipLineHeight = 1.4;
 export const tooltipOffset = 14;
 export const tooltipPadding = 10;
+
+// hover lines
+export const hoverLineThickness = 10;
+export const hoverLineColor = '#5758bb';
