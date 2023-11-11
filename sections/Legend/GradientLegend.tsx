@@ -11,8 +11,6 @@ import {
   gradientLabelOffset,
   darkGray,
   tickSize,
-  gradientX,
-  gradientY,
 } from '@/utils/consts';
 import { getScales } from '@/utils/scales';
 
@@ -24,10 +22,7 @@ export default async function GradientLegend() {
   }));
 
   return (
-    <g
-      className="gradient-legend"
-      transform={`translate(${gradientX} ${gradientY})`}
-    >
+    <g className="gradient-legend">
       <rect
         width={gradientWidth}
         height={gradientHeight}
