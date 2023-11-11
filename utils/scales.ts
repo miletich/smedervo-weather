@@ -69,11 +69,9 @@ export const getScaleTicks: GetScaleTicks = ({
     label: formatLabel(d),
   }));
 
-export type GradientScaleRecord = Record<'domain' | 'range', number[]>;
+type GetGradientScaleFactor = () => Promise<number>;
+export const getGradientScaleFactor: GetGradientScaleFactor = async () => {
+  const data = await getData();
 
-type GetGradientScaleRecord = () => Promise<GradientScaleRecord>;
-export const getGradientScaleRecord: GetGradientScaleRecord = async () => {
-  const { gradientScale } = await getScales();
-
-  return { domain: gradientScale.domain(), range: gradientScale.range() };
+  return gradientWidth / data.length;
 };

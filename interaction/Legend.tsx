@@ -1,9 +1,9 @@
 import GradientLegend from '@/sections/GradientLegend';
-import { getGradientScaleRecord } from '@/utils/scales';
+import { getGradientScaleFactor } from '@/utils/scales';
 
 export default async function Legend() {
-  const { domain, range } = await getGradientScaleRecord();
-  console.log({ domain, range });
+  const gradientScaleFactor = await getGradientScaleFactor();
+  console.log(200 * gradientScaleFactor);
 
   return (
     <g className="legend">
