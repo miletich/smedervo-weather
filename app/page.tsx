@@ -8,7 +8,7 @@ import ScatterPlot from '@/sections/ScatterPlot';
 import { CurrentDateContextProvider } from '@/interaction/CurrentDateContext';
 import TooltipController from '@/interaction/TooltipController';
 import { HighlightContextProvider } from '@/interaction/HighlightContext';
-import Legend from '@/interaction/Legend';
+import Legend from '@/sections/Legend';
 
 export default async function Home() {
   return (
