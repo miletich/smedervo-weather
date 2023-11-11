@@ -2,13 +2,13 @@ import { dimensions } from '@/utils/consts';
 import Chart from '@/components/Chart';
 import Meta from '@/sections/Meta';
 import Peripherals from '@/sections/Peripherals';
-import GradientLegend from '@/sections/GradientLegend';
 import TopHistogram from '@/sections/TopHistogram';
 import RightHistogram from '@/sections/RightHistogram';
 import ScatterPlot from '@/sections/ScatterPlot';
 import { CurrentDateContextProvider } from '@/interaction/CurrentDateContext';
 import TooltipController from '@/interaction/TooltipController';
 import { HighlightContextProvider } from '@/interaction/HighlightContext';
+import Legend from '@/interaction/Legend';
 
 export default async function Home() {
   return (
@@ -27,7 +27,7 @@ export default async function Home() {
               <TopHistogram />
               <RightHistogram />
               <ScatterPlot />
-              <GradientLegend />
+              <Legend />
             </TooltipController>
           </HighlightContextProvider>
         </CurrentDateContextProvider>
