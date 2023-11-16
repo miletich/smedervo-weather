@@ -35,6 +35,17 @@ export const tickLabelOffset = 10;
 export const axisLabelSize = 14;
 export const axisLabelOffset = 42;
 
+// tooltip
+export const tooltipFontSizeLg = 18;
+export const tooltipFontSize = 16;
+export const tooltipLineHeight = 1.4;
+export const tooltipOffset = 14;
+export const tooltipPadding = 10;
+
+// hover lines
+export const hoverLineThickness = 10;
+export const hoverLineColor = '#5758bb';
+
 // gradient legend
 export const gradientId = 'legend-gradient';
 export const numOfGradientStops = 10;
@@ -58,17 +69,7 @@ export const gradientYear = 2022;
 export const seasonStartDates = ['4-1', '7-1', '10-1'].map(
   (d) => new Date(`2022-${d}`)
 );
-export const gradientHighlightWidth = gradientWidth * 0.05 - 4;
 export const gradientHighlightStrokeWidth = 1;
+export const gradientHighlightWidth =
+  gradientWidth * 0.05 - gradientHighlightStrokeWidth;
 export const gradientHighlightOpacity = 0.4;
-
-// tooltip
-export const tooltipFontSizeLg = 18;
-export const tooltipFontSize = 16;
-export const tooltipLineHeight = 1.4;
-export const tooltipOffset = 14;
-export const tooltipPadding = 10;
-
-// hover lines
-export const hoverLineThickness = 10;
-export const hoverLineColor = '#5758bb';
