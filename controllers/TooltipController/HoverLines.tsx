@@ -1,7 +1,7 @@
 'use client';
 
 import { dimensions, hoverLineThickness } from '@/utils/consts';
-import { useCurrentDateData } from './CurrentDateContext';
+import { useCurrentDateData } from '../../context/CurrentDateContext';
 import HoverLine from '@/components/HoverLine';
 
 export default function HoverLines() {

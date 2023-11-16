@@ -2,15 +2,15 @@ import { dimensions } from '@/utils/consts';
 
 import Chart from '@/components/Chart';
 
-import HighlightController from '@/interaction/HighlightController';
-import TooltipController from '@/interaction/TooltipController';
+import HighlightController from '@/controllers/HighlightController';
+import GradientLegend from '@/controllers/HighlightController/GradientLegend';
+import TooltipController from '@/controllers/TooltipController';
 
 import Meta from '@/sections/Meta';
 import Peripherals from '@/sections/Peripherals';
 import TopHistogram from '@/sections/TopHistogram';
 import RightHistogram from '@/sections/RightHistogram';
 import ScatterPlot from '@/sections/ScatterPlot';
-import GradientLegend from '@/sections/Legend/GradientLegend';
 
 export default async function Home() {
   return (
@@ -22,9 +22,9 @@ export default async function Home() {
         className="w-full h-full sm:w-[75vh] sm:h-[75vh]"
       >
         <HighlightController>
-          <Meta />
-          <Peripherals />
           <TooltipController>
+            <Meta />
+            <Peripherals />
             <TopHistogram />
             <RightHistogram />
             <ScatterPlot />

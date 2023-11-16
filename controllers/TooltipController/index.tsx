@@ -2,11 +2,11 @@
 
 import { type PropsWithChildren } from 'react';
 
-import Tooltip from '@/interaction/Tooltip';
+import Tooltip from '@/controllers/TooltipController/Tooltip';
 import {
   CurrentDateContextProvider,
   useCurrentDateApi,
-} from '@/interaction/CurrentDateContext';
+} from '@/context/CurrentDateContext';
 import HoverLines from './HoverLines';
 
 export default function MouseLeaveController({ children }: PropsWithChildren) {
@@ -14,7 +14,12 @@ export default function MouseLeaveController({ children }: PropsWithChildren) {
 
   return (
     <CurrentDateContextProvider>
-      <g onMouseLeave={() => setCurrentDate(null)}>
+      <g
+        onMouseLeave={(e) => {
+          console.log('leave');
+          setCurrentDate(null);
+        }}
+      >
         {children}
         <HoverLines />
         <Tooltip />

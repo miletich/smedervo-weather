@@ -1,4 +1,4 @@
-import VoronoiCell from '@/interaction/VoronoiCell';
+import VoronoiCell from '@/controllers/TooltipController/VoronoiCell';
 import { dotSize } from '@/utils/consts';
 import { getDotProps, getVoronoiCellProps } from '@/utils/lib';
 

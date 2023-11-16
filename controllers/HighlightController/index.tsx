@@ -1,10 +1,11 @@
+import { PropsWithChildren } from 'react';
+
 import { getData } from '@/utils/lib';
 import { gradientX, gradientY } from '@/utils/consts';
-
-import { HighlightContextProvider } from './HighlightContext';
-import { PropsWithChildren } from 'react';
-import GradientHoverListener from '@/sections/Legend/GradientHoverListener';
 import { getGradientScaleFactor } from '@/utils/scales';
+
+import { HighlightContextProvider } from '@/context/HighlightContext';
+import GradientHoverListener from '@/controllers/HighlightController/GradientHoverListener';
 
 export default async function HighlightController({
   children,

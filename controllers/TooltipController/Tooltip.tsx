@@ -1,6 +1,6 @@
 'use client';
 
-import { useCurrentDateData } from './CurrentDateContext';
+import { useCurrentDateData } from '../../context/CurrentDateContext';
 import { dateAccessor, tempMaxAccessor, tempMinAccessor } from '@/utils/data';
 import { useLayoutEffect, useRef, useState } from 'react';
 import {
@@ -34,6 +34,8 @@ export default function Tooltip() {
 
     setWidth(Math.max(firstLineWidth, secondLineWidth));
   }, [currentDate]);
+
+  console.log(currentDate);
 
   if (!currentDate) return null;
 
