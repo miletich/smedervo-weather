@@ -35,8 +35,6 @@ export default function Tooltip() {
     setWidth(Math.max(firstLineWidth, secondLineWidth));
   }, [currentDate]);
 
-  console.log(currentDate);
-
   if (!currentDate) return null;
 
   const { datum, center } = currentDate;

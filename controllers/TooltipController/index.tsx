@@ -8,22 +8,16 @@ import {
   useCurrentDateApi,
 } from '@/context/CurrentDateContext';
 import HoverLines from './HoverLines';
+import MouseLeaveListener from './MouseLeaveListener';
 
 export default function MouseLeaveController({ children }: PropsWithChildren) {
-  const setCurrentDate = useCurrentDateApi();
-
   return (
     <CurrentDateContextProvider>
-      <g
-        onMouseLeave={(e) => {
-          console.log('leave');
-          setCurrentDate(null);
-        }}
-      >
+      <MouseLeaveListener>
         {children}
         <HoverLines />
         <Tooltip />
-      </g>
+      </MouseLeaveListener>
     </CurrentDateContextProvider>
   );
 }

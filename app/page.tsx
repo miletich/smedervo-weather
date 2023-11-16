@@ -11,6 +11,7 @@ import Peripherals from '@/sections/Peripherals';
 import TopHistogram from '@/sections/TopHistogram';
 import RightHistogram from '@/sections/RightHistogram';
 import ScatterPlot from '@/sections/ScatterPlot';
+import { CurrentDateContextProvider } from '@/context/CurrentDateContext';
 
 export default async function Home() {
   return (
