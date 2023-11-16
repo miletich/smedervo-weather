@@ -5,6 +5,8 @@ import {
   gradientHeight,
   gradientId,
   gradientWidth,
+  gradientX,
+  gradientY,
   gradientOffset,
   seasonStartDates,
   gradientLabelSize,
@@ -22,7 +24,10 @@ export default async function GradientLegend() {
   }));
 
   return (
-    <g className="gradient-legend">
+    <g
+      className="gradient-legend"
+      transform={`translate(${gradientX} ${gradientY})`}
+    >
       <rect
         width={gradientWidth}
         height={gradientHeight}
