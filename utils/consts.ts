@@ -11,6 +11,7 @@ const margin: Margin = {
 };
 export const dimensions = getDimensions(size, size, margin);
 
+export const white = '#fff';
 export const gray = '#cfd4d8';
 export const midGray = '#cbd2d7';
 export const darkGray = '#34495e';
@@ -57,9 +58,9 @@ export const gradientYear = 2022;
 export const seasonStartDates = ['4-1', '7-1', '10-1'].map(
   (d) => new Date(`2022-${d}`)
 );
-export const gradientHighlightWidth = gradientWidth * 0.005;
-export const gradientHighlightStrokeWidth = 2;
-export const gradientHighlightOpacity = 0.5;
+export const gradientHighlightWidth = gradientWidth * 0.05 - 4;
+export const gradientHighlightStrokeWidth = 1;
+export const gradientHighlightOpacity = 0.4;
 
 // tooltip
 export const tooltipFontSizeLg = 18;

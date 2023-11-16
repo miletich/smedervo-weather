@@ -31,3 +31,11 @@ export const getDimensions: GetDimensions = (
     margin,
   };
 };
+
+type Clamp = (min: number, value: number, max: number) => number;
+export const clamp: Clamp = (min, value, max) => {
+  if (value < min) return min;
+  if (value > max) return max;
+
+  return value;
+};

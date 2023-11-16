@@ -4,6 +4,7 @@ import {
   gradientHighlightStrokeWidth,
   gradientHighlightWidth,
   gray,
+  white,
 } from '@/utils/consts';
 
 type Props = {
@@ -15,13 +16,12 @@ export default function HighlightBar({ x }: Props) {
     <rect
       x={x}
       y={0}
+      fill={white}
       width={gradientHighlightWidth}
       height={gradientHeight}
-      fill={gray}
-      stroke="#fff"
+      stroke={white}
       strokeWidth={gradientHighlightStrokeWidth}
-      opacity={gradientHighlightOpacity}
-      strokeOpacity={1}
+      fillOpacity={gradientHighlightOpacity}
       pointerEvents="none"
     />
   );
