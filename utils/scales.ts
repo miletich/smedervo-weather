@@ -73,5 +73,5 @@ type GetGradientScaleFactor = () => Promise<number>;
 export const getGradientScaleFactor: GetGradientScaleFactor = async () => {
   const data = await getData();
 
-  return gradientWidth / data.length;
+  return data.length / gradientWidth;
 };
