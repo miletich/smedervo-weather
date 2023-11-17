@@ -10,7 +10,8 @@ import {
   tempMaxAccessor,
   tempMinAccessor,
 } from './data';
-import { AnyScale, getScales } from './scales';
+import type { AnyScale } from './scales';
+import { getScales } from './scalesLib';
 import { dimensions, histogramHeight, numOfGradientStops } from './consts';
 import {
   HistogramBin,

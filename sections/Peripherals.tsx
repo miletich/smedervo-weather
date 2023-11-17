@@ -1,4 +1,4 @@
-import { getScaleTicks, getScales } from '@/utils/scales';
+import { getScaleTicks, getScales } from '@/utils/scalesLib';
 import { axisLabelOffset, dimensions } from '@/utils/consts';
 import AxisBottom from '@/components/AxisBottom';
 import AxisLabel from '@/components/AxisLabel';

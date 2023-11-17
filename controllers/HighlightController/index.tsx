@@ -2,7 +2,7 @@ import { PropsWithChildren } from 'react';
 
 import { getData } from '@/utils/lib';
 import { gradientX, gradientY } from '@/utils/consts';
-import { getGradientScaleFactor } from '@/utils/scales';
+import { getGradientScaleFactor } from '@/utils/scalesLib';
 
 import { HighlightContextProvider } from '@/context/HighlightContext';
 import GradientHoverListener from '@/controllers/HighlightController/GradientHoverListener';

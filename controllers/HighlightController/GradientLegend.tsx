@@ -14,7 +14,7 @@ import {
   darkGray,
   tickSize,
 } from '@/utils/consts';
-import { getScales } from '@/utils/scales';
+import { getScales } from '@/utils/scalesLib';
 
 export default async function GradientLegend() {
   const { gradientScale } = await getScales();
