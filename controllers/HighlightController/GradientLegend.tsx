@@ -15,8 +15,11 @@ import {
   tickSize,
 } from '@/utils/consts';
 import { getScales } from '@/utils/scalesLib';
+import { getData } from '@/utils/lib';
+import GradientLegendText from './GradientLegendText';
 
 export default async function GradientLegend() {
+  const data = await getData();
   const { gradientScale } = await getScales();
   const gradientTicks = seasonStartDates.map((d) => ({
     label: d3.timeFormat('%b')(d),
@@ -33,18 +36,20 @@ export default async function GradientLegend() {
         height={gradientHeight}
         fill={`url(#${gradientId})`}
       />
-      {gradientTicks.map(({ label, position }) => (
-        <g key={label} transform={`translate(${position} 0)`}>
-          <line stroke={darkGray} y1={0} y2={tickSize} />
-          <text
-            textAnchor="middle"
-            fontSize={gradientLabelSize}
-            dy={-gradientLabelOffset}
-          >
-            {label}
-          </text>
-        </g>
-      ))}
+      <GradientLegendText data={data}>
+        {gradientTicks.map(({ label, position }) => (
+          <g key={label} transform={`translate(${position} 0)`}>
+            <line stroke={darkGray} y1={0} y2={tickSize} />
+            <text
+              textAnchor="middle"
+              fontSize={gradientLabelSize}
+              dy={-gradientLabelOffset}
+            >
+              {label}
+            </text>
+          </g>
+        ))}
+      </GradientLegendText>
     </g>
   );
 }
