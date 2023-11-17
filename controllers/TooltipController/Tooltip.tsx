@@ -15,6 +15,7 @@ import {
   dotHighlightStrokeWidth,
 } from '@/utils/consts';
 import TooltipSvg from '@/components/TooltipSvg';
+import { formatTooltipDate } from '@/utils/date';
 
 type Position = Record<'top' | 'left', number>;
 
@@ -64,10 +65,7 @@ export default function Tooltip() {
         fontWeight={600}
         fill={darkGray}
       >
-        {dateAccessor(datum).toLocaleDateString('en-GB', {
-          year: 'numeric',
-          month: 'long',
-        })}
+        {formatTooltipDate(dateAccessor(datum))}
       </text>
       <text
         ref={secondLineRef}
