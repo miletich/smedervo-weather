@@ -13,16 +13,13 @@ export default async function RightHistogram() {
   const data = await getData();
 
   return (
-    <>
-      <path
-        d={d}
-        fill={midGray}
-        opacity={histogramOpacity}
-        transform={`translate(${
-          dimensions.innerWidth + histogramMargin + histogramHeight
-        } 0) rotate(90)`}
-      />
+    <g
+      transform={`translate(${
+        dimensions.innerWidth + histogramMargin + histogramHeight
+      } 0) rotate(90)`}
+    >
+      <path d={d} fill={midGray} opacity={histogramOpacity} />
       <RightHistogramHighlight data={data} />
-    </>
+    </g>
   );
 }

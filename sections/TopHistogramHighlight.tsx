@@ -1,6 +1,5 @@
 'use client';
 
-import { histogramHeight, histogramMargin, midGray } from '@/utils/consts';
 import { genScales } from '@/utils/scales';
 import { Datum, dateAccessor } from '@/utils/data';
 import {
@@ -32,11 +31,5 @@ export default function TopHistogramHighlight({ data }: Props) {
     dateAccessor(data[highlightedIs[Math.round(highlightedIs.length / 2)]])
   );
 
-  return (
-    <path
-      d={area}
-      fill={fill}
-      transform={`translate(0 ${-histogramHeight - histogramMargin})`}
-    />
-  );
+  return <path d={area} fill={fill} />;
 }

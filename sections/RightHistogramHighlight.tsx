@@ -1,11 +1,5 @@
 'use client';
 
-import {
-  dimensions,
-  histogramHeight,
-  histogramMargin,
-  midGray,
-} from '@/utils/consts';
 import { genScales } from '@/utils/scales';
 import { Datum, dateAccessor } from '@/utils/data';
 import {
@@ -37,13 +31,5 @@ export default function RightHistogramHighlight({ data }: Props) {
     dateAccessor(data[highlightedIs[Math.round(highlightedIs.length / 2)]])
   );
 
-  return (
-    <path
-      d={area}
-      fill={fill}
-      transform={`translate(${
-        dimensions.innerWidth + histogramMargin + histogramHeight
-      } 0) rotate(90)`}
-    />
-  );
+  return <path d={area} fill={fill} />;
 }

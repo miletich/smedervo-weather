@@ -15,14 +15,9 @@ export default async function TopHistogram() {
   const data = await getData();
 
   return (
-    <>
-      <path
-        d={d}
-        fill={midGray}
-        opacity={histogramOpacity}
-        transform={`translate(0 ${-histogramHeight - histogramMargin})`}
-      />
+    <g transform={`translate(0 ${-histogramHeight - histogramMargin})`}>
+      <path d={d} fill={midGray} opacity={histogramOpacity} />
       <TopHistogramHighlight data={data} />
-    </>
+    </g>
   );
 }
