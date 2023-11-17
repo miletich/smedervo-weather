@@ -10,8 +10,15 @@ import {
   tempMaxAccessor,
   tempMinAccessor,
 } from './data';
-import { getScales } from './scales';
+import { AnyScale, getScales } from './scales';
 import { dimensions, histogramHeight, numOfGradientStops } from './consts';
+import {
+  HistogramBin,
+  genHistogramArea,
+  genHistogramYScale,
+  genRightHistogram,
+  genTopHistogram,
+} from './histograms';
 
 type GetData = () => Promise<Datum[]>;
 export const getData: GetData = async () => {
@@ -70,43 +77,21 @@ export const getVoronoiCellProps: GetVoronoiCellProps = async () => {
 };
 
 // histograms
-type GenHistogram = () => Promise<d3.HistogramGeneratorNumber<Datum, number>>;
-
-export const genTopHistogram: GenHistogram = async () => {
-  const { xScale } = await getScales();
-
-  return d3
-    .bin<Datum, number>()
-    .domain(xScale.domain() as [number, number])
-    .value(tempMaxAccessor)
-    .thresholds(20);
-};
-
-export const genRightHistogram: GenHistogram = async () => {
-  const { yScale } = await getScales();
-
-  return d3
-    .bin<Datum, number>()
-    .domain(yScale.domain() as [number, number])
-    .value(tempMaxAccessor)
-    .thresholds(20);
-};
-
-type HistogramBin = d3.Bin<Datum, number>;
 type GetHistogramBins = () => Promise<HistogramBin[]>;
-
 export const getTopHistogramBins: GetHistogramBins = async () => {
   const data = await getData();
-  const histogram = await genTopHistogram();
+  const { xScale } = await getScales();
+  const histogram = genTopHistogram(xScale)(data);
 
-  return histogram(data);
+  return histogram;
 };
 
 export const getRightHistogramBins: GetHistogramBins = async () => {
   const data = await getData();
-  const histogram = await genRightHistogram();
+  const { yScale } = await getScales();
+  const histogram = genRightHistogram(yScale)(data);
 
-  return histogram(data);
+  return histogram;
 };
 
 type GetHistogramScales = () => Promise<{
@@ -117,14 +102,8 @@ export const getHistogramScales: GetHistogramScales = async () => {
   const rightHistogramBins = await getRightHistogramBins();
   const topHistogramBins = await getTopHistogramBins();
 
-  const topHistogramYScale = d3
-    .scaleLinear()
-    .domain(d3.extent(topHistogramBins, lengthAccessor) as [number, number])
-    .range([histogramHeight, 0]);
-  const rightHistogramYScale = d3
-    .scaleLinear()
-    .domain(d3.extent(rightHistogramBins, lengthAccessor) as [number, number])
-    .range([histogramHeight, 0]);
+  const topHistogramYScale = genHistogramYScale(topHistogramBins);
+  const rightHistogramYScale = genHistogramYScale(rightHistogramBins);
 
   return {
     topHistogramYScale,
@@ -139,14 +118,7 @@ export const getTopHistogramArea: GetHistogramArea = async () => {
   const { xScale } = await getScales();
   const { topHistogramYScale } = await getHistogramScales();
 
-  const genArea = d3
-    .area<HistogramBin>()
-    .x((d) => xScale(d.x0! + d.x1!) / 2)
-    .y0(histogramHeight)
-    .y1((d) => topHistogramYScale(d.length))
-    .curve(d3.curveBasis);
-
-  return genArea(bins)!;
+  return genHistogramArea(bins)({ xScale, yScale: topHistogramYScale });
 };
 
 export const getRightHistogramArea: GetHistogramArea = async () => {
@@ -154,12 +126,8 @@ export const getRightHistogramArea: GetHistogramArea = async () => {
   const { yScale } = await getScales();
   const { rightHistogramYScale } = await getHistogramScales();
 
-  const genArea = d3
-    .area<HistogramBin>()
-    .x((d) => yScale((d.x0! + d.x1!) / 2))
-    .y0(histogramHeight)
-    .y1((d) => rightHistogramYScale(d.length))
-    .curve(d3.curveBasis);
-
-  return genArea(bins)!;
+  return genHistogramArea(bins)({
+    xScale: yScale,
+    yScale: rightHistogramYScale,
+  });
 };

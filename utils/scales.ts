@@ -48,8 +48,9 @@ export type ScaleTick = {
   position: number;
   label: string;
 };
-interface AnyScale<T> {
+export interface AnyScale<T> {
   (value: T): number;
+  domain: () => number[];
   ticks: (count: number | undefined) => T[];
 }
 type GetScaleTicksParams<T> = {
