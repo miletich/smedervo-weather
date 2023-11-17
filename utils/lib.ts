@@ -24,6 +24,7 @@ export const getData: GetData = async () => {
 };
 
 type DotProps = {
+  id: string;
   cx: number;
   cy: number;
   fill: string;
@@ -34,6 +35,7 @@ export const getDotProps: GetDopProps = async () => {
   const { xScale, yScale, colorScale } = await getScales();
 
   return data.map((d) => ({
+    id: d.datetime,
     cx: xScale(tempMinAccessor(d)),
     cy: yScale(tempMaxAccessor(d)),
     fill: colorScale(dateAccessor(d)),
