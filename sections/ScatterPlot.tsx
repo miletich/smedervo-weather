@@ -1,3 +1,4 @@
+import DotController from '@/controllers/DotController';
 import VoronoiCell from '@/controllers/TooltipController/VoronoiCell';
 import { dotSize } from '@/utils/consts';
 import { getDotProps, getVoronoiCellProps } from '@/utils/lib';
@@ -9,7 +10,11 @@ export default async function ScatterPlot() {
     <g className="scatter-plot">
       <g className="dots">
         {dots.map((d, i) => (
-          <circle key={`${d.cx}-${d.cy}-${i}`} r={dotSize} {...d} />
+          <g key={d.id} transform={`translate(${d.cx}, ${d.cy})`}>
+            <DotController i={i}>
+              <circle cx={0} cy={0} r={dotSize} fill={d.fill} />
+            </DotController>
+          </g>
         ))}
       </g>
       <g className="voronoi">

@@ -9,29 +9,28 @@ import {
 import HighlightBar from './HighlightBar';
 import GradientHoverListeningRect from './GradientHoverListeningRect';
 import getRange from '@/utils/getRange';
-import { number } from 'zod';
 import { getCurrentPosition, getIdxRange } from './utils';
 import { gradientX, gradientY } from '@/utils/consts';
+import { useHighlightDataApi } from '@/context/HighlightContext';
 
 type Props = {
   ratio: number;
 };
 
 export default function GradientHoverListener({ ratio }: Props) {
-  // eslint-disable-next-line
   const [position, setPosition] = useState<number | null>(null);
-  const [idxRange, setIdxRange] = useState<number[]>([]);
+  const setHighlightIs = useHighlightDataApi();
 
   const handleHover: MouseEventHandler<SVGRectElement> = (e) => {
     e.stopPropagation();
 
     setPosition(getCurrentPosition(e));
-    setIdxRange(getIdxRange(e, ratio));
+    setHighlightIs(getIdxRange(e, ratio));
   };
 
   const handleBlur: MouseEventHandler = () => {
     setPosition(null);
-    setIdxRange([]);
+    setHighlightIs([]);
   };
 
   return (
