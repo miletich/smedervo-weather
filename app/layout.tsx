@@ -23,7 +23,9 @@ export default function RootLayout({
         <div className="flex flex-col items-center justify-center h-screen">
           <header className="flex flex-col items-center">
             <H2>Daily Temperature Ranges</H2>
-            <P>Daily minimum and maximum temperatures in Smederevo in 2022</P>
+            <P className="text-center">
+              Daily minimum and maximum temperatures in Smederevo in 2022
+            </P>
           </header>
           {children}
         </div>

@@ -7,7 +7,7 @@ export default forwardRef<HTMLParagraphElement, Props>(function P(
   ref
 ) {
   return (
-    <p ref={ref} className={`text-slate-300 ${className}`} {...rest}>
+    <p ref={ref} className={`text-slate-400 ${className}`} {...rest}>
       {children}
     </p>
   );

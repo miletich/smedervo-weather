@@ -20,7 +20,7 @@ export default async function Home() {
         dimensions={dimensions}
         role="img"
         aria-labelledby="sdWeatherTitle sdWeatherDescription"
-        className="w-full h-full sm:w-[75vh] sm:h-[75vh]"
+        className="w-full sm:w-[75vh] sm:h-[75vh]"
       >
         <HighlightController>
           <TooltipController>
