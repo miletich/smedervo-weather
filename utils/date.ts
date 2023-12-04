@@ -1,7 +1,8 @@
+type FormatDate = (date: Date) => string;
+
 const locale = 'en-GB';
 
-type FormatLegendDate = (date: Date) => string;
-export const formatLegendDate: FormatLegendDate = (date) => {
+export const formatLegendDate: FormatDate = (date) => {
   const options = {
     day: 'numeric',
     month: 'short',
@@ -10,8 +11,7 @@ export const formatLegendDate: FormatLegendDate = (date) => {
   return date.toLocaleDateString(locale, options);
 };
 
-type FormatTooltipDate = (date: Date) => string;
-export const formatTooltipDate: FormatLegendDate = (date) => {
+export const formatTooltipDate: FormatDate = (date) => {
   const options = {
     day: 'numeric',
     month: 'long',

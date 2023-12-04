@@ -6,6 +6,7 @@ import { getGradientScaleFactor } from '@/utils/scalesServer';
 
 import { HighlightContextProvider } from '@/context/HighlightContext';
 import GradientHoverListener from '@/controllers/HighlightController/GradientHoverListener';
+import GradientLegend from './GradientLegend';
 
 export default async function HighlightController({
   children,
@@ -16,7 +17,7 @@ export default async function HighlightController({
   return (
     <HighlightContextProvider>
       {children}
-
+      <GradientLegend />
       <GradientHoverListener ratio={gradientScaleFactor} />
     </HighlightContextProvider>
   );

@@ -1,5 +1,6 @@
+import { type MouseEventHandler } from 'react';
+
 import { gradientHeight, gradientWidth } from '@/utils/consts';
-import { MouseEventHandler } from 'react';
 
 type Props = {
   onHover: MouseEventHandler;

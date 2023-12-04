@@ -1,4 +1,4 @@
-import { type AnyScale } from '@/utils/scales';
+import { AnyScale } from '@/utils/genScales';
 
 export type ScaleTick = {
   position: number;

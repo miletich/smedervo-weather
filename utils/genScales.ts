@@ -1,5 +1,6 @@
 import { scaleLinear, scaleSequential } from 'd3-scale';
 import { interpolateRainbow } from 'd3-scale-chromatic';
+
 import { Datum, dateAccessor, tempMaxAccessor, tempMinAccessor } from './data';
 import { dimensions, gradientWidth } from './consts';
 

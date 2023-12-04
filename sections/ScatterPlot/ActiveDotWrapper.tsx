@@ -1,7 +1,8 @@
 'use client';
 
-import { useHighlightData } from '@/context/HighlightContext';
 import { type PropsWithChildren } from 'react';
+
+import { useHighlightData } from '@/context/HighlightContext';
 
 type Props = PropsWithChildren<{
   i: number;

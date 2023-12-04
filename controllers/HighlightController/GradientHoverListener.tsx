@@ -1,17 +1,19 @@
 'use client';
 
 import {
-  MouseEventHandler,
-  PropsWithChildren,
-  ReactElement,
+  type MouseEventHandler,
+  type PropsWithChildren,
+  type ReactElement,
   useState,
 } from 'react';
+
+import { useHighlightDataApi } from '@/context/HighlightContext';
+import getRange from '@/utils/getRange';
+import { gradientX, gradientY } from '@/utils/consts';
+
 import HighlightBar from './HighlightBar';
 import GradientHoverListeningRect from './GradientHoverListeningRect';
-import getRange from '@/utils/getRange';
 import { getCurrentPosition, getIdxRange } from './utils';
-import { gradientX, gradientY } from '@/utils/consts';
-import { useHighlightDataApi } from '@/context/HighlightContext';
 
 type Props = {
   ratio: number;

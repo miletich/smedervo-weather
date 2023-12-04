@@ -1,15 +1,15 @@
 'use client';
 
-import { VoronoiCellProps } from '@/utils/lib';
 import {
-  Dispatch,
-  PropsWithChildren,
-  SetStateAction,
+  type Dispatch,
+  type PropsWithChildren,
+  type SetStateAction,
   createContext,
-  useCallback,
   useContext,
   useState,
 } from 'react';
+
+import type { VoronoiCellProps } from '@/controllers/TooltipController/utilsServer';
 
 type CurrentDateContextT = Omit<VoronoiCellProps, 'd'> | null;
 type SetCurrentDateData = Dispatch<SetStateAction<CurrentDateContextT>>;
@@ -20,14 +20,9 @@ const ApiContext = createContext<SetCurrentDateData>(() => null);
 export const CurrentDateContextProvider = ({ children }: PropsWithChildren) => {
   const [currentDate, setCurrentDate] = useState<CurrentDateContextT>(null);
 
-  const handleSetCurrentDate: SetCurrentDateData = useCallback(
-    (d) => setCurrentDate(d),
-    [setCurrentDate]
-  );
-
   return (
     <DataContext.Provider value={currentDate}>
-      <ApiContext.Provider value={handleSetCurrentDate}>
+      <ApiContext.Provider value={setCurrentDate}>
         {children}
       </ApiContext.Provider>
     </DataContext.Provider>

@@ -1,5 +1,6 @@
-import { hoverLineColor } from '@/utils/consts';
 import { type ComponentProps, forwardRef } from 'react';
+
+import { hoverLineColor } from '@/utils/consts';
 
 type Props = ComponentProps<'rect'>;
 

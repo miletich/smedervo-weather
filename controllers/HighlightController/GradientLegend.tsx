@@ -1,13 +1,11 @@
 import * as d3 from 'd3';
 
 import {
-  dimensions,
   gradientHeight,
   gradientId,
   gradientWidth,
   gradientX,
   gradientY,
-  gradientOffset,
   seasonStartDates,
   gradientLabelSize,
   gradientLabelOffset,
@@ -16,6 +14,7 @@ import {
 } from '@/utils/consts';
 import { getScales } from '@/utils/scalesServer';
 import getData from '@/utils/getDataServer';
+
 import GradientLegendText from './GradientLegendText';
 
 export default async function GradientLegend() {

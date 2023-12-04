@@ -1,10 +1,11 @@
 'use client';
 
+import type { PropsWithChildren } from 'react';
+
 import { useHighlightData } from '@/context/HighlightContext';
 import { gradientLabelOffset, gradientWidth } from '@/utils/consts';
-import { Datum, dateAccessor } from '@/utils/data';
+import { type Datum, dateAccessor } from '@/utils/data';
 import { formatLegendDate } from '@/utils/date';
-import type { PropsWithChildren } from 'react';
 
 type Props = PropsWithChildren<{
   data: Datum[];

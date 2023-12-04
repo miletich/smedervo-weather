@@ -5,6 +5,7 @@ import {
   midGray,
 } from '@/utils/consts';
 import getData from '@/utils/getDataServer';
+
 import TopHistogramHighlight from './TopHistogramHighlight';
 import { getTopHistogramArea } from './utilsServer';
 
