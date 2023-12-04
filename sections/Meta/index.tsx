@@ -1,4 +1,4 @@
-import Defs from '@/sections/Defs';
+import Defs from './Defs';
 
 export default function Meta() {
   return (
