@@ -1,5 +1,5 @@
 import { gradientWidth } from './consts';
-import { getData } from './lib';
+import getData from './getDataServer';
 import genScales, { type Scales } from './genScales';
 
 type GetScales = () => Promise<Scales>;

@@ -7,20 +7,10 @@ import {
   dataSchema,
   tempMaxAccessor,
   tempMinAccessor,
-} from './data';
-import type { AnyScale } from './genScales';
-import { getScales } from './scalesServer';
-import { dimensions } from './consts';
-
-type GetData = () => Promise<Datum[]>;
-export const getData: GetData = async () => {
-  const csv = (
-    await readFile(path.join('./public', 'sd-weather-2020.csv'))
-  ).toString();
-  const raw = await d3.csvParse(csv);
-
-  return dataSchema.parse(raw);
-};
+} from '@/utils/data';
+import getData from '@/utils/getDataServer';
+import { getScales } from '@/utils/scalesServer';
+import { dimensions } from '@/utils/consts';
 
 export type VoronoiCellProps = {
   d: string;

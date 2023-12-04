@@ -2,11 +2,12 @@
 
 import { type PropsWithChildren } from 'react';
 
-import Tooltip from '@/controllers/TooltipController/Tooltip';
 import {
   CurrentDateContextProvider,
   useCurrentDateApi,
 } from '@/context/CurrentDateContext';
+
+import Tooltip from './Tooltip';
 import HoverLines from './HoverLines';
 import MouseLeaveListener from './MouseLeaveListener';
 

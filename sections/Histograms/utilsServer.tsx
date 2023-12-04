@@ -1,4 +1,4 @@
-import { getData } from '@/utils/lib';
+import getData from '@/utils/getDataServer';
 import { getScales } from '@/utils/scalesServer';
 
 import {

@@ -1,6 +1,6 @@
 import { PropsWithChildren } from 'react';
 
-import { getData } from '@/utils/lib';
+import getData from '@/utils/getDataServer';
 import { gradientX, gradientY } from '@/utils/consts';
 import { getGradientScaleFactor } from '@/utils/scalesServer';
 

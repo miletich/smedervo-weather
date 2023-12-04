@@ -11,6 +11,7 @@ import Peripherals from '@/sections/Peripherals';
 import TopHistogram from '@/sections/Histograms/TopHistogram';
 import RightHistogram from '@/sections/Histograms/RightHistogram';
 import ScatterPlot from '@/sections/ScatterPlot';
+import VoronoiListeners from '@/controllers/TooltipController/VoronoiListeners';
 
 export default async function Home() {
   return (
@@ -27,6 +28,7 @@ export default async function Home() {
           <TopHistogram />
           <RightHistogram />
           <ScatterPlot />
+          <VoronoiListeners />
           <GradientLegend />
         </TooltipController>
       </HighlightController>

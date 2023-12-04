@@ -15,7 +15,7 @@ import {
   tickSize,
 } from '@/utils/consts';
 import { getScales } from '@/utils/scalesServer';
-import { getData } from '@/utils/lib';
+import getData from '@/utils/getDataServer';
 import GradientLegendText from './GradientLegendText';
 
 export default async function GradientLegend() {

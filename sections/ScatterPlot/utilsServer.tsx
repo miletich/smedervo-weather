@@ -5,7 +5,7 @@ import {
   tempMaxAccessor,
   tempMinAccessor,
 } from '@/utils/data';
-import { getData } from '@/utils/lib';
+import getData from '@/utils/getDataServer';
 import { getScales } from '@/utils/scalesServer';
 
 type DotProps = {
