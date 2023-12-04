@@ -4,10 +4,9 @@ import { scaleLinear } from 'd3-scale';
 import type { ScaleLinear } from 'd3-scale';
 import { area, curveBasis } from 'd3-shape';
 
-import { Datum, lengthAccessor, tempMaxAccessor } from './data';
-import { AnyScale } from './scales';
-import { histogramHeight } from './consts';
-import { string } from 'zod';
+import { Datum, lengthAccessor, tempMaxAccessor } from '@/utils/data';
+import { AnyScale } from '@/utils/scales';
+import { histogramHeight } from '@/utils/consts';
 
 // bins
 export type HistogramBin = Bin<Datum, number>;

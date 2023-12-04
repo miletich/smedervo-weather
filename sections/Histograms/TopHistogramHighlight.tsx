@@ -1,13 +1,10 @@
 'use client';
 
-import { genScales } from '@/utils/scales';
-import { Datum, dateAccessor } from '@/utils/data';
-import {
-  genHistogramArea,
-  genHistogramYScale,
-  genTopHistogram,
-} from '@/utils/histograms';
 import { useHighlightData } from '@/context/HighlightContext';
+import { type Datum, dateAccessor } from '@/utils/data';
+import { genScales } from '@/utils/scales';
+
+import { genHistogramArea, genHistogramYScale, genTopHistogram } from './utils';
 
 type Props = {
   data: Datum[];

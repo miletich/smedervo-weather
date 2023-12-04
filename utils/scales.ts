@@ -10,10 +10,6 @@ export type Scales = {
   gradientScale: d3.ScaleLinear<number, number>;
 };
 
-export type ScaleTick = {
-  position: number;
-  label: string;
-};
 export interface AnyScale<T> {
   (value: T): number;
   domain: () => number[];

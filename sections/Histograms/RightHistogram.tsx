@@ -5,8 +5,9 @@ import {
   histogramOpacity,
   midGray,
 } from '@/utils/consts';
-import { getData, getRightHistogramArea } from '@/utils/lib';
+import { getData } from '@/utils/lib';
 import RightHistogramHighlight from './RightHistogramHighlight';
+import { getRightHistogramArea } from './utilsServer';
 
 export default async function RightHistogram() {
   const d = await getRightHistogramArea();

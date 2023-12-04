@@ -4,8 +4,9 @@ import {
   histogramOpacity,
   midGray,
 } from '@/utils/consts';
-import { getData, getTopHistogramArea } from '@/utils/lib';
+import { getData } from '@/utils/lib';
 import TopHistogramHighlight from './TopHistogramHighlight';
+import { getTopHistogramArea } from './utilsServer';
 
 export default async function TopHistogram() {
   // main histogram

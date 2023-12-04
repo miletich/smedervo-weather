@@ -14,7 +14,7 @@ import {
   darkGray,
   tickSize,
 } from '@/utils/consts';
-import { getScales } from '@/utils/scalesLib';
+import { getScales } from '@/utils/scalesServer';
 import { getData } from '@/utils/lib';
 import GradientLegendText from './GradientLegendText';
 

@@ -8,8 +8,8 @@ import TooltipController from '@/controllers/TooltipController';
 
 import Meta from '@/sections/Meta';
 import Peripherals from '@/sections/Peripherals';
-import TopHistogram from '@/sections/TopHistogram';
-import RightHistogram from '@/sections/RightHistogram';
+import TopHistogram from '@/sections/Histograms/TopHistogram';
+import RightHistogram from '@/sections/Histograms/RightHistogram';
 import ScatterPlot from '@/sections/ScatterPlot';
 import { CurrentDateContextProvider } from '@/context/CurrentDateContext';
 
