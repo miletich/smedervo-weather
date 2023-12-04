@@ -5,7 +5,6 @@ import * as d3 from 'd3';
 import {
   type Datum,
   dataSchema,
-  dateAccessor,
   tempMaxAccessor,
   tempMinAccessor,
 } from './data';
@@ -21,25 +20,6 @@ export const getData: GetData = async () => {
   const raw = await d3.csvParse(csv);
 
   return dataSchema.parse(raw);
-};
-
-type DotProps = {
-  id: string;
-  cx: number;
-  cy: number;
-  fill: string;
-};
-type GetDopProps = () => Promise<DotProps[]>;
-export const getDotProps: GetDopProps = async () => {
-  const data = await getData();
-  const { xScale, yScale, colorScale } = await getScales();
-
-  return data.map((d) => ({
-    id: d.datetime,
-    cx: xScale(tempMinAccessor(d)),
-    cy: yScale(tempMaxAccessor(d)),
-    fill: colorScale(dateAccessor(d)),
-  }));
 };
 
 export type VoronoiCellProps = {

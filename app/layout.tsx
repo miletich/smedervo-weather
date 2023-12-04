@@ -27,7 +27,7 @@ export default function RootLayout({
               Daily minimum and maximum temperatures in Smederevo in 2022
             </P>
           </header>
-          {children}
+          <main>{children}</main>
         </div>
       </body>
     </html>

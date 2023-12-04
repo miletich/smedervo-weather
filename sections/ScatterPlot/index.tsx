@@ -1,7 +1,9 @@
-import DotController from '@/controllers/DotController';
 import VoronoiCell from '@/controllers/TooltipController/VoronoiCell';
 import { dotSize } from '@/utils/consts';
-import { getDotProps, getVoronoiCellProps } from '@/utils/lib';
+import { getVoronoiCellProps } from '@/utils/lib';
+
+import { getDotProps } from './utilsServer';
+import ActiveDotWrapper from './ActiveDotWrapper';
 
 export default async function ScatterPlot() {
   const dots = await getDotProps();
@@ -11,9 +13,9 @@ export default async function ScatterPlot() {
       <g className="dots">
         {dots.map((d, i) => (
           <g key={d.id} transform={`translate(${d.cx}, ${d.cy})`}>
-            <DotController i={i}>
+            <ActiveDotWrapper i={i}>
               <circle cx={0} cy={0} r={dotSize} fill={d.fill} />
-            </DotController>
+            </ActiveDotWrapper>
           </g>
         ))}
       </g>

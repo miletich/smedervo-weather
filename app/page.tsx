@@ -14,24 +14,22 @@ import ScatterPlot from '@/sections/ScatterPlot';
 
 export default async function Home() {
   return (
-    <main>
-      <Chart
-        dimensions={dimensions}
-        role="img"
-        aria-labelledby="sdWeatherTitle sdWeatherDescription"
-        className="w-full sm:w-[75vh] sm:h-[75vh]"
-      >
-        <HighlightController>
-          <TooltipController>
-            <Meta />
-            <Peripherals />
-            <TopHistogram />
-            <RightHistogram />
-            <ScatterPlot />
-            <GradientLegend />
-          </TooltipController>
-        </HighlightController>
-      </Chart>
-    </main>
+    <Chart
+      dimensions={dimensions}
+      role="img"
+      aria-labelledby="sdWeatherTitle sdWeatherDescription"
+      className="w-full sm:w-[75vh] sm:h-[75vh]"
+    >
+      <HighlightController>
+        <TooltipController>
+          <Meta />
+          <Peripherals />
+          <TopHistogram />
+          <RightHistogram />
+          <ScatterPlot />
+          <GradientLegend />
+        </TooltipController>
+      </HighlightController>
+    </Chart>
   );
 }
