@@ -1,6 +1,6 @@
 import { gradientWidth } from './consts';
 import { getData } from './lib';
-import { genScales, type Scales } from './scales';
+import genScales, { type Scales } from './genScales';
 
 type GetScales = () => Promise<Scales>;
 export const getScales: GetScales = async () => {

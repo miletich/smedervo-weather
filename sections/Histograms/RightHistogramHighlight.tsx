@@ -2,7 +2,7 @@
 
 import { useHighlightData } from '@/context/HighlightContext';
 import { type Datum, dateAccessor } from '@/utils/data';
-import { genScales } from '@/utils/scales';
+import genScales from '@/utils/genScales';
 
 import { genHistogramArea, genHistogramYScale, genTopHistogram } from './utils';
 

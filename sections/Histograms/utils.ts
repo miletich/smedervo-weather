@@ -5,7 +5,7 @@ import type { ScaleLinear } from 'd3-scale';
 import { area, curveBasis } from 'd3-shape';
 
 import { Datum, lengthAccessor, tempMaxAccessor } from '@/utils/data';
-import { AnyScale } from '@/utils/scales';
+import { type AnyScale } from '@/utils/genScales';
 import { histogramHeight } from '@/utils/consts';
 
 // bins

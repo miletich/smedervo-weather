@@ -3,23 +3,15 @@ import { readFile } from 'fs/promises';
 import * as d3 from 'd3';
 
 import {
-  Datum,
+  type Datum,
   dataSchema,
   dateAccessor,
-  lengthAccessor,
   tempMaxAccessor,
   tempMinAccessor,
 } from './data';
-import type { AnyScale } from './scales';
+import type { AnyScale } from './genScales';
 import { getScales } from './scalesServer';
-import { dimensions, histogramHeight, numOfGradientStops } from './consts';
-import {
-  HistogramBin,
-  genHistogramArea,
-  genHistogramYScale,
-  genRightHistogram,
-  genTopHistogram,
-} from '../sections/Histograms/utils';
+import { dimensions } from './consts';
 
 type GetData = () => Promise<Datum[]>;
 export const getData: GetData = async () => {

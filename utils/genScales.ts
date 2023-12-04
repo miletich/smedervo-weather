@@ -17,7 +17,7 @@ export interface AnyScale<T> {
 }
 
 type GenScales = (data: Datum[]) => Scales;
-export const genScales: GenScales = (data) => {
+const genScales: GenScales = (data) => {
   const temperatureExtent = [
     Math.min(...data.map(tempMinAccessor)),
     Math.max(...data.map(tempMaxAccessor)),
@@ -45,3 +45,5 @@ export const genScales: GenScales = (data) => {
 
   return { xScale, yScale, colorScale, gradientScale };
 };
+
+export default genScales;
