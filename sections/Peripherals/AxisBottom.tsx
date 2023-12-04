@@ -1,5 +1,6 @@
 import { gray, tickLabelOffset, tickLabelSize, tickSize } from '@/utils/consts';
-import { ScaleTick } from '@/utils/scales';
+
+import { type ScaleTick } from './utils';
 
 type Props = {
   ticks: ScaleTick[];

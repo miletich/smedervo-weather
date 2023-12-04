@@ -1,5 +1,6 @@
-import { axisLabelSize, darkGray } from '@/utils/consts';
 import { type PropsWithChildren } from 'react';
+
+import { axisLabelSize, darkGray } from '@/utils/consts';
 
 type Props = PropsWithChildren<{
   transform?: string;

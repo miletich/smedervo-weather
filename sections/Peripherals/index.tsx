@@ -1,8 +1,10 @@
-import { getScaleTicks, getScales } from '@/utils/scalesLib';
 import { axisLabelOffset, dimensions } from '@/utils/consts';
-import AxisBottom from '@/components/AxisBottom';
-import AxisLabel from '@/components/AxisLabel';
-import AxisLeft from '@/components/AxisLeft';
+import { getScales } from '@/utils/scalesServer';
+
+import AxisBottom from './AxisBottom';
+import AxisLabel from './AxisLabel';
+import AxisLeft from './AxisLeft';
+import { getScaleTicks } from './utils';
 
 export default async function Peripherals() {
   const { xScale, yScale } = await getScales();
