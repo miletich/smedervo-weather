@@ -1,4 +1,4 @@
-import { axisLabelOffset, dimensions } from '@/utils/consts';
+import { axisLabelOffset, dimensions, white } from '@/utils/consts';
 import { getScales } from '@/utils/scalesServer';
 
 import AxisBottom from './AxisBottom';
@@ -17,7 +17,7 @@ export default async function Peripherals() {
         height={dimensions.innerHeight}
         x={0}
         y={0}
-        fill="white"
+        fill={white}
       />
       <AxisBottom ticks={xScaleTicks} length={dimensions.innerWidth} />
       <AxisLabel
