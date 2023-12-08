@@ -1,28 +1,14 @@
-import { dimensions } from '@/utils/consts';
+import type { PropsWithChildren } from 'react';
 
-import Chart from '@/components/Chart';
-import Controllers from '@/controllers';
-import Meta from '@/sections/Meta';
-import Peripherals from '@/sections/Peripherals';
-import TopHistogram from '@/sections/Histograms/TopHistogram';
-import RightHistogram from '@/sections/Histograms/RightHistogram';
-import ScatterPlot from '@/sections/ScatterPlot';
+import H2 from '@/components/H2';
 
-export default async function Home() {
+export default async function Home({ children }: PropsWithChildren) {
   return (
-    <Chart
-      dimensions={dimensions}
-      role="img"
-      aria-labelledby="sdWeatherTitle sdWeatherDescription"
-      className="w-full sm:w-[75vh] sm:h-[75vh]"
-    >
-      <Meta />
-      <Peripherals />
-      <Controllers>
-        <TopHistogram />
-        <RightHistogram />
-        <ScatterPlot />
-      </Controllers>
-    </Chart>
+    <>
+      <header className="flex flex-col items-center">
+        <H2>Smederevo 2022 weather overview</H2>
+      </header>
+      <main>{children}</main>
+    </>
   );
 }
