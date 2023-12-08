@@ -29,8 +29,15 @@ export type Datum = z.infer<typeof datumSchema>;
 type NumberAccessor = (d: Datum) => number;
 type DateAccessor = (d: Datum) => Date;
 type LengthAccessor = <T extends unknown[] = unknown[]>(d: T) => number;
+type PrecipitationTypeAccessor = (d: Datum) => PrecipitationType;
 
 export const tempMinAccessor: NumberAccessor = (d) => d.tempmin;
 export const tempMaxAccessor: NumberAccessor = (d) => d.tempmax;
 export const dateAccessor: DateAccessor = (d) => new Date(d.datetime);
 export const lengthAccessor: LengthAccessor = (d) => d.length;
+export const uvIndexAccessor: NumberAccessor = (d) => d.uvindex;
+export const precipitationProbabilityAccessor: NumberAccessor = (d) =>
+  d.precipprob;
+export const cloudCoverAccessor: NumberAccessor = (d) => d.cloudcover;
+export const precipitationTypeAccessor: PrecipitationTypeAccessor = (d) =>
+  d.preciptype;
