@@ -1,9 +1,25 @@
 import { z } from 'zod';
 
+export const precipitationTypeSchema = z.preprocess(
+  (val) => (val === '' ? undefined : val === 'rain,snow' ? 'sleet' : val),
+  z.union([
+    z.literal('rain'),
+    z.literal('snow'),
+    z.literal('sleet'),
+    z.undefined(),
+  ])
+);
+
+export type PrecipitationType = z.infer<typeof precipitationTypeSchema>;
+
 export const datumSchema = z.object({
   tempmin: z.coerce.number(),
   tempmax: z.coerce.number(),
   datetime: z.string(),
+  uvindex: z.coerce.number(),
+  precipprob: z.coerce.number(),
+  preciptype: precipitationTypeSchema,
+  cloudcover: z.coerce.number(),
 });
 
 export const dataSchema = z.array(datumSchema);
