@@ -11,7 +11,10 @@ import Annotations from './sections/Annotations';
 
 export default function Radar() {
   return (
-    <ChartRadial dimensions={dimensions} className="overflow-visible">
+    <ChartRadial
+      dimensions={dimensions}
+      className="overflow-visible w-[75vh] h-[75vh]"
+    >
       <Meta />
       <Peripherals />
       <Temperature />
