@@ -9,7 +9,7 @@ import {
   gradientX,
   gradientY,
 } from '../../consts';
-import { clamp } from '../../utils/dimensions';
+import { clamp } from '../../../../utils/dimensions';
 
 type GetCurrentPosition = (
   e: Parameters<MouseEventHandler<SVGRectElement>>[0]

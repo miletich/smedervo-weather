@@ -32,6 +32,19 @@ export const getDimensions: GetDimensions = (
   };
 };
 
+export type RadialDimensions = Record<
+  'size' | 'radius' | 'margin' | 'innerSize',
+  number
+>;
+
+type GetRadialDimensions = (size: number, margin: number) => RadialDimensions;
+export const getRadialDimensions: GetRadialDimensions = (size, margin) => ({
+  size,
+  margin,
+  innerSize: size - margin * 2,
+  radius: size / 2 - margin,
+});
+
 type Clamp = (min: number, value: number, max: number) => number;
 export const clamp: Clamp = (min, value, max) => {
   if (value < min) return min;
