@@ -19,3 +19,11 @@ export const formatTooltipDate: FormatDate = (date) => {
 
   return date.toLocaleDateString(locale, options);
 };
+
+export const formatShortMonthName: FormatDate = (date) => {
+  const options = {
+    month: 'short',
+  } as const;
+
+  return date.toLocaleDateString(locale, options);
+};
