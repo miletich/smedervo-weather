@@ -2,8 +2,17 @@ import * as d3 from 'd3';
 
 import { getScales } from '../../utils/scalesServer';
 import { getCoordinatesForAngle } from '../../utils/angle';
+import { tickLabelOffset } from '../../consts';
+import { formatShortMonthName } from '@/utils/date';
 
-type GetTicksProps = () => Promise<{ id: string; x2: number; y2: number }[]>;
+export type TickProps = {
+  label: string;
+  x2: number;
+  y2: number;
+  labelX: number;
+  labelY: number;
+};
+export type GetTicksProps = () => Promise<TickProps[]>;
 export const getTicksProps: GetTicksProps = async () => {
   const { angleScale } = await getScales();
   const months = d3.timeMonth.range(
@@ -12,12 +21,16 @@ export const getTicksProps: GetTicksProps = async () => {
   );
 
   return months.map((m) => {
-    const [x2, y2] = getCoordinatesForAngle(angleScale(m));
+    const angle = angleScale(m);
+    const [x2, y2] = getCoordinatesForAngle(angle);
+    const [labelX, labelY] = getCoordinatesForAngle(angle, tickLabelOffset);
 
     return {
-      id: m.toISOString(),
       x2,
       y2,
+      label: formatShortMonthName(m),
+      labelX,
+      labelY,
     };
   });
 };

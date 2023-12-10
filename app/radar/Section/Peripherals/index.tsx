@@ -1,4 +1,8 @@
+import { Fragment } from 'react';
+
 import { tickColor } from '../../consts';
+
+import MonthLabel from './MonthLabel';
 
 import { getTicksProps } from './utilsServer';
 
@@ -7,8 +11,11 @@ export default async function Peripherals() {
 
   return (
     <g className="peripherals">
-      {ticksProps.map(({ id, ...rest }) => (
-        <line key={id} {...rest} stroke={tickColor} />
+      {ticksProps.map(({ x2, y2, label, labelX, labelY }) => (
+        <Fragment key={label}>
+          <line x2={x2} y2={y2} stroke={tickColor} />
+          <MonthLabel labelX={labelX} labelY={labelY} label={label} />
+        </Fragment>
       ))}
     </g>
   );
