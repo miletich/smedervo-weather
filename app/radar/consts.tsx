@@ -21,3 +21,6 @@ export const temperatureTickLabelWeight = 600;
 // freezing marker
 export const freezingColor = '#00d2d3';
 export const freezingOpacity = 0.15;
+
+// temperature gradient
+export const temperatureGradientId = 'temperature-gradient';
