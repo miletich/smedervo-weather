@@ -7,6 +7,7 @@ export const white = '#fff';
 export const black = '#000';
 export const gray = '#dadadd';
 export const darkGray = '#8395a7';
+export const yellow = '#feca57';
 
 // ticks
 export const monthTickLabelOffset = 1.38;
@@ -22,5 +23,11 @@ export const temperatureTickLabelWeight = 600;
 export const freezingColor = '#00d2d3';
 export const freezingOpacity = 0.15;
 
-// temperature gradient
+// temperature
 export const temperatureGradientId = 'temperature-gradient';
+
+// uv index
+export const uvIndexThreshold = 8;
+export const uvIndexOffsetInner = 0.95;
+export const uvIndexOffsetOuter = uvIndexOffsetInner + 0.1;
+export const uvIndexStrokeWidth = 2;

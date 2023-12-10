@@ -4,6 +4,7 @@ import { dimensions } from './consts';
 import Peripherals from './Section/Peripherals';
 import Meta from './Section/Meta';
 import Temperature from './Section/Temperature';
+import UvIndex from './Section/UvIndex';
 
 export default function Radar() {
   return (
@@ -11,6 +12,7 @@ export default function Radar() {
       <Meta />
       <Peripherals />
       <Temperature />
+      <UvIndex />
     </ChartRadial>
   );
 }
