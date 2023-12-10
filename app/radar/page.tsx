@@ -1,10 +1,11 @@
 import ChartRadial from '@/components/ChartRadial';
 
 import { dimensions } from './consts';
-import Peripherals from './Section/Peripherals';
-import Meta from './Section/Meta';
-import Temperature from './Section/Temperature';
-import UvIndex from './Section/UvIndex';
+import Peripherals from './sections/Peripherals';
+import Meta from './sections/Meta';
+import Temperature from './sections/Temperature';
+import UvIndex from './sections/UvIndex';
+import Precipitation from './sections/Precipitation';
 
 export default function Radar() {
   return (
@@ -13,6 +14,7 @@ export default function Radar() {
       <Peripherals />
       <Temperature />
       <UvIndex />
+      <Precipitation />
     </ChartRadial>
   );
 }

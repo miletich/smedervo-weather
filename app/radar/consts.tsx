@@ -31,3 +31,8 @@ export const uvIndexThreshold = 8;
 export const uvIndexOffsetInner = 0.95;
 export const uvIndexOffsetOuter = uvIndexOffsetInner + 0.1;
 export const uvIndexStrokeWidth = 2;
+
+// precipitation
+export const precipitationOffset = 1.14;
+export const precipitationMaxRadius = 8;
+export const precipitationOpacity = 0.5;
