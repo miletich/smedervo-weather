@@ -2,12 +2,21 @@ import { getRadialDimensions } from '@/utils/dimensions';
 
 export const dimensions = getRadialDimensions(740, 120);
 
+// colors
+export const white = '#fff';
+export const black = '#000';
+export const gray = '#dadadd';
+export const darkGray = '#8395a7';
+
 // ticks
-export const tickColor = '#dadadd';
-export const tickLabelOffset = 1.38;
-export const tickLabelSize = 14;
-export const tickLabelColor = '#8395a7';
-export const tickLabelWeight = 900;
+export const monthTickLabelOffset = 1.38;
+export const monthTickLabelSize = 14;
+export const monthTickLabelWeight = 900;
+
+export const temperatureTickLabelSize = 12;
+export const temperatureTickLabelStroke = 2;
+export const temperatureLabelTickOffsetX = 7;
+export const temperatureTickLabelWeight = 600;
 
 // freezing marker
 export const freezingColor = '#00d2d3';
