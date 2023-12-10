@@ -9,7 +9,7 @@ type GetScales = () => Promise<{
   angleScale: d3.ScaleTime<number, number>;
   radiusScale: d3.ScaleLinear<number, number>;
 }>;
-const getScales: GetScales = async () => {
+export const getScales: GetScales = async () => {
   const data = await getDataServer();
 
   const angleScale = d3
