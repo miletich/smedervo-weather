@@ -1,7 +1,7 @@
 import { tickLabelColor, tickLabelSize, tickLabelWeight } from '../../consts';
-import { type TickProps } from './utilsServer';
+import { type MonthTickProps } from './utilsServer';
 
-type Props = Pick<TickProps, 'label' | 'labelX' | 'labelY'>;
+type Props = Pick<MonthTickProps, 'label' | 'labelX' | 'labelY'>;
 
 export default function MonthLabel({ label, labelX, labelY }: Props) {
   return (

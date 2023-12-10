@@ -5,15 +5,15 @@ import { getCoordinatesForAngle } from '../../utils/angle';
 import { tickLabelOffset } from '../../consts';
 import { formatShortMonthName } from '@/utils/date';
 
-export type TickProps = {
+export type MonthTickProps = {
   label: string;
   x2: number;
   y2: number;
   labelX: number;
   labelY: number;
 };
-export type GetTicksProps = () => Promise<TickProps[]>;
-export const getTicksProps: GetTicksProps = async () => {
+export type GetMonthTicksProps = () => Promise<MonthTickProps[]>;
+export const getMonthTicksProps: GetMonthTicksProps = async () => {
   const { angleScale } = await getScales();
   const months = d3.timeMonth.range(
     angleScale.domain()[0],
@@ -40,4 +40,19 @@ const getHasFreezing: GetHasFreezing = async () => {
   const { radiusScale } = await getScales();
 
   return radiusScale.domain()[0] < 0;
+};
+
+export type TemperatureTickProps = {
+  label: string;
+  r: number;
+};
+export type GetTemperatureTickProps = () => Promise<TemperatureTickProps[]>;
+export const getTemperatureTickProps: GetTemperatureTickProps = async () => {
+  const { radiusScale } = await getScales();
+  const ticks = radiusScale.ticks(4);
+
+  return ticks.map((t) => ({
+    label: String(t),
+    r: radiusScale(t),
+  }));
 };

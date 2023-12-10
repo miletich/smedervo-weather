@@ -24,7 +24,8 @@ export const getScales: GetScales = async () => {
         d3.extent([...data.map(tempMinAccessor), ...data.map(tempMaxAccessor)])
       )
     )
-    .range([0, dimensions.radius]);
+    .range([0, dimensions.radius])
+    .nice();
 
   return { angleScale, radiusScale };
 };
