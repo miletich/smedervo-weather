@@ -34,3 +34,10 @@ export const getTicksProps: GetTicksProps = async () => {
     };
   });
 };
+
+type GetHasFreezing = () => Promise<boolean>;
+const getHasFreezing: GetHasFreezing = async () => {
+  const { radiusScale } = await getScales();
+
+  return radiusScale.domain()[0] < 0;
+};

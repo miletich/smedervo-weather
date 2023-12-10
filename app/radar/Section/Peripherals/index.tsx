@@ -5,6 +5,7 @@ import { tickColor } from '../../consts';
 import MonthLabel from './MonthLabel';
 
 import { getTicksProps } from './utilsServer';
+import FreezingMarker from './FreezingMarker';
 
 export default async function Peripherals() {
   const ticksProps = await getTicksProps();
@@ -17,6 +18,7 @@ export default async function Peripherals() {
           <MonthLabel labelX={labelX} labelY={labelY} label={label} />
         </Fragment>
       ))}
+      <FreezingMarker />
     </g>
   );
 }
