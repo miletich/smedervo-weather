@@ -6,6 +6,7 @@ import Meta from './sections/Meta';
 import Temperature from './sections/Temperature';
 import UvIndex from './sections/UvIndex';
 import Precipitation from './sections/Precipitation';
+import CloudCover from './sections/CloudCover/indext';
 
 export default function Radar() {
   return (
@@ -15,6 +16,7 @@ export default function Radar() {
       <Temperature />
       <UvIndex />
       <Precipitation />
+      <CloudCover />
     </ChartRadial>
   );
 }

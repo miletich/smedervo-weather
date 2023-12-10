@@ -6,6 +6,7 @@ export const dimensions = getRadialDimensions(740, 120);
 export const white = '#fff';
 export const black = '#000';
 export const gray = '#dadadd';
+export const midGray = '#c8d6e5';
 export const darkGray = '#8395a7';
 export const yellow = '#feca57';
 
@@ -36,3 +37,8 @@ export const uvIndexStrokeWidth = 2;
 export const precipitationOffset = 1.14;
 export const precipitationMaxRadius = 8;
 export const precipitationOpacity = 0.5;
+
+// cloud cover
+export const cloudOffset = 1.27;
+export const cloudMaxRadius = 10;
+export const cloudOpacity = 0.6;
