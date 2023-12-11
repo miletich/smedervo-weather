@@ -1,6 +1,7 @@
 import { createPortal } from 'react-dom';
 
-import type { Datum } from '@/utils/data';
+import { dateAccessor, type Datum } from '@/utils/data';
+import { formatTooltipDate } from '@/utils/date';
 import P from '@/components/P';
 
 import { type Coordinates } from './eventHandlers';
@@ -28,7 +29,9 @@ export default function Tooltip({ coordinates, data }: Props) {
       text-sm leading-6 text-center 
       bg-white border border-zinc-200 "
     >
-      <P>Date</P>
+      <P className="text-lg text-zinc-600 font-semibold mb-1">
+        {formatTooltipDate(dateAccessor(datum))}
+      </P>
       <P>
         <span>Min</span> - <span>Max</span>
       </P>
