@@ -1,5 +1,6 @@
 import { getRadialDimensions } from '@/utils/dimensions';
 
+export const wrapperId = 'radar-weather';
 export const dimensions = getRadialDimensions(740, 120);
 
 // colors
@@ -63,5 +64,6 @@ export const precipitationTypeAnnotationR = 4;
 export const precipitationTypeCircleOpacity = 0.7;
 
 // tooltip
+export const tooltipOffset = 1.6;
 export const tooltipAngleOffset = 0.015;
 export const tooltipArcOpacity = 0.2;

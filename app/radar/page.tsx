@@ -14,7 +14,7 @@ export default function Radar() {
   return (
     <ChartRadial
       dimensions={dimensions}
-      className="overflow-visible w-[75vh] h-[75vh]"
+      className="overflow-visible w-[70vh] h-[70vh]"
     >
       <Meta />
       <Peripherals />

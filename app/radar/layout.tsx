@@ -1,8 +1,12 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import '../globals.css';
+
 import H2 from '@/components/H2';
 import P from '@/components/P';
+
+import '../globals.css';
+
+import { wrapperId } from './consts';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,11 +22,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <>
+    <div className="-mt-5">
       <header className="flex flex-col items-center">
         <H2>Smederevo Weather in 2022</H2>
       </header>
-      <main className="flex justify-center">{children}</main>
-    </>
+      <main id={wrapperId} className="flex justify-center">
+        {children}
+      </main>
+    </div>
   );
 }

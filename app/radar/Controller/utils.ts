@@ -10,8 +10,8 @@ import {
   precipitationTypeAccessor,
 } from '@/utils/data';
 
-import { getAngleForCoordinates } from '../utils/angle';
-import { dimensions, tooltipAngleOffset } from '../consts';
+import { getAngleForCoordinates, getCoordinatesForAngle } from '../utils/angle';
+import { dimensions, tooltipAngleOffset, tooltipOffset } from '../consts';
 import { getAngleScale } from '../utils/scales';
 import { gradientScale } from '../sections/Meta/TemperatureGradient';
 
@@ -80,3 +80,16 @@ export const usePrecipitationColor: UsePrecipitationColor = (datum) =>
 
     return precipitationTypeScale(type);
   }, [datum]);
+
+type UseTooltipTranslate = (angle: number) => string;
+export const useTooltipTranslate: UseTooltipTranslate = (angle) =>
+  useMemo(() => {
+    const [x, y] = getCoordinatesForAngle(angle, tooltipOffset);
+    // if not near the centre, place near edges, otherwise centre to middle
+    const xAdjust = x < -50 ? '5rem - 100%' : x > 50 ? '-5rem + 0%' : '-50%';
+    const xPosition = x + dimensions.margin + 'px';
+    const yAdjust = y < -50 ? '5rem - 100%' : y > 50 ? '-5rem + 0%' : '-50%';
+    const yPosition = y + dimensions.size / 2 - 30 + 'px';
+
+    return `translate(calc(${xAdjust} + ${xPosition}),calc(${yAdjust} + ${yPosition}))`;
+  }, [angle]);
