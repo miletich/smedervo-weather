@@ -4,6 +4,7 @@ import getDataServer from '@/utils/getDataServer';
 import { dateAccessor, tempMaxAccessor, tempMinAccessor } from '@/utils/data';
 
 import { dimensions } from '../consts';
+import { getAngleScale } from './scales';
 
 type GetScales = () => Promise<{
   angleScale: d3.ScaleTime<number, number>;
@@ -12,10 +13,7 @@ type GetScales = () => Promise<{
 export const getScales: GetScales = async () => {
   const data = await getDataServer();
 
-  const angleScale = d3
-    .scaleTime()
-    .domain(<[Date, Date]>d3.extent(data, dateAccessor))
-    .range([0, 2 * Math.PI]);
+  const angleScale = getAngleScale(data);
 
   const radiusScale = d3
     .scaleLinear()
