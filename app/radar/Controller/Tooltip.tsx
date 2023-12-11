@@ -5,9 +5,14 @@ import {
   tempMinAccessor,
   type Datum,
   tempMaxAccessor,
+  uvIndexAccessor,
+  cloudCoverAccessor,
+  precipitationProbabilityAccessor,
 } from '@/utils/data';
 import { formatTooltipDate } from '@/utils/date';
 import P from '@/components/P';
+
+import { black, darkGray, yellow } from '../consts';
 
 import { type Coordinates } from './eventHandlers';
 import TooltipMetic, {
@@ -54,16 +59,25 @@ export default function Tooltip({ coordinates, data }: Props) {
         </TooltipTemperature>
       </P>
       <TooltipMetric>
-        <TooltipMetricTitle>UV Index</TooltipMetricTitle>
-        <TooltipMetricValue>val</TooltipMetricValue>
+        <TooltipMetricTitle color={yellow}>UV Index</TooltipMetricTitle>
+        <TooltipMetricValue color={yellow}>
+          {formatNumber(uvIndexAccessor(datum))}
+        </TooltipMetricValue>
       </TooltipMetric>
       <TooltipMetric>
-        <TooltipMetricTitle>Cloud Cover</TooltipMetricTitle>
-        <TooltipMetricValue>val</TooltipMetricValue>
+        <TooltipMetricTitle color={darkGray}>Cloud Cover</TooltipMetricTitle>
+        <TooltipMetricValue color={darkGray}>
+          {formatNumber(cloudCoverAccessor(datum))}
+        </TooltipMetricValue>
       </TooltipMetric>
       <TooltipMetric>
-        <TooltipMetricTitle>Precipitation</TooltipMetricTitle>
-        <TooltipMetricValue>val</TooltipMetricValue>
+        <TooltipMetricTitle color={black}>
+          Precipitation Probability
+        </TooltipMetricTitle>
+        <TooltipMetricValue color={black}>{`${formatNumber(
+          precipitationProbabilityAccessor(datum),
+          0
+        )}%`}</TooltipMetricValue>
       </TooltipMetric>
     </div>,
     document.body
