@@ -7,6 +7,7 @@ import {
   dateAccessor,
   tempMinAccessor,
   tempMaxAccessor,
+  precipitationTypeAccessor,
 } from '@/utils/data';
 
 import { getAngleForCoordinates } from '../utils/angle';
@@ -17,6 +18,7 @@ import { gradientScale } from '../sections/Meta/TemperatureGradient';
 import { type Coordinates } from './eventHandlers';
 import { formatDateForCompare } from '@/utils/date';
 import { extent } from 'd3';
+import { precipitationTypeScale } from '../sections/Precipitation/utils';
 
 type UseTooltipAngle = (coordinates: Exclude<Coordinates, null>) => number;
 export const useTooltipAngle: UseTooltipAngle = (coordinates) =>
@@ -68,3 +70,13 @@ export const useTempColors: UseTempColors = (datum, data) =>
 
     return [scale(tempMinAccessor(datum)), scale(tempMaxAccessor(datum))];
   }, [datum, data]);
+
+type UsePrecipitationColor = (datum: Datum) => string | undefined;
+export const usePrecipitationColor: UsePrecipitationColor = (datum) =>
+  useMemo(() => {
+    const type = precipitationTypeAccessor(datum);
+
+    if (!type) return;
+
+    return precipitationTypeScale(type);
+  }, [datum]);

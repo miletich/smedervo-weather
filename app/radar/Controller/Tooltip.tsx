@@ -8,6 +8,7 @@ import {
   uvIndexAccessor,
   cloudCoverAccessor,
   precipitationProbabilityAccessor,
+  precipitationTypeAccessor,
 } from '@/utils/data';
 import { formatTooltipDate } from '@/utils/date';
 import P from '@/components/P';
@@ -23,6 +24,7 @@ import TooltipMetric from './TooltipMetric';
 import {
   formatNumber,
   useCurrentDatum,
+  usePrecipitationColor,
   useTempColors,
   useTooltipAngle,
 } from './utils';
@@ -37,6 +39,7 @@ export default function Tooltip({ coordinates, data }: Props) {
   const angle = useTooltipAngle(coordinates);
   const datum = useCurrentDatum(angle, data);
   const [minColor, maxColor] = useTempColors(datum, data);
+  const precipitationColor = usePrecipitationColor(datum);
 
   return createPortal(
     <div
@@ -78,6 +81,14 @@ export default function Tooltip({ coordinates, data }: Props) {
           precipitationProbabilityAccessor(datum),
           0
         )}%`}</TooltipMetricValue>
+      </TooltipMetric>
+      <TooltipMetric>
+        <TooltipMetricTitle color={precipitationColor}>
+          Precipitation Type
+        </TooltipMetricTitle>
+        <TooltipMetricValue color={precipitationColor}>
+          {precipitationTypeAccessor(datum) || 'none'}
+        </TooltipMetricValue>
       </TooltipMetric>
     </div>,
     document.body
