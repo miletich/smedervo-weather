@@ -8,6 +8,7 @@ import UvIndex from './sections/UvIndex';
 import Precipitation from './sections/Precipitation';
 import CloudCover from './sections/CloudCover/indext';
 import Annotations from './sections/Annotations';
+import Controller from './Controller';
 
 export default function Radar() {
   return (
@@ -22,6 +23,7 @@ export default function Radar() {
       <Precipitation />
       <CloudCover />
       <Annotations />
+      <Controller />
     </ChartRadial>
   );
 }
