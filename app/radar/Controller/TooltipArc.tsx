@@ -9,7 +9,6 @@ type Props = {
 export default function TooltipArc({ coordinates }: Props) {
   const angle = useTooltipAngle(coordinates);
   const tooltipArc = generateTooltipArc(angle);
-  console.log({ angle, tooltipArc });
 
   return (
     <path
