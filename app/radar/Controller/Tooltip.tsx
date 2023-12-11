@@ -1,6 +1,11 @@
 import { createPortal } from 'react-dom';
 
-import { dateAccessor, type Datum } from '@/utils/data';
+import {
+  dateAccessor,
+  tempMinAccessor,
+  type Datum,
+  tempMaxAccessor,
+} from '@/utils/data';
 import { formatTooltipDate } from '@/utils/date';
 import P from '@/components/P';
 
@@ -10,7 +15,13 @@ import TooltipMetic, {
   TooltipMetricValue,
 } from './TooltipMetric';
 import TooltipMetric from './TooltipMetric';
-import { useCurrentDatum, useTooltipAngle } from './utils';
+import {
+  formatNumber,
+  useCurrentDatum,
+  useTempColors,
+  useTooltipAngle,
+} from './utils';
+import TooltipTemperature from './TooltipTemperature';
 
 type Props = {
   coordinates: Exclude<Coordinates, null>;
@@ -20,6 +31,7 @@ type Props = {
 export default function Tooltip({ coordinates, data }: Props) {
   const angle = useTooltipAngle(coordinates);
   const datum = useCurrentDatum(angle, data);
+  const [minColor, maxColor] = useTempColors(datum, data);
 
   return createPortal(
     <div
@@ -32,8 +44,14 @@ export default function Tooltip({ coordinates, data }: Props) {
       <P className="text-lg text-zinc-600 font-semibold mb-1">
         {formatTooltipDate(dateAccessor(datum))}
       </P>
-      <P>
-        <span>Min</span> - <span>Max</span>
+      <P className="text-zinc-600">
+        <TooltipTemperature color={minColor}>
+          {formatNumber(tempMinAccessor(datum))}
+        </TooltipTemperature>{' '}
+        -{' '}
+        <TooltipTemperature color={maxColor}>
+          {formatNumber(tempMaxAccessor(datum))}
+        </TooltipTemperature>
       </P>
       <TooltipMetric>
         <TooltipMetricTitle>UV Index</TooltipMetricTitle>

@@ -1,14 +1,22 @@
 import { useMemo } from 'react';
 import { arc } from 'd3-shape';
+import { scaleSequential } from 'd3-scale';
 
-import { type Datum, dateAccessor } from '@/utils/data';
+import {
+  type Datum,
+  dateAccessor,
+  tempMinAccessor,
+  tempMaxAccessor,
+} from '@/utils/data';
 
 import { getAngleForCoordinates } from '../utils/angle';
 import { dimensions, tooltipAngleOffset } from '../consts';
 import { getAngleScale } from '../utils/scales';
+import { gradientScale } from '../sections/Meta/TemperatureGradient';
 
 import { type Coordinates } from './eventHandlers';
 import { formatDateForCompare } from '@/utils/date';
+import { extent } from 'd3';
 
 type UseTooltipAngle = (coordinates: Exclude<Coordinates, null>) => number;
 export const useTooltipAngle: UseTooltipAngle = (coordinates) =>
@@ -41,3 +49,22 @@ export const useCurrentDatum: UseCurrentDatum = (angle, data) =>
         formatDateForCompare(dateAccessor(d)) === formatDateForCompare(date)
     )!;
   }, [data, angle]);
+
+type FormatNumber = (n: number, decimals?: number) => string;
+export const formatNumber: FormatNumber = (n, decimals = 2) =>
+  n.toFixed(decimals);
+
+type UseTempColors = (datum: Datum, data: Datum[]) => [string, string];
+export const useTempColors: UseTempColors = (datum, data) =>
+  useMemo(() => {
+    const scale = scaleSequential()
+      .domain(
+        extent([
+          ...data.map(tempMinAccessor),
+          ...data.map(tempMaxAccessor),
+        ]) as [number, number]
+      )
+      .interpolator(gradientScale);
+
+    return [scale(tempMinAccessor(datum)), scale(tempMaxAccessor(datum))];
+  }, [datum, data]);
