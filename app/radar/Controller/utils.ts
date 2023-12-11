@@ -1,10 +1,14 @@
 import { useMemo } from 'react';
 import { arc } from 'd3-shape';
 
+import { type Datum, dateAccessor } from '@/utils/data';
+
 import { getAngleForCoordinates } from '../utils/angle';
+import { dimensions, tooltipAngleOffset } from '../consts';
+import { getAngleScale } from '../utils/scales';
 
 import { type Coordinates } from './eventHandlers';
-import { dimensions, tooltipAngleOffset } from '../consts';
+import { formatDateForCompare } from '@/utils/date';
 
 type UseTooltipAngle = (coordinates: Exclude<Coordinates, null>) => number;
 export const useTooltipAngle: UseTooltipAngle = (coordinates) =>
@@ -25,3 +29,15 @@ export const generateTooltipArc: GenerateTooltipArc = (angle) =>
     .endAngle(angle + tooltipAngleOffset)
     .innerRadius(0)
     .outerRadius(dimensions.size / 2)(null)!;
+
+type UseCurrentDatum = (angle: number, data: Datum[]) => Datum;
+export const useCurrentDatum: UseCurrentDatum = (angle, data) =>
+  useMemo(() => {
+    const angleScale = getAngleScale(data);
+    const date = angleScale.invert(angle);
+
+    return data.find(
+      (d) =>
+        formatDateForCompare(dateAccessor(d)) === formatDateForCompare(date)
+    )!;
+  }, [data, angle]);

@@ -27,3 +27,6 @@ export const formatShortMonthName: FormatDate = (date) => {
 
   return date.toLocaleDateString(locale, options);
 };
+
+export const formatDateForCompare: FormatDate = (date) =>
+  date.toISOString().split('T')[0];
