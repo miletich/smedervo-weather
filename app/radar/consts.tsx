@@ -63,5 +63,7 @@ export const precipitationTypeAnnotationR = 4;
 export const precipitationTypeCircleOpacity = 0.7;
 
 // tooltip
+export const tooltipWidth = 250;
+export const tooltipHeigh = 150;
 export const tooltipAngleOffset = 0.015;
 export const tooltipArcOpacity = 0.2;

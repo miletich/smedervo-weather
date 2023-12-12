@@ -1,5 +1,3 @@
-import { createPortal } from 'react-dom';
-
 import {
   dateAccessor,
   tempMinAccessor,
@@ -13,7 +11,14 @@ import {
 import { formatTooltipDate } from '@/utils/date';
 import P from '@/components/P';
 
-import { black, darkGray, yellow } from '../consts';
+import {
+  black,
+  darkGray,
+  tooltipHeigh,
+  tooltipWidth,
+  white,
+  yellow,
+} from '../consts';
 
 import { type Coordinates } from './eventHandlers';
 import TooltipMetic, {
@@ -41,15 +46,14 @@ export default function Tooltip({ coordinates, data }: Props) {
   const [minColor, maxColor] = useTempColors(datum, data);
   const precipitationColor = usePrecipitationColor(datum);
 
-  return createPortal(
-    <div
-      style={{ top: 0, left: 0 }}
-      className="tooltip
-      absolute z-10 w-60 pointer-events-none px-4 py-2.5 
-      text-sm leading-6 text-center 
-      bg-white border border-zinc-200 "
-    >
-      <P className="text-lg text-zinc-600 font-semibold mb-1">
+  return (
+    <g style={{ top: 0, left: 0 }} className="tooltip fill-zinc-600">
+      <rect width={tooltipWidth} height={tooltipHeigh} fill={white} />
+    </g>
+  );
+}
+{
+  /* <P className="text-lg text-zinc-600 font-semibold mb-1">
         {formatTooltipDate(dateAccessor(datum))}
       </P>
       <P className="text-zinc-600">
@@ -89,8 +93,5 @@ export default function Tooltip({ coordinates, data }: Props) {
         <TooltipMetricValue color={precipitationColor}>
           {precipitationTypeAccessor(datum) || 'none'}
         </TooltipMetricValue>
-      </TooltipMetric>
-    </div>,
-    document.body
-  );
+      </TooltipMetric> */
 }
