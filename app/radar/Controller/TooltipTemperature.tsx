@@ -1,10 +1,21 @@
 import { type PropsWithChildren } from 'react';
 
-type Props = PropsWithChildren & { color: string };
-export default function TooltipTemperature({ children, color }: Props) {
+import { tooltipTextCenter, tooltipTextTemperatureY } from '../consts';
+
+export function TooltipTemperature({ children }: PropsWithChildren) {
   return (
-    <span className="tabular-nums" style={{ color }}>
+    <text
+      x={tooltipTextCenter}
+      y={tooltipTextTemperatureY}
+      textAnchor="middle"
+      dominantBaseline="hanging"
+    >
       {children}
-    </span>
+    </text>
   );
+}
+
+type Props = PropsWithChildren & { fill?: string };
+export function TooltipTemperatureSpan({ children, fill }: Props) {
+  return <tspan fill={fill}>{children}</tspan>;
 }

@@ -35,8 +35,11 @@ import {
   useTooltipAngle,
   useTooltipPosition,
 } from './utils';
-import TooltipTemperature from './TooltipTemperature';
 import TooltipDate from './TooltipDate';
+import {
+  TooltipTemperature,
+  TooltipTemperatureSpan,
+} from './TooltipTemperature';
 
 type Props = {
   coordinates: Exclude<Coordinates, null>;
@@ -59,6 +62,15 @@ export default function Tooltip({ coordinates, data }: Props) {
         stroke={gray}
       />
       <TooltipDate>{formatTooltipDate(dateAccessor(datum))}</TooltipDate>
+      <TooltipTemperature>
+        <TooltipTemperatureSpan fill={minColor}>
+          {formatNumber(tempMinAccessor(datum))}
+        </TooltipTemperatureSpan>
+        <TooltipTemperatureSpan> - </TooltipTemperatureSpan>
+        <TooltipTemperatureSpan fill={maxColor}>
+          {formatNumber(tempMaxAccessor(datum))}
+        </TooltipTemperatureSpan>
+      </TooltipTemperature>
     </g>
   );
 }

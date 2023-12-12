@@ -75,3 +75,6 @@ export const tooltipTextCenter = tooltipWidth / 2;
 export const tooltipTextAdjust = 10;
 export const tooltipTextLeft = tooltipWidth - tooltipTextAdjust;
 export const tooltipTextRight = tooltipTextAdjust;
+export const tooltipTextDateSize = 18;
+export const tooltipTextTemperatureY =
+  tooltipTextDateSize + 2 * tooltipTextAdjust;
