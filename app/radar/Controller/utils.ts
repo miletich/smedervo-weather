@@ -8,10 +8,23 @@ import {
   tempMinAccessor,
   tempMaxAccessor,
   precipitationTypeAccessor,
+  uvIndexAccessor,
+  cloudCoverAccessor,
+  precipitationProbabilityAccessor,
 } from '@/utils/data';
 
 import { getAngleForCoordinates, getCoordinatesForAngle } from '../utils/angle';
-import { dimensions, tooltipAngleOffset, tooltipOffset } from '../consts';
+import {
+  black,
+  darkGray,
+  dimensions,
+  tooltipAngleOffset,
+  tooltipHeight,
+  tooltipOffset,
+  tooltipOffsetAdjustThreshold,
+  tooltipWidth,
+  yellow,
+} from '../consts';
 import { getAngleScale } from '../utils/scales';
 import { gradientScale } from '../sections/Meta/TemperatureGradient';
 
@@ -19,6 +32,7 @@ import { type Coordinates } from './eventHandlers';
 import { formatDateForCompare } from '@/utils/date';
 import { extent } from 'd3';
 import { precipitationTypeScale } from '../sections/Precipitation/utils';
+import { TooltipMetric } from './TooltipMetrics';
 
 type UseTooltipAngle = (coordinates: Exclude<Coordinates, null>) => number;
 export const useTooltipAngle: UseTooltipAngle = (coordinates) =>
@@ -31,6 +45,27 @@ export const useTooltipAngle: UseTooltipAngle = (coordinates) =>
 
     return angle;
   }, [coordinates]);
+
+type UseTooltipPosition = (angle: number) => [number, number];
+export const useTooltipPosition: UseTooltipPosition = (angle) =>
+  useMemo(() => {
+    const [x, y] = getCoordinatesForAngle(angle, tooltipOffset);
+    // if not near the center place near the edges, otherwise center
+    const xAdjust =
+      x < -tooltipOffsetAdjustThreshold
+        ? tooltipWidth
+        : x > tooltipOffsetAdjustThreshold
+        ? 0
+        : tooltipWidth / 2;
+    const yAdjust =
+      y < -tooltipOffsetAdjustThreshold
+        ? tooltipHeight
+        : y > tooltipOffsetAdjustThreshold
+        ? 0
+        : tooltipHeight / 2;
+
+    return [x - xAdjust, y - yAdjust];
+  }, [angle]);
 
 type GenerateTooltipArc = (angle: number) => string;
 export const generateTooltipArc: GenerateTooltipArc = (angle) =>
@@ -71,14 +106,38 @@ export const useTempColors: UseTempColors = (datum, data) =>
     return [scale(tempMinAccessor(datum)), scale(tempMaxAccessor(datum))];
   }, [datum, data]);
 
-type UsePrecipitationColor = (datum: Datum) => string | undefined;
-export const usePrecipitationColor: UsePrecipitationColor = (datum) =>
+type TooltipMetrics = {
+  name: string;
+  value: string;
+  fill?: string;
+};
+type UseTooltipMetrics = (datum: Datum) => TooltipMetrics[];
+export const useTooltipMetrics: UseTooltipMetrics = (datum) =>
   useMemo(() => {
-    const type = precipitationTypeAccessor(datum);
+    const precipitationTypeName = precipitationTypeAccessor(datum);
+    const uvIndex: TooltipMetrics = {
+      name: 'UV Index',
+      value: formatNumber(uvIndexAccessor(datum)),
+      fill: yellow,
+    };
+    const cloudCover: TooltipMetrics = {
+      name: 'Cloud Cover',
+      value: formatNumber(cloudCoverAccessor(datum)),
+      fill: darkGray,
+    };
+    const precipitationProbability: TooltipMetrics = {
+      name: 'Precipitation Probability',
+      value: formatNumber(precipitationProbabilityAccessor(datum), 0) + '%',
+      fill: black,
+    };
+    const precipitationType: TooltipMetrics = {
+      name: 'Precipitation Type',
+      value: precipitationTypeName || 'none',
+      fill:
+        precipitationTypeName && precipitationTypeScale(precipitationTypeName),
+    };
 
-    if (!type) return;
-
-    return precipitationTypeScale(type);
+    return [uvIndex, cloudCover, precipitationProbability, precipitationType];
   }, [datum]);
 
 type UseTooltipTranslate = (angle: number) => string;

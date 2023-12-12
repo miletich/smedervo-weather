@@ -64,6 +64,24 @@ export const precipitationTypeAnnotationR = 4;
 export const precipitationTypeCircleOpacity = 0.7;
 
 // tooltip
-export const tooltipOffset = 1.6;
+export const tooltipWidth = 250;
+export const tooltipHeight = 145;
+export const tooltipOffset = 1.4;
+export const tooltipOffsetAdjustThreshold = 40;
 export const tooltipAngleOffset = 0.015;
 export const tooltipArcOpacity = 0.2;
+
+// tooltip text
+export const tooltipTextCenter = tooltipWidth / 2;
+export const tooltipTextAdjust = 16;
+export const tooltipTextLeft = tooltipWidth - tooltipTextAdjust;
+export const tooltipTextRight = tooltipTextAdjust;
+export const tooltipTextDateSize = 18;
+export const tooltipTextTemperatureY =
+  tooltipTextDateSize + tooltipTextAdjust * 1.5;
+
+// tooltip metrics
+export const tooltipMetricsY =
+  tooltipTextTemperatureY + tooltipTextAdjust * 1.7;
+export const tooltipMetricNameWeight = 700;
+export const tooltipMetricFontSize = 12;

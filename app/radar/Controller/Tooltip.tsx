@@ -1,35 +1,35 @@
-import { createPortal } from 'react-dom';
-
 import {
+  type Datum,
   dateAccessor,
   tempMinAccessor,
-  type Datum,
   tempMaxAccessor,
-  uvIndexAccessor,
-  cloudCoverAccessor,
-  precipitationProbabilityAccessor,
-  precipitationTypeAccessor,
 } from '@/utils/data';
 import { formatTooltipDate } from '@/utils/date';
 import P from '@/components/P';
 
-import { black, darkGray, wrapperId, yellow } from '../consts';
+import { gray, tooltipHeight, tooltipWidth, white } from '../consts';
 
 import { type Coordinates } from './eventHandlers';
-import TooltipMetic, {
+import {
+  TooltipMetrics,
+  TooltipMetric,
   TooltipMetricTitle,
   TooltipMetricValue,
-} from './TooltipMetric';
-import TooltipMetric from './TooltipMetric';
+} from './TooltipMetrics';
 import {
   formatNumber,
   useCurrentDatum,
-  usePrecipitationColor,
   useTempColors,
   useTooltipAngle,
   useTooltipTranslate,
+  useTooltipMetrics,
+  useTooltipPosition,
 } from './utils';
-import TooltipTemperature from './TooltipTemperature';
+import TooltipDate from './TooltipDate';
+import {
+  TooltipTemperature,
+  TooltipTemperatureSpan,
+} from './TooltipTemperature';
 
 type Props = {
   coordinates: Exclude<Coordinates, null>;
@@ -38,63 +38,38 @@ type Props = {
 
 export default function Tooltip({ coordinates, data }: Props) {
   const angle = useTooltipAngle(coordinates);
+  const [x, y] = useTooltipPosition(angle);
   const datum = useCurrentDatum(angle, data);
   const tooltipTranslate = useTooltipTranslate(angle);
   const [minColor, maxColor] = useTempColors(datum, data);
-  const precipitationColor = usePrecipitationColor(datum);
+  const metrics = useTooltipMetrics(datum);
 
-  console.log(tooltipTranslate);
-
-  return createPortal(
-    <div
-      style={{ transform: tooltipTranslate }}
-      className="tooltip
-      absolute z-10 w-60 pointer-events-none px-4 py-2.5 
-      text-sm leading-6 text-center 
-      bg-white border border-zinc-200 "
-    >
-      <P className="text-lg text-zinc-600 font-semibold mb-1">
-        {formatTooltipDate(dateAccessor(datum))}
-      </P>
-      <P className="text-zinc-600">
-        <TooltipTemperature color={minColor}>
+  return (
+    <g transform={`translate(${x},${y})`} className="tooltip fill-zinc-600">
+      <rect
+        width={tooltipWidth}
+        height={tooltipHeight}
+        fill={white}
+        stroke={gray}
+      />
+      <TooltipDate>{formatTooltipDate(dateAccessor(datum))}</TooltipDate>
+      <TooltipTemperature>
+        <TooltipTemperatureSpan fill={minColor}>
           {formatNumber(tempMinAccessor(datum))}
-        </TooltipTemperature>{' '}
-        -{' '}
-        <TooltipTemperature color={maxColor}>
+        </TooltipTemperatureSpan>
+        <TooltipTemperatureSpan> - </TooltipTemperatureSpan>
+        <TooltipTemperatureSpan fill={maxColor}>
           {formatNumber(tempMaxAccessor(datum))}
-        </TooltipTemperature>
-      </P>
-      <TooltipMetric>
-        <TooltipMetricTitle color={yellow}>UV Index</TooltipMetricTitle>
-        <TooltipMetricValue color={yellow}>
-          {formatNumber(uvIndexAccessor(datum))}
-        </TooltipMetricValue>
-      </TooltipMetric>
-      <TooltipMetric>
-        <TooltipMetricTitle color={darkGray}>Cloud Cover</TooltipMetricTitle>
-        <TooltipMetricValue color={darkGray}>
-          {formatNumber(cloudCoverAccessor(datum))}
-        </TooltipMetricValue>
-      </TooltipMetric>
-      <TooltipMetric>
-        <TooltipMetricTitle color={black}>
-          Precipitation Probability
-        </TooltipMetricTitle>
-        <TooltipMetricValue color={black}>{`${formatNumber(
-          precipitationProbabilityAccessor(datum),
-          0
-        )}%`}</TooltipMetricValue>
-      </TooltipMetric>
-      <TooltipMetric>
-        <TooltipMetricTitle color={precipitationColor}>
-          Precipitation Type
-        </TooltipMetricTitle>
-        <TooltipMetricValue color={precipitationColor}>
-          {precipitationTypeAccessor(datum) || 'none'}
-        </TooltipMetricValue>
-      </TooltipMetric>
-    </div>,
-    document.getElementById(wrapperId)!
+        </TooltipTemperatureSpan>
+      </TooltipTemperature>
+      <TooltipMetrics>
+        {metrics.map(({ name, value, fill }, i) => (
+          <TooltipMetric key={name} fill={fill} i={i}>
+            <TooltipMetricTitle>{name}</TooltipMetricTitle>
+            <TooltipMetricValue>{value}</TooltipMetricValue>
+          </TooltipMetric>
+        ))}
+      </TooltipMetrics>
+    </g>
   );
 }
