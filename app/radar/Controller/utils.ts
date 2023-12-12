@@ -10,8 +10,15 @@ import {
   precipitationTypeAccessor,
 } from '@/utils/data';
 
-import { getAngleForCoordinates } from '../utils/angle';
-import { dimensions, tooltipAngleOffset } from '../consts';
+import { getAngleForCoordinates, getCoordinatesForAngle } from '../utils/angle';
+import {
+  dimensions,
+  tooltipAngleOffset,
+  tooltipHeight,
+  tooltipOffset,
+  tooltipOffsetAdjustThreshold,
+  tooltipWidth,
+} from '../consts';
 import { getAngleScale } from '../utils/scales';
 import { gradientScale } from '../sections/Meta/TemperatureGradient';
 
@@ -31,6 +38,27 @@ export const useTooltipAngle: UseTooltipAngle = (coordinates) =>
 
     return angle;
   }, [coordinates]);
+
+type UseTooltipPosition = (angle: number) => [number, number];
+export const useTooltipPosition: UseTooltipPosition = (angle) =>
+  useMemo(() => {
+    const [x, y] = getCoordinatesForAngle(angle, tooltipOffset);
+    // if not near the center place near the edges, otherwise center
+    const xAdjust =
+      x < -tooltipOffsetAdjustThreshold
+        ? tooltipWidth
+        : x > tooltipOffsetAdjustThreshold
+        ? 0
+        : tooltipWidth / 2;
+    const yAdjust =
+      y < -tooltipOffsetAdjustThreshold
+        ? tooltipHeight
+        : y > tooltipOffsetAdjustThreshold
+        ? 0
+        : tooltipHeight / 2;
+
+    return [x - xAdjust, y - yAdjust];
+  }, [angle]);
 
 type GenerateTooltipArc = (angle: number) => string;
 export const generateTooltipArc: GenerateTooltipArc = (angle) =>

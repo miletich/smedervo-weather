@@ -14,7 +14,8 @@ import P from '@/components/P';
 import {
   black,
   darkGray,
-  tooltipHeigh,
+  gray,
+  tooltipHeight,
   tooltipWidth,
   white,
   yellow,
@@ -32,6 +33,7 @@ import {
   usePrecipitationColor,
   useTempColors,
   useTooltipAngle,
+  useTooltipPosition,
 } from './utils';
 import TooltipTemperature from './TooltipTemperature';
 
@@ -42,13 +44,19 @@ type Props = {
 
 export default function Tooltip({ coordinates, data }: Props) {
   const angle = useTooltipAngle(coordinates);
+  const [x, y] = useTooltipPosition(angle);
   const datum = useCurrentDatum(angle, data);
   const [minColor, maxColor] = useTempColors(datum, data);
   const precipitationColor = usePrecipitationColor(datum);
 
   return (
-    <g style={{ top: 0, left: 0 }} className="tooltip fill-zinc-600">
-      <rect width={tooltipWidth} height={tooltipHeigh} fill={white} />
+    <g transform={`translate(${x},${y})`} className="tooltip fill-zinc-600">
+      <rect
+        width={tooltipWidth}
+        height={tooltipHeight}
+        fill={white}
+        stroke={gray}
+      />
     </g>
   );
 }
