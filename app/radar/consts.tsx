@@ -69,3 +69,9 @@ export const tooltipOffset = 1.4;
 export const tooltipOffsetAdjustThreshold = 40;
 export const tooltipAngleOffset = 0.015;
 export const tooltipArcOpacity = 0.2;
+
+// tooltip text
+export const tooltipTextCenter = tooltipWidth / 2;
+export const tooltipTextAdjust = 10;
+export const tooltipTextLeft = tooltipWidth - tooltipTextAdjust;
+export const tooltipTextRight = tooltipTextAdjust;

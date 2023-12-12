@@ -36,6 +36,7 @@ import {
   useTooltipPosition,
 } from './utils';
 import TooltipTemperature from './TooltipTemperature';
+import TooltipDate from './TooltipDate';
 
 type Props = {
   coordinates: Exclude<Coordinates, null>;
@@ -57,13 +58,12 @@ export default function Tooltip({ coordinates, data }: Props) {
         fill={white}
         stroke={gray}
       />
+      <TooltipDate>{formatTooltipDate(dateAccessor(datum))}</TooltipDate>
     </g>
   );
 }
 {
-  /* <P className="text-lg text-zinc-600 font-semibold mb-1">
-        {formatTooltipDate(dateAccessor(datum))}
-      </P>
+  /*  aa
       <P className="text-zinc-600">
         <TooltipTemperature color={minColor}>
           {formatNumber(tempMinAccessor(datum))}
