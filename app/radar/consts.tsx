@@ -78,10 +78,10 @@ export const tooltipTextLeft = tooltipWidth - tooltipTextAdjust;
 export const tooltipTextRight = tooltipTextAdjust;
 export const tooltipTextDateSize = 18;
 export const tooltipTextTemperatureY =
-  tooltipTextDateSize + tooltipTextAdjust * 1.5;
+  tooltipTextDateSize + tooltipTextAdjust * 2;
 
 // tooltip metrics
 export const tooltipMetricsY =
-  tooltipTextTemperatureY + tooltipTextAdjust * 1.7;
+  tooltipTextTemperatureY + tooltipTextAdjust * 1.3;
 export const tooltipMetricNameWeight = 700;
 export const tooltipMetricFontSize = 12;

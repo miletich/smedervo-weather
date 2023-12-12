@@ -4,12 +4,7 @@ import { tooltipTextCenter, tooltipTextTemperatureY } from '../consts';
 
 export function TooltipTemperature({ children }: PropsWithChildren) {
   return (
-    <text
-      x={tooltipTextCenter}
-      y={tooltipTextTemperatureY}
-      textAnchor="middle"
-      dominantBaseline="hanging"
-    >
+    <text x={tooltipTextCenter} y={tooltipTextTemperatureY} textAnchor="middle">
       {children}
     </text>
   );
