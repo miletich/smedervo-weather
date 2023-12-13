@@ -5,6 +5,7 @@ import P from '@/components/P';
 import MainMenuItem, { MainMenu } from '@/components/MainMenu';
 
 import ScatterPlotIllustration from './scatter-plot/Illustration';
+import RadarIllustration from './radar/Illustration.tsx';
 
 export default async function Home() {
   return (
@@ -19,11 +20,15 @@ export default async function Home() {
             <P>Scatter Plot</P>
           </MainMenuItem>
           <MainMenuItem href="/radar">
+            <RadarIllustration />
+            <P>Radar</P>
+          </MainMenuItem>
+          {/* <MainMenuItem href="/radar">
             <P className="w-[90%] aspect-square flex items-center justify-center m-[5%] bg-zinc-100">
               WIP
             </P>
             <P>Radar</P>
-          </MainMenuItem>
+          </MainMenuItem> */}
         </MainMenu>
       </main>
     </>
