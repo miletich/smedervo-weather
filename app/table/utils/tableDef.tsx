@@ -1,10 +1,14 @@
-import { createColumnHelper } from '@tanstack/table-core';
+import {
+  type CoreOptions,
+  createColumnHelper,
+  getCoreRowModel,
+} from '@tanstack/table-core';
 
 import type { Datum } from '@/utils/data';
 
 export const columnHelper = createColumnHelper<Datum>();
 
-const columns = [
+export const columns = [
   columnHelper.accessor('datetime', {
     header: () => 'Date',
     cell: (info) => info.getValue(),
@@ -50,3 +54,15 @@ const columns = [
     cell: (info) => info.getValue(),
   }),
 ];
+
+type GetCoreOptions = (data: Datum[]) => CoreOptions<Datum>;
+export const getCoreOptions: GetCoreOptions = (data) => ({
+  get data() {
+    return data;
+  },
+  columns,
+  onStateChange: () => {},
+  getCoreRowModel: getCoreRowModel(),
+  renderFallbackValue: null,
+  state: {},
+});
