@@ -20,6 +20,12 @@ export const datumSchema = z.object({
   precipprob: z.coerce.number(),
   preciptype: precipitationTypeSchema,
   cloudcover: z.coerce.number(),
+  windspeed: z.coerce.number(),
+  winddir: z.coerce.number(),
+  sunrise: z.string(),
+  sunset: z.string(),
+  moonphase: z.coerce.number(),
+  description: z.string(),
 });
 
 export const dataSchema = z.array(datumSchema);
@@ -27,6 +33,7 @@ export const dataSchema = z.array(datumSchema);
 export type Datum = z.infer<typeof datumSchema>;
 
 type NumberAccessor = (d: Datum) => number;
+type StringAccessor = (d: Datum) => string;
 type DateAccessor = (d: Datum) => Date;
 type LengthAccessor = <T extends unknown[] = unknown[]>(d: T) => number;
 type PrecipitationTypeAccessor = (d: Datum) => PrecipitationType;
@@ -41,3 +48,8 @@ export const precipitationProbabilityAccessor: NumberAccessor = (d) =>
 export const cloudCoverAccessor: NumberAccessor = (d) => d.cloudcover;
 export const precipitationTypeAccessor: PrecipitationTypeAccessor = (d) =>
   d.preciptype;
+export const windSpeedAccessor: NumberAccessor = (d) => d.windspeed;
+export const windDirectionAccessor: NumberAccessor = (d) => d.winddir;
+export const sunRiseAccessor: DateAccessor = (d) => new Date(d.sunrise);
+export const sunsetAccessor: DateAccessor = (d) => new Date(d.sunset);
+export const descriptionAccessor: StringAccessor = (d) => d.description;
