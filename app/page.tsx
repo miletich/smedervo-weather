@@ -23,12 +23,12 @@ export default async function Home() {
             <RadarIllustration />
             <P>Radar</P>
           </MainMenuItem>
-          {/* <MainMenuItem href="/radar">
+          <MainMenuItem href="/table">
             <P className="w-[90%] aspect-square flex items-center justify-center m-[5%] bg-zinc-100">
               WIP
             </P>
-            <P>Radar</P>
-          </MainMenuItem> */}
+            <P>Table</P>
+          </MainMenuItem>
         </MainMenu>
       </main>
     </>
