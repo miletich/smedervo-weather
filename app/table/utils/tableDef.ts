@@ -14,19 +14,19 @@ import {
 } from '@/utils/data';
 
 export const columns = [
-  { id: 'datetime', label: 'Date', accessor: dateAccessor },
-  { id: 'tempMin', label: 'Min Temp', accessor: tempMinAccessor },
-  { id: 'tempMax', label: 'Max Temp', accessor: tempMaxAccessor },
-  { id: 'description', label: 'Description', accessor: descriptionAccessor },
-  { id: 'sunrise', label: 'Sunrise', accessor: sunriseAccessor },
-  { id: 'sunset', label: 'Sunset', accessor: sunsetAccessor },
-  { id: 'uvindex', label: 'UV Index', accessor: uvIndexAccessor },
+  { name: 'datetime', label: 'Date', accessor: dateAccessor },
+  { name: 'tempmin', label: 'Min Temp', accessor: tempMinAccessor },
+  { name: 'tempmax', label: 'Max Temp', accessor: tempMaxAccessor },
+  { name: 'description', label: 'Description', accessor: descriptionAccessor },
+  { name: 'sunrise', label: 'Sunrise', accessor: sunriseAccessor },
+  { name: 'sunset', label: 'Sunset', accessor: sunsetAccessor },
+  { name: 'uvindex', label: 'UV Index', accessor: uvIndexAccessor },
   {
-    id: 'preciptype',
+    name: 'preciptype',
     label: 'Precipitation',
     accessor: precipitationTypeAccessor,
   },
-  { id: 'windspeed', label: 'Wind Speed', accessor: windSpeedAccessor },
-  { id: 'winddir', label: 'Wind Direction', accessor: windDirectionAccessor },
-  { id: 'moonphase', label: 'Moon', accessor: moonPhaseAccessor },
+  { name: 'windspeed', label: 'Wind Speed', accessor: windSpeedAccessor },
+  { name: 'winddir', label: 'Wind Direction', accessor: windDirectionAccessor },
+  { name: 'moonphase', label: 'Moon', accessor: moonPhaseAccessor },
 ] as const;

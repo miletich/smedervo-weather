@@ -1,4 +1,11 @@
-import { Table, TableHead, TableHeader, TableRow } from '@/components/Table';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/Table';
 import getDataServer from '@/utils/getDataServer';
 import { columns } from './utils/tableDef';
 
@@ -9,10 +16,19 @@ export default async function TableView() {
     <div>
       <Table>
         <TableHeader>
-          {columns.map(({ id, label }) => (
-            <TableHead key={id}>{label}</TableHead>
+          {columns.map(({ name, label }) => (
+            <TableHead key={name}>{label}</TableHead>
           ))}
         </TableHeader>
+        <TableBody>
+          {data.map((d, i) => (
+            <TableRow key={d.datetime}>
+              {columns.map(({ name, accessor }) => (
+                <TableCell key={name}>{accessor(d)?.toString()}</TableCell>
+              ))}
+            </TableRow>
+          ))}
+        </TableBody>
       </Table>
     </div>
   );
