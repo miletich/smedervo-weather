@@ -7,7 +7,7 @@ export default forwardRef<HTMLTableCellElement, Props>(function TableCell(
   ref
 ) {
   return (
-    <td ref={ref} className={`${className}`} {...rest}>
+    <td ref={ref} className={`p-1 ${className}`} {...rest}>
       {children}
     </td>
   );

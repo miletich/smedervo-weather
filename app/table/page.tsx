@@ -7,6 +7,8 @@ import {
   TableRow,
 } from '@/components/Table';
 import getDataServer from '@/utils/getDataServer';
+import Numeric from '@/components/Numeric';
+
 import { columns } from './utils/tableDef';
 
 export default async function TableView() {
@@ -23,9 +25,19 @@ export default async function TableView() {
         <TableBody>
           {data.map((d, i) => (
             <TableRow key={d.datetime}>
-              {columns.map(({ name, accessor }) => (
-                <TableCell key={name}>{accessor(d)?.toString()}</TableCell>
-              ))}
+              {columns.map(({ name, accessor }) => {
+                const rawValue = accessor(d);
+                const value =
+                  typeof rawValue === 'number' ? (
+                    <Numeric>{rawValue.toFixed(2)}</Numeric>
+                  ) : rawValue instanceof Date ? (
+                    rawValue.toString()
+                  ) : (
+                    rawValue
+                  );
+
+                return <TableCell key={name}>{value}</TableCell>;
+              })}
             </TableRow>
           ))}
         </TableBody>
