@@ -2,7 +2,7 @@ type FormatDate = (date: Date) => string;
 
 const locale = 'en-GB';
 
-export const formatLegendDate: FormatDate = (date) => {
+export const formatShortDate: FormatDate = (date) => {
   const options = {
     day: 'numeric',
     month: 'short',

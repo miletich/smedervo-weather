@@ -10,6 +10,7 @@ import getDataServer from '@/utils/getDataServer';
 import Numeric from '@/components/Numeric';
 
 import { columns } from './utils/tableDef';
+import { formatShortDate } from '@/utils/date';
 
 export default async function TableView() {
   const data = await getDataServer();
@@ -31,7 +32,7 @@ export default async function TableView() {
                   typeof rawValue === 'number' ? (
                     <Numeric>{rawValue.toFixed(2)}</Numeric>
                   ) : rawValue instanceof Date ? (
-                    rawValue.toString()
+                    formatShortDate(rawValue)
                   ) : (
                     rawValue
                   );

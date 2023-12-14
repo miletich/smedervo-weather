@@ -3,7 +3,7 @@
 import type { PropsWithChildren } from 'react';
 
 import { type Datum, dateAccessor } from '@/utils/data';
-import { formatLegendDate } from '@/utils/date';
+import { formatShortDate } from '@/utils/date';
 
 import { gradientLabelOffset, gradientWidth } from '../../consts';
 import { useHighlightData } from '../../context/HighlightContext';
@@ -25,6 +25,6 @@ export default function GradientLegendText({ data, children }: Props) {
       x={gradientWidth / 2}
       textAnchor="middle"
       dy={-gradientLabelOffset}
-    >{`${formatLegendDate(first)} - ${formatLegendDate(last)}`}</text>
+    >{`${formatShortDate(first)} - ${formatShortDate(last)}`}</text>
   );
 }
