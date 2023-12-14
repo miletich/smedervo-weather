@@ -24,7 +24,6 @@ export const datumSchema = z.object({
   winddir: z.coerce.number(),
   sunrise: z.string(),
   sunset: z.string(),
-  moonphase: z.coerce.number(),
   description: z.string(),
 });
 
@@ -53,4 +52,3 @@ export const windDirectionAccessor: NumberAccessor = (d) => d.winddir;
 export const sunriseAccessor: DateAccessor = (d) => new Date(d.sunrise);
 export const sunsetAccessor: DateAccessor = (d) => new Date(d.sunset);
 export const descriptionAccessor: StringAccessor = (d) => d.description;
-export const moonPhaseAccessor: NumberAccessor = (d) => d.moonphase;

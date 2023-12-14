@@ -10,7 +10,6 @@ import {
   precipitationTypeAccessor,
   windSpeedAccessor,
   windDirectionAccessor,
-  moonPhaseAccessor,
 } from '@/utils/data';
 
 export const columns = [
@@ -28,5 +27,5 @@ export const columns = [
   },
   { name: 'windspeed', label: 'Wind Speed', accessor: windSpeedAccessor },
   { name: 'winddir', label: 'Wind Direction', accessor: windDirectionAccessor },
-  { name: 'moonphase', label: 'Moon', accessor: moonPhaseAccessor },
+  { name: 'moonphase', label: 'Moon', accessor: dateAccessor },
 ] as const;

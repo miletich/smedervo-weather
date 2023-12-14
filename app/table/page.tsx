@@ -9,8 +9,10 @@ import {
 import getDataServer from '@/utils/getDataServer';
 import Numeric from '@/components/Numeric';
 
-import { columns } from './utils/tableDef';
 import { formatShortDate } from '@/utils/date';
+import Moon from '@/components/Moon';
+
+import { columns } from './utils/tableDef';
 
 export default async function TableView() {
   const data = await getDataServer();
@@ -27,17 +29,19 @@ export default async function TableView() {
           {data.map((d, i) => (
             <TableRow key={d.datetime}>
               {columns.map(({ name, accessor }) => {
-                const rawValue = accessor(d);
-                const value =
-                  typeof rawValue === 'number' ? (
-                    <Numeric>{rawValue.toFixed(2)}</Numeric>
-                  ) : rawValue instanceof Date ? (
-                    formatShortDate(rawValue)
-                  ) : (
-                    rawValue
-                  );
+                const value = accessor(d);
+                let cell: JSX.Element | string | undefined;
+                if (name === 'moonphase' && value instanceof Date) {
+                  cell = <Moon date={value} idx={d.datetime} />;
+                } else if (value instanceof Date) {
+                  cell = formatShortDate(value);
+                } else if (typeof value === 'number') {
+                  cell = <Numeric>{value.toFixed(2)}</Numeric>;
+                } else {
+                  cell = value;
+                }
 
-                return <TableCell key={name}>{value}</TableCell>;
+                return <TableCell key={name}>{cell}</TableCell>;
               })}
             </TableRow>
           ))}
