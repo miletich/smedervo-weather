@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import '../globals.css';
 import H2 from '@/components/H2';
 import P from '@/components/P';
+import ContentWrapper from '@/components/ContentWrapper';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <>
+    <ContentWrapper>
       <header className="flex flex-col items-center">
         <H2>Daily Temperature Ranges</H2>
         <P className="text-center">
@@ -26,6 +27,6 @@ export default function RootLayout({
         </P>
       </header>
       <main>{children}</main>
-    </>
+    </ContentWrapper>
   );
 }

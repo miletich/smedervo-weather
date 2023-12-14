@@ -19,11 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} relative`}>
-        <div className="flex flex-col items-center justify-center h-screen">
-          {children}
-        </div>
-      </body>
+      <body className={`${inter.className} relative`}>{children}</body>
     </html>
   );
 }

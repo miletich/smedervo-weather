@@ -6,10 +6,11 @@ import MainMenuItem, { MainMenu } from '@/components/MainMenu';
 
 import ScatterPlotIllustration from './scatter-plot/Illustration';
 import RadarIllustration from './radar/Illustration.tsx';
+import ContentWrapper from '@/components/ContentWrapper';
 
 export default async function Home() {
   return (
-    <>
+    <ContentWrapper>
       <header className="flex flex-col items-center">
         <H2>Smederevo 2022 weather overview</H2>
       </header>
@@ -31,6 +32,6 @@ export default async function Home() {
           </MainMenuItem>
         </MainMenu>
       </main>
-    </>
+    </ContentWrapper>
   );
 }

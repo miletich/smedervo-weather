@@ -7,6 +7,7 @@ import P from '@/components/P';
 import '../globals.css';
 
 import { wrapperId } from './consts';
+import ContentWrapper from '@/components/ContentWrapper';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -22,13 +23,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="-mt-5">
-      <header className="flex flex-col items-center">
-        <H2>Smederevo Weather in 2022</H2>
-      </header>
-      <main id={wrapperId} className="flex justify-center">
-        {children}
-      </main>
-    </div>
+    <ContentWrapper>
+      <div className="-mt-5">
+        <header className="flex flex-col items-center">
+          <H2>Smederevo Weather in 2022</H2>
+        </header>
+        <main id={wrapperId} className="flex justify-center">
+          {children}
+        </main>
+      </div>
+    </ContentWrapper>
   );
 }
