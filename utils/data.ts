@@ -50,6 +50,7 @@ export const precipitationTypeAccessor: PrecipitationTypeAccessor = (d) =>
   d.preciptype;
 export const windSpeedAccessor: NumberAccessor = (d) => d.windspeed;
 export const windDirectionAccessor: NumberAccessor = (d) => d.winddir;
-export const sunRiseAccessor: DateAccessor = (d) => new Date(d.sunrise);
+export const sunriseAccessor: DateAccessor = (d) => new Date(d.sunrise);
 export const sunsetAccessor: DateAccessor = (d) => new Date(d.sunset);
 export const descriptionAccessor: StringAccessor = (d) => d.description;
+export const moonPhaseAccessor: NumberAccessor = (d) => d.moonphase;
