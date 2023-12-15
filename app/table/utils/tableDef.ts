@@ -23,14 +23,14 @@ export const isWindGuard = (d: any): d is Wind =>
 export const columns = [
   { name: 'datetime', label: 'Date', accessor: dateAccessor },
   { name: 'description', label: 'Description', accessor: descriptionAccessor },
-  { name: 'tempmax', label: 'Max Temp', accessor: tempMaxAccessor },
-  { name: 'daylight', label: 'Daylight', accessor: dateAccessor },
-  { name: 'uvindex', label: 'UV Index', accessor: uvIndexAccessor },
-  { name: 'moonphase', label: 'Moon', accessor: dateAccessor },
   {
     name: 'preciptype',
     label: 'Precipitation',
     accessor: precipitationTypeAccessor,
   },
+  { name: 'tempmax', label: 'Max Temp', accessor: tempMaxAccessor },
+  { name: 'daylight', label: 'Daylight', accessor: dateAccessor },
+  { name: 'moonphase', label: 'Moon', accessor: dateAccessor },
   { name: 'wind', label: 'Wind', accessor: windAccessor },
+  { name: 'uvindex', label: 'UV Index', accessor: uvIndexAccessor },
 ] as const;
