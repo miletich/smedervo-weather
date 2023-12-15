@@ -25,7 +25,7 @@ export default forwardRef<HTMLDivElement, Props>(async function wind(
   return (
     <div
       ref={ref}
-      className={`${className} flex`}
+      className={`${className}  h-12 flex justify-between items-center px-2`}
       {...rest}
       style={{ backgroundColor: scale(wind.windspeed) }}
     >

@@ -7,7 +7,7 @@ export default forwardRef<HTMLTableElement, Props>(function Table(
   ref
 ) {
   return (
-    <table ref={ref} className={`${className}`} {...rest}>
+    <table ref={ref} className={`${className} border-collapse`} {...rest}>
       {children}
     </table>
   );

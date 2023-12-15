@@ -16,7 +16,7 @@ export default forwardRef<HTMLSpanElement, Props>(function MaxTemp(
     .interpolator(interpolateTurbo);
   return (
     <Numeric
-      className={`${className}`}
+      className={`${className} h-12 flex justify-end items-center pe-2`}
       style={{ backgroundColor: scale(temperature) }}
       {...rest}
       ref={ref}
