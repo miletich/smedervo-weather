@@ -22,8 +22,6 @@ export const datumSchema = z.object({
   cloudcover: z.coerce.number(),
   windspeed: z.coerce.number(),
   winddir: z.coerce.number(),
-  sunrise: z.string(),
-  sunset: z.string(),
   description: z.string(),
 });
 
@@ -49,6 +47,4 @@ export const precipitationTypeAccessor: PrecipitationTypeAccessor = (d) =>
   d.preciptype;
 export const windSpeedAccessor: NumberAccessor = (d) => d.windspeed;
 export const windDirectionAccessor: NumberAccessor = (d) => d.winddir;
-export const sunriseAccessor: DateAccessor = (d) => new Date(d.sunrise);
-export const sunsetAccessor: DateAccessor = (d) => new Date(d.sunset);
 export const descriptionAccessor: StringAccessor = (d) => d.description;

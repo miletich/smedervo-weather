@@ -1,3 +1,5 @@
+const location: [number, number] = [44.66377, 20.92889];
+
 // colors
 export const white = '#fff';
 export const black = '#34495e';
@@ -12,3 +14,7 @@ export const moonSize = 75;
 export const uvIndexBarWidth = 4;
 export const uvIndexBarHeight = 16;
 export const uvIndexBarPadding = uvIndexBarWidth / 2;
+
+// daylight
+export const daylightWidth = 120;
+export const daylightHeight = 20;

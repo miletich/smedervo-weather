@@ -4,8 +4,6 @@ import {
   type Datum,
   tempMaxAccessor,
   descriptionAccessor,
-  sunriseAccessor,
-  sunsetAccessor,
   uvIndexAccessor,
   precipitationTypeAccessor,
   windSpeedAccessor,
@@ -17,8 +15,7 @@ export const columns = [
   { name: 'tempmin', label: 'Min Temp', accessor: tempMinAccessor },
   { name: 'tempmax', label: 'Max Temp', accessor: tempMaxAccessor },
   { name: 'description', label: 'Description', accessor: descriptionAccessor },
-  { name: 'sunrise', label: 'Sunrise', accessor: sunriseAccessor },
-  { name: 'sunset', label: 'Sunset', accessor: sunsetAccessor },
+  { name: 'daylight', label: 'Daylight', accessor: dateAccessor },
   { name: 'uvindex', label: 'UV Index', accessor: uvIndexAccessor },
   {
     name: 'preciptype',
