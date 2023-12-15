@@ -1,4 +1,4 @@
-const location: [number, number] = [44.66377, 20.92889];
+export const location: [number, number] = [44.66377, 20.92889];
 
 // colors
 export const white = '#fff';
@@ -18,3 +18,6 @@ export const uvIndexBarPadding = uvIndexBarWidth / 2;
 // daylight
 export const daylightWidth = 120;
 export const daylightHeight = 20;
+export const daylightDayColor = '#ffed9e';
+export const daylightMidColor = '#c0ddF0';
+export const daylightNightColor = '#91a1be';
