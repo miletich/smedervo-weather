@@ -12,10 +12,11 @@ import Numeric from '@/components/Numeric';
 import { formatShortDate } from '@/utils/date';
 import Moon from './components/Moon';
 
-import { columns } from './utils/tableDef';
+import { columns, isWindGuard } from './utils/tableDef';
 import UvIndex from './components/UvIndex';
 import Daylight from './components/Daylight';
 import MaxTemp from './components/MaxTemp';
+import Wind from './components/Wind';
 
 export default async function TableView() {
   const data = await getDataServer();
@@ -42,11 +43,13 @@ export default async function TableView() {
                   cell = <Daylight date={value} />;
                 } else if (name === 'tempmax' && typeof value === 'number') {
                   cell = <MaxTemp temperature={value} />;
+                } else if (name === 'wind' && isWindGuard(value)) {
+                  cell = <Wind wind={value} />;
                 } else if (value instanceof Date) {
                   cell = formatShortDate(value);
                 } else if (typeof value === 'number') {
                   cell = <Numeric>{value.toFixed(2)}</Numeric>;
-                } else {
+                } else if (!isWindGuard(value)) {
                   cell = value;
                 }
 

@@ -21,6 +21,7 @@ export default forwardRef<SVGSVGElement, Props>(function Arrow(
     L 1,4
     L 2,0z
   `;
+
   return (
     <Svg
       className={` ${className}`}
