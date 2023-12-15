@@ -15,6 +15,7 @@ import Moon from './components/Moon';
 import { columns } from './utils/tableDef';
 import UvIndex from './components/UvIndex';
 import Daylight from './components/Daylight';
+import MaxTemp from './components/MaxTemp';
 
 export default async function TableView() {
   const data = await getDataServer();
@@ -39,6 +40,8 @@ export default async function TableView() {
                   cell = <UvIndex uvIndex={value} />;
                 } else if (name === 'daylight' && value instanceof Date) {
                   cell = <Daylight date={value} />;
+                } else if (name === 'tempmax' && typeof value === 'number') {
+                  cell = <MaxTemp temperature={value} />;
                 } else if (value instanceof Date) {
                   cell = formatShortDate(value);
                 } else if (typeof value === 'number') {
