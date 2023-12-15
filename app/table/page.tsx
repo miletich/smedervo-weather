@@ -14,6 +14,7 @@ import Moon from './components/Moon';
 
 import { columns } from './utils/tableDef';
 import UvIndex from './components/UvIndex';
+import Daylight from './components/Daylight';
 
 export default async function TableView() {
   const data = await getDataServer();
@@ -36,6 +37,8 @@ export default async function TableView() {
                   cell = <Moon date={value} idx={d.datetime} />;
                 } else if (name === 'uvindex' && typeof value === 'number') {
                   cell = <UvIndex uvIndex={value} />;
+                } else if (name === 'daylight' && value instanceof Date) {
+                  cell = <Daylight date={value} />;
                 } else if (value instanceof Date) {
                   cell = formatShortDate(value);
                 } else if (typeof value === 'number') {

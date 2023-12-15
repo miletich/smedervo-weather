@@ -16,7 +16,7 @@ export const uvIndexBarHeight = 16;
 export const uvIndexBarPadding = uvIndexBarWidth / 2;
 
 // daylight
-export const daylightWidth = 120;
+export const daylightWidth = 300;
 export const daylightHeight = 20;
 export const daylightDayColor = '#ffed9e';
 export const daylightMidColor = '#c0ddF0';
