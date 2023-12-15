@@ -45,7 +45,10 @@ export const uvIndexColorScheme: UvIndexColorScheme = {
 
 type GetUvIndexName = (value: number) => UvIndexName;
 export const getUvIndexName: GetUvIndexName = (value) =>
-  uvIndexThresholds.toReversed().find((d) => d.minValue >= value)!.name;
+  uvIndexThresholds
+    .concat()
+    .reverse()
+    .find((d) => d.minValue <= value)!.name;
 
 type GetUvIndexColor = (value: number) => string;
 export const getUvIndexColor: GetUvIndexColor = (value) =>

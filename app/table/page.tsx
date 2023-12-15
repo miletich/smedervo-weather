@@ -13,6 +13,7 @@ import { formatShortDate } from '@/utils/date';
 import Moon from './components/Moon';
 
 import { columns } from './utils/tableDef';
+import UvIndex from './components/UvIndex';
 
 export default async function TableView() {
   const data = await getDataServer();
@@ -33,6 +34,8 @@ export default async function TableView() {
                 let cell: JSX.Element | string | undefined;
                 if (name === 'moonphase' && value instanceof Date) {
                   cell = <Moon date={value} idx={d.datetime} />;
+                } else if (name === 'uvindex' && typeof value === 'number') {
+                  cell = <UvIndex uvIndex={value} />;
                 } else if (value instanceof Date) {
                   cell = formatShortDate(value);
                 } else if (typeof value === 'number') {
