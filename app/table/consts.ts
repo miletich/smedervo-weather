@@ -9,3 +9,6 @@ export const darkGray = '#8395a7';
 export const moonSize = 75;
 
 // uv index
+export const uvIndexBarWidth = 4;
+export const uvIndexBarHeight = 60;
+export const uvIndexBarPadding = uvIndexBarWidth / 2;
