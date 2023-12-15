@@ -1,32 +1,31 @@
 import { type ComponentProps, forwardRef } from 'react';
 import * as SunCalc from 'suncalc';
 
+import Svg from '@/components/Svg';
 import { gray } from '@/app/scatter-plot/consts';
-
-import Svg from './Svg';
+import { moonSize } from '../consts';
 
 type Props = ComponentProps<'svg'> & {
   date: Date;
   idx: string;
-  size?: number;
 };
 
 export default forwardRef<SVGSVGElement, Props>(function Moon(
-  { className = '', children, idx, date, size = 100, fill = gray, ...rest },
+  { className = '', children, idx, date, fill = gray, ...rest },
   ref
 ) {
   const maskId = `moon-${idx}`;
-  const r = size / 2;
+  const r = moonSize / 2;
   const { fraction } = SunCalc.getMoonIllumination(date);
-  const x = size * fraction;
+  const x = moonSize * fraction;
 
   return (
     <Svg
       className={` ${className}`}
       {...rest}
       ref={ref}
-      width={size}
-      height={size}
+      width={moonSize}
+      height={moonSize}
     >
       <mask id={maskId}>
         <circle cx={r} cy={r} r={r} fill="white" />

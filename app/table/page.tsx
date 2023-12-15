@@ -10,7 +10,7 @@ import getDataServer from '@/utils/getDataServer';
 import Numeric from '@/components/Numeric';
 
 import { formatShortDate } from '@/utils/date';
-import Moon from '@/components/Moon';
+import Moon from './components/Moon';
 
 import { columns } from './utils/tableDef';
 
