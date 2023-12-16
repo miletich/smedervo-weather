@@ -1,9 +1,11 @@
 import getRange from '@/utils/getRange';
 
+export type TablePagerConfig = Record<'count' | 'limit' | 'offset', number>;
+
 type GetFromOffsetAndLimit = (offset: number, limit: number) => number;
 
 export const getCurrentPage: GetFromOffsetAndLimit = (offset, limit) =>
-  offset > 0 ? Math.ceil(offset / limit) + 1 : 1;
+  offset > 0 ? Math.ceil(offset / limit) : 1;
 
 export const getNextOffset: GetFromOffsetAndLimit = (offset, limit) =>
   offset + limit;
