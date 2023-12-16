@@ -29,7 +29,7 @@ export default forwardRef<SVGSVGElement, Props>(function UvIndex(
       <title>{`UV Index: ${name} - ${value}`}</title>
       {new Array(value).fill(0).map((_, i) => (
         <rect
-          key={name}
+          key={`${name}-${i}`}
           x={i * barXBase}
           y={0}
           width={uvIndexBarWidth}
