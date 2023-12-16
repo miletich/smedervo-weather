@@ -25,7 +25,7 @@ export const columns = [
   { name: 'description', label: 'Description', accessor: descriptionAccessor },
   {
     name: 'preciptype',
-    label: 'Precipitation',
+    label: 'Precip',
     accessor: precipitationTypeAccessor,
   },
   { name: 'tempmax', label: 'Max Temp', accessor: tempMaxAccessor },

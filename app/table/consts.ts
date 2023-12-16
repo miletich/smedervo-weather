@@ -10,6 +10,9 @@ export const darkGray = '#8395a7';
 // moon
 export const moonSize = 75;
 
+// precipitation
+export const precipitationSize = 40;
+
 // uv index
 export const uvIndexBarWidth = 4;
 export const uvIndexBarHeight = 16;

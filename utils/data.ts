@@ -48,3 +48,6 @@ export const precipitationTypeAccessor: PrecipitationTypeAccessor = (d) =>
 export const windSpeedAccessor: NumberAccessor = (d) => d.windspeed;
 export const windDirectionAccessor: NumberAccessor = (d) => d.winddir;
 export const descriptionAccessor: StringAccessor = (d) => d.description;
+
+export const isPrecipitationType = (d: any): d is PrecipitationType =>
+  d === 'rain' || d === 'snow' || d === 'sleet';

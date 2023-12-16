@@ -17,6 +17,8 @@ import UvIndex from './components/UvIndex';
 import Daylight from './components/Daylight';
 import MaxTemp from './components/MaxTemp';
 import Wind from './components/Wind';
+import Precipitation from './components/Precipitation';
+import { isPrecipitationType } from '@/utils/data';
 
 export default async function TableView() {
   const data = await getDataServer();
@@ -49,6 +51,12 @@ export default async function TableView() {
                   cell = formatShortDate(value);
                 } else if (typeof value === 'number') {
                   cell = <Numeric>{value.toFixed(2)}</Numeric>;
+                } else if (
+                  name === 'preciptype' &&
+                  isPrecipitationType(value) &&
+                  value
+                ) {
+                  cell = <Precipitation type={value} />;
                 } else if (!isWindGuard(value)) {
                   cell = value;
                 }
