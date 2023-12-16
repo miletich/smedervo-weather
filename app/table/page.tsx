@@ -6,8 +6,8 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/Table';
-import getDataServer from '@/utils/getDataServer';
 import Numeric from '@/components/Numeric';
+import getDataServer from '@/utils/getDataServer';
 import { isPrecipitationType } from '@/utils/data';
 import { formatShortDate } from '@/utils/date';
 
