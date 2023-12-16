@@ -8,31 +8,39 @@ import {
 } from '@/components/Table';
 import getDataServer from '@/utils/getDataServer';
 import Numeric from '@/components/Numeric';
-
+import { isPrecipitationType } from '@/utils/data';
 import { formatShortDate } from '@/utils/date';
-import Moon from './components/Moon';
 
+import Moon from './components/Moon';
 import { columns, isWindGuard } from './utils/tableDef';
 import UvIndex from './components/UvIndex';
 import Daylight from './components/Daylight';
 import MaxTemp from './components/MaxTemp';
 import Wind from './components/Wind';
 import Precipitation from './components/Precipitation';
-import { isPrecipitationType } from '@/utils/data';
+import { RawSearchParams, getTableSearchParams } from './utils/searchParams';
+import { sliceData } from './utils/tableFiltering';
 
-export default async function TableView() {
+export default async function TableView({
+  searchParams,
+}: {
+  searchParams: RawSearchParams;
+}) {
   const data = await getDataServer();
+  const { offset, limit } = getTableSearchParams(searchParams);
 
   return (
     <div>
       <Table>
         <TableHeader>
-          {columns.map(({ name, label }) => (
-            <TableHead key={name}>{label}</TableHead>
-          ))}
+          <TableRow>
+            {columns.map(({ name, label }) => (
+              <TableHead key={name}>{label}</TableHead>
+            ))}
+          </TableRow>
         </TableHeader>
         <TableBody>
-          {data.map((d, i) => (
+          {sliceData(data, offset, limit).map((d, i) => (
             <TableRow key={d.datetime}>
               {columns.map(({ name, accessor }) => {
                 const value = accessor(d);
