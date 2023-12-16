@@ -1,7 +1,4 @@
-export type RawSearchParams = Record<
-  'offset' | 'limit',
-  string | string[] | undefined
->;
+export type RawSearchParams = Record<'offset' | 'limit', string | undefined>;
 
 export type NavigationSearchParams = Record<'offset' | 'limit', number>;
 export type SearchParams = NavigationSearchParams;
@@ -13,3 +10,9 @@ export const getTableSearchParams: GetTableSearchParams = (params) => {
 
   return { offset, limit };
 };
+
+type BuildQueryString = (params: Record<string, string | number>) => string;
+export const buildQueryString: BuildQueryString = (params) =>
+  `?${Object.entries(params)
+    .map(([k, v]) => `${k}=${v}`)
+    .join('&')}`;
