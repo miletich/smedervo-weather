@@ -20,6 +20,9 @@ export default forwardRef<HTMLAnchorElement, Props>(function Nav(
   ref
 ) {
   const { count, offset, limit } = config;
+  const styles = `w-9 h-9 p-2 text-center ${className}`;
+  const hoverStyles = 'hover:bg-indigo-200 hover:rounded-lg hover:font-bold';
+  const disabledStyles = `${styles} pointer-events-none`;
 
   if (label === '<') {
     const hasPreviousOffset = getHasPreviousOffset(offset);
@@ -29,11 +32,16 @@ export default forwardRef<HTMLAnchorElement, Props>(function Nav(
     })}`;
 
     return hasPreviousOffset ? (
-      <Link className={` ${className}`} href={href} {...rest} ref={ref}>
+      <Link
+        className={`${styles} ${hoverStyles}`}
+        href={href}
+        {...rest}
+        ref={ref}
+      >
         {label}
       </Link>
     ) : (
-      label
+      <span className={disabledStyles}>{label}</span>
     );
   } else {
     const hasNextOffset = getHasNextOffset(count, offset, limit);
@@ -44,7 +52,7 @@ export default forwardRef<HTMLAnchorElement, Props>(function Nav(
 
     return hasNextOffset ? (
       <Link
-        className={` ${className}`}
+        className={`${styles} ${hoverStyles}`}
         href={href}
         {...rest}
         ref={ref}
@@ -53,7 +61,7 @@ export default forwardRef<HTMLAnchorElement, Props>(function Nav(
         {label}
       </Link>
     ) : (
-      label
+      <span className={disabledStyles}>{label}</span>
     );
   }
 });

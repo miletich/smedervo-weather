@@ -19,7 +19,11 @@ export default forwardRef<HTMLDivElement, Props>(function Pager(
   if (config.count <= config.limit) return null;
 
   return (
-    <div ref={ref} className={`flex justify-center ${className}`} {...rest}>
+    <div
+      ref={ref}
+      className={`flex justify-center mt-6 leading-5 text-indigo-950 ${className}`}
+      {...rest}
+    >
       <Nav path={path} config={config}>{`<`}</Nav>
       {labels.map((label, i) => (
         // there are 2 '…'

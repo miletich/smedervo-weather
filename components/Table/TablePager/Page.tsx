@@ -16,6 +16,8 @@ export default forwardRef<HTMLAnchorElement, Props>(function Page(
   ref
 ) {
   const { offset, limit } = config;
+  const styles = `p-2 w-9 h-9 text-center ${className}`;
+  const hoverStyles = 'hover:bg-indigo-200 hover:rounded-lg hover:font-bold';
 
   const currentPage = getCurrentPage(offset, limit);
 
@@ -26,9 +28,15 @@ export default forwardRef<HTMLAnchorElement, Props>(function Page(
   })}`;
 
   return isDisabled ? (
-    label
+    <span className={`${styles} font-bold`}>{label}</span>
   ) : (
-    <Link className={` ${className}`} href={href} {...rest} ref={ref} prefetch>
+    <Link
+      className={`${styles} ${hoverStyles}`}
+      href={href}
+      {...rest}
+      ref={ref}
+      prefetch
+    >
       {label}
     </Link>
   );
