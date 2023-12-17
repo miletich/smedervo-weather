@@ -21,7 +21,7 @@ export default forwardRef<HTMLAnchorElement, Props>(function Page(
 
   const isDisabled = +label === currentPage || label === '…';
   const href = `/${path}/${buildQueryString({
-    offset: limit * +label,
+    offset: limit * (+label - 1),
     limit,
   })}`;
 

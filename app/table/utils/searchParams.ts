@@ -6,7 +6,7 @@ export type SearchParams = NavigationSearchParams;
 type GetTableSearchParams = (params: RawSearchParams) => SearchParams;
 export const getTableSearchParams: GetTableSearchParams = (params) => {
   const offset = (params.offset && +params.offset) || 0;
-  const limit = (params.limit && +params.limit) || 15;
+  const limit = (params.limit && +params.limit) || 10;
 
   return { offset, limit };
 };
