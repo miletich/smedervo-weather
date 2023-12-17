@@ -43,7 +43,13 @@ export default forwardRef<HTMLAnchorElement, Props>(function Nav(
     })}`;
 
     return hasNextOffset ? (
-      <Link className={` ${className}`} href={href} {...rest} ref={ref}>
+      <Link
+        className={` ${className}`}
+        href={href}
+        {...rest}
+        ref={ref}
+        prefetch
+      >
         {label}
       </Link>
     ) : (

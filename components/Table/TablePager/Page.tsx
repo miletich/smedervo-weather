@@ -28,7 +28,7 @@ export default forwardRef<HTMLAnchorElement, Props>(function Page(
   return isDisabled ? (
     label
   ) : (
-    <Link className={` ${className}`} href={href} {...rest} ref={ref}>
+    <Link className={` ${className}`} href={href} {...rest} ref={ref} prefetch>
       {label}
     </Link>
   );
