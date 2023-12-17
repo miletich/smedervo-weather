@@ -10,6 +10,8 @@ import Numeric from '@/components/Numeric';
 import getDataServer from '@/utils/getDataServer';
 import { isPrecipitationType } from '@/utils/data';
 import { formatShortDate } from '@/utils/date';
+import TablePager from '@/components/Table/TablePager';
+import { TablePagerConfig } from '@/components/Table/TablePager/utils';
 
 import Moon from './components/Moon';
 import { columns, isWindGuard } from './utils/tableDef';
@@ -28,6 +30,7 @@ export default async function TableView({
 }) {
   const data = await getDataServer();
   const { offset, limit } = getTableSearchParams(searchParams);
+  const pagerConfig: TablePagerConfig = { count: data.length, offset, limit };
 
   return (
     <div>
@@ -75,6 +78,7 @@ export default async function TableView({
           ))}
         </TableBody>
       </Table>
+      <TablePager config={pagerConfig} path="table" />
     </div>
   );
 }
