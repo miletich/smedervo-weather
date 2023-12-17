@@ -7,7 +7,7 @@ export default forwardRef<HTMLTableSectionElement, Props>(function TableHeader(
   ref
 ) {
   return (
-    <thead ref={ref} className={`${className}`} {...rest}>
+    <thead ref={ref} className={`text-white ${className}`} {...rest}>
       {children}
     </thead>
   );
