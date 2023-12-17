@@ -109,7 +109,6 @@ export const getPaginationLabels: GetPaginationLabels = (
   const shouldNotShrink = getShouldNotShrink(count, limit, padding);
   const shouldShrinkLeft = getShouldShrinkLeft(offset, limit, padding);
   const shouldShrinkRight = getShouldShrinkRight(count, offset, limit, padding);
-  console.log({ shouldNotShrink, shouldShrinkLeft, shouldShrinkRight });
 
   if (shouldNotShrink) {
     return getRangeForLabels(1, pageCount);

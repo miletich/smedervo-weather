@@ -10,9 +10,17 @@ import Numeric from '@/components/Numeric';
 import getDataServer from '@/utils/getDataServer';
 import TablePager from '@/components/Table/TablePager';
 import { TablePagerConfig } from '@/components/Table/TablePager/utils';
+import { windSpeedAccessor } from '@/utils/data';
+import { formatShortDate } from '@/utils/date';
+
+import Moon from './components/Moon';
+import Precipitation from './components/Precipitation';
+import MaxTemp from './components/MaxTemp';
+import Daylight from './components/Daylight';
+import Wind from './components/Wind';
+import UvIndex from './components/UvIndex';
 
 import { columns } from './utils/tableDef';
-import { getCells } from './utils/getCells';
 import { RawSearchParams, getTableSearchParams } from './utils/searchParams';
 import { sliceData } from './utils/tableFiltering';
 
@@ -22,6 +30,11 @@ export default async function TableView({
   searchParams: RawSearchParams;
 }) {
   const data = await getDataServer();
+  const windSpeeds = data.map(windSpeedAccessor);
+  const windRange: [number, number] = [
+    Math.min(...windSpeeds),
+    Math.max(...windSpeeds),
+  ];
   const { offset, limit } = getTableSearchParams(searchParams);
   const pagerConfig: TablePagerConfig = { count: data.length, offset, limit };
 
@@ -36,8 +49,45 @@ export default async function TableView({
           </TableRow>
         </TableHeader>
         <TableBody>
-          {sliceData(data, offset, limit).map((d, i) => (
-            <TableRow key={d.datetime}>{getCells(d)}</TableRow>
+          {sliceData(data, offset, limit).map((d) => (
+            <TableRow key={d.datetime}>
+              {columns.map((c) => {
+                switch (c.name) {
+                  case 'datetime':
+                    return (
+                      <TableCell key={c.name}>
+                        {formatShortDate(c.accessor(d))}
+                      </TableCell>
+                    );
+                  case 'description':
+                    return <TableCell key={c.name}>{c.accessor(d)}</TableCell>;
+                  case 'preciptype':
+                    return <Precipitation key={c.name} type={c.accessor(d)} />;
+                  case 'tempmax':
+                    return <MaxTemp key={c.name} temperature={c.accessor(d)} />;
+                  case 'daylight':
+                    return <Daylight key={c.name} date={c.accessor(d)} />;
+                  case 'moonphase':
+                    return (
+                      <Moon
+                        key={c.name}
+                        date={c.accessor(d)}
+                        idx={d.datetime}
+                      />
+                    );
+                  case 'wind':
+                    return (
+                      <Wind
+                        key={c.name}
+                        wind={c.accessor(d)}
+                        windRange={windRange}
+                      />
+                    );
+                  case 'uvindex':
+                    return <UvIndex key={c.name} uvIndex={c.accessor(d)} />;
+                }
+              })}
+            </TableRow>
           ))}
         </TableBody>
       </Table>

@@ -7,7 +7,7 @@ import { type Datum, dataSchema } from './data';
 type GetDataServer = () => Promise<Datum[]>;
 const getDataServer: GetDataServer = async () => {
   const csv = (
-    await readFile(path.join('./public', 'sd-weather-2020.csv'))
+    await readFile(path.join('./public', 'sd-weather-2022.csv'))
   ).toString();
   const raw = await d3.csvParse(csv);
 
