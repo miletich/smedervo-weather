@@ -5,17 +5,22 @@ import { buildQueryString } from '@/app/table/utils/searchParams';
 
 import { TablePagerConfig, getCurrentPage } from './utils';
 
-type Props = ComponentProps<'a'> &
-  Exclude<TablePagerConfig, 'count'> & { routeName: string; children: string };
+type Props = ComponentProps<'a'> & {
+  config: TablePagerConfig;
+  path: string;
+  children: string;
+};
 
 export default forwardRef<HTMLAnchorElement, Props>(function Page(
-  { className = '', children: label, offset, limit, routeName, ...rest },
+  { className = '', children: label, config, path, ...rest },
   ref
 ) {
+  const { offset, limit } = config;
+
   const currentPage = getCurrentPage(offset, limit);
 
   const isDisabled = +label === currentPage || label === '…';
-  const href = `/${routeName}/${buildQueryString({
+  const href = `/${path}/${buildQueryString({
     offset: limit * +label,
     limit,
   })}`;

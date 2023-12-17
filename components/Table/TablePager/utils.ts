@@ -20,12 +20,17 @@ export const getPageCount: GetPageCount = (count, limit) =>
 type GetOffset = (page: number, limit: number) => number;
 export const getOffset: GetOffset = (page, limit) => (page - 1) * limit;
 
-type HasNextOffset = (count: number, offset: number, limit: number) => boolean;
-export const hasNextOffset: HasNextOffset = (count, offset, limit) =>
+type GetHasNextOffset = (
+  count: number,
+  offset: number,
+  limit: number
+) => boolean;
+export const getHasNextOffset: GetHasNextOffset = (count, offset, limit) =>
   count > limit + offset;
 
-type HasPreviousOffset = (offset: number) => boolean;
-export const hasPreviousOffset: HasPreviousOffset = (offset) => offset > 0;
+type GetHasPreviousOffset = (offset: number) => boolean;
+export const getHasPreviousOffset: GetHasPreviousOffset = (offset) =>
+  offset > 0;
 
 type GetShouldShrinkLeft = (
   offset: number,
