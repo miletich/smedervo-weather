@@ -17,9 +17,6 @@ const windAccessor: WindAccessor = (d) => ({
   winddir: windDirectionAccessor(d),
 });
 
-export const isWindGuard = (d: any): d is Wind =>
-  typeof d === 'object' && 'windspeed' in d && 'winddir' in d;
-
 export const columns = [
   { name: 'datetime', label: 'Date', accessor: dateAccessor },
   { name: 'description', label: 'Description', accessor: descriptionAccessor },
