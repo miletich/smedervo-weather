@@ -22,7 +22,7 @@ export default forwardRef<HTMLTableCellElement, Props>(function Moon(
 
   return (
     <TableCell className={` ${className}`} {...rest} ref={ref}>
-      <Svg width={moonSize} height={moonSize}>
+      <Svg width={moonSize} height={moonSize} className="w-9 h-9">
         <title>{`Moon illumination: ${fraction}%`}</title>
         <mask id={maskId}>
           <circle cx={r} cy={r} r={r} fill="white" />

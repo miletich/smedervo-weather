@@ -16,6 +16,8 @@ export default forwardRef<HTMLDivElement, Props>(function Pager(
     4
   );
 
+  if (config.count <= config.limit) return null;
+
   return (
     <div ref={ref} className={`flex justify-center ${className}`} {...rest}>
       <Nav path={path} config={config}>{`<`}</Nav>

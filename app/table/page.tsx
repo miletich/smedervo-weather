@@ -43,8 +43,10 @@ export default async function TableView({
       <Table>
         <TableHeader>
           <TableRow>
-            {columns.map(({ name, label }) => (
-              <TableHead key={name}>{label}</TableHead>
+            {columns.map(({ name, label, className }) => (
+              <TableHead key={name} className={className}>
+                {label}
+              </TableHead>
             ))}
           </TableRow>
         </TableHeader>
@@ -66,13 +68,20 @@ export default async function TableView({
                   case 'tempmax':
                     return <MaxTemp key={c.name} temperature={c.accessor(d)} />;
                   case 'daylight':
-                    return <Daylight key={c.name} date={c.accessor(d)} />;
+                    return (
+                      <Daylight
+                        key={c.name}
+                        date={c.accessor(d)}
+                        className={c.className}
+                      />
+                    );
                   case 'moonphase':
                     return (
                       <Moon
                         key={c.name}
                         date={c.accessor(d)}
                         idx={d.datetime}
+                        className={c.className}
                       />
                     );
                   case 'wind':
@@ -84,7 +93,13 @@ export default async function TableView({
                       />
                     );
                   case 'uvindex':
-                    return <UvIndex key={c.name} uvIndex={c.accessor(d)} />;
+                    return (
+                      <UvIndex
+                        key={c.name}
+                        uvIndex={c.accessor(d)}
+                        className={c.className}
+                      />
+                    );
                 }
               })}
             </TableRow>

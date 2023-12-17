@@ -7,7 +7,7 @@ export default forwardRef<HTMLTableCellElement, Props>(function TableCell(
   ref
 ) {
   return (
-    <td ref={ref} className={`h-full p-2 ${className}`} {...rest}>
+    <td ref={ref} className={`h-full py-2 px-4 ${className}`} {...rest}>
       {children}
     </td>
   );
