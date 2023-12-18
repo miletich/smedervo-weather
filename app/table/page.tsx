@@ -57,16 +57,32 @@ export default async function TableView({
                 switch (c.name) {
                   case 'datetime':
                     return (
-                      <TableCell key={c.name}>
+                      <TableCell key={c.name} className={c.className}>
                         {formatShortDate(c.accessor(d))}
                       </TableCell>
                     );
                   case 'description':
-                    return <TableCell key={c.name}>{c.accessor(d)}</TableCell>;
+                    return (
+                      <TableCell key={c.name} className={c.className}>
+                        {c.accessor(d)}
+                      </TableCell>
+                    );
                   case 'preciptype':
-                    return <Precipitation key={c.name} type={c.accessor(d)} />;
+                    return (
+                      <Precipitation
+                        key={c.name}
+                        type={c.accessor(d)}
+                        className={c.className}
+                      />
+                    );
                   case 'tempmax':
-                    return <MaxTemp key={c.name} temperature={c.accessor(d)} />;
+                    return (
+                      <MaxTemp
+                        key={c.name}
+                        temperature={c.accessor(d)}
+                        className={c.className}
+                      />
+                    );
                   case 'daylight':
                     return (
                       <Daylight
@@ -88,6 +104,7 @@ export default async function TableView({
                     return (
                       <Wind
                         key={c.name}
+                        className={c.className}
                         wind={c.accessor(d)}
                         windRange={windRange}
                       />

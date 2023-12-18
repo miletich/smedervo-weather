@@ -30,7 +30,7 @@ export default forwardRef<HTMLTableCellElement, Props>(function Wind(
       ref={ref}
     >
       <div className="flex justify-between items-center">
-        <Arrow direction={wind.winddir} className="w-5 h-5 me-2" />
+        <Arrow direction={wind.winddir} className="h-5 me-2" />
         <Numeric>{wind.windspeed.toFixed(2)}</Numeric>
       </div>
     </TableCell>
