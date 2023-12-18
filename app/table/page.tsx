@@ -42,7 +42,7 @@ export default async function TableView({
     <div>
       <Table>
         <TableHeader>
-          <TableRow className="odd:bg-indigo-900">
+          <TableRow className="odd:!bg-indigo-900">
             {columns.map(({ name, label, className }) => (
               <TableHead key={name} className={className}>
                 {label}

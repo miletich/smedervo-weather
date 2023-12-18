@@ -7,7 +7,7 @@ export default forwardRef<HTMLTableRowElement, Props>(function TableRow(
   ref
 ) {
   return (
-    <tr ref={ref} className={`odd:bg-slate-200 ${className}`} {...rest}>
+    <tr ref={ref} className={`odd:bg-slate-100 ${className}`} {...rest}>
       {children}
     </tr>
   );
