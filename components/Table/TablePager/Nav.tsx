@@ -21,7 +21,8 @@ export default forwardRef<HTMLAnchorElement, Props>(function Nav(
 ) {
   const { count, offset, limit } = config;
   const styles = `w-9 h-9 p-2 text-center ${className}`;
-  const hoverStyles = 'hover:bg-indigo-200 hover:rounded-lg hover:font-bold';
+  const hoverStyles =
+    'hover:bg-indigo-100 hover:rounded-lg hover:font-semibold hover-text-indigo-600';
   const disabledStyles = `${styles} pointer-events-none`;
 
   if (label === '<') {

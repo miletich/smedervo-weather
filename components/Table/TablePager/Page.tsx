@@ -17,7 +17,8 @@ export default forwardRef<HTMLAnchorElement, Props>(function Page(
 ) {
   const { offset, limit } = config;
   const styles = `p-2 w-9 h-9 text-center ${className}`;
-  const hoverStyles = 'hover:bg-indigo-200 hover:rounded-lg hover:font-bold';
+  const hoverStyles =
+    'hover:bg-indigo-100 hover:rounded-lg hover:font-semibold hover:text-indigo-600';
 
   const currentPage = getCurrentPage(offset, limit);
 
