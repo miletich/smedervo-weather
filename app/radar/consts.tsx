@@ -67,7 +67,7 @@ export const precipitationTypeCircleOpacity = 0.7;
 export const tooltipWidth = 250;
 export const tooltipHeight = 145;
 export const tooltipOffset = 1.4;
-export const tooltipOffsetAdjustThreshold = 40;
+export const tooltipOffsetAdjustThreshold = 70;
 export const tooltipAngleOffset = 0.015;
 export const tooltipArcOpacity = 0.2;
 

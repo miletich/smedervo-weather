@@ -41,7 +41,7 @@ export default async function Annotations() {
         innerOffset={cloudOffset}
         outerOffset={annotationOuterOffset}
       >
-        Clout Cover
+        Cloud Cover
       </Annotation>
       <Annotation
         angle={annotationAnglePrecipitation}
