@@ -1,10 +1,6 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import '../globals.css';
 import H2 from '@/components/H2';
-import ContentWrapper from '@/components/ContentWrapper';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Smederevo Weather Overview',
@@ -18,11 +14,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ContentWrapper>
-      <header className="flex justify-center m-12">
-        <H2>2022 Daily Weather Overview in Smederevo</H2>
+    <div className="flex flex-col h-full">
+      <header className="flex justify-center">
+        <H2 className="mb-14 mt-20">
+          2022 Daily Weather Overview in Smederevo
+        </H2>
       </header>
-      <main className="flex justify-center">{children}</main>
-    </ContentWrapper>
+      <main className="flex justify-center flex-grow-1">{children}</main>
+    </div>
   );
 }
