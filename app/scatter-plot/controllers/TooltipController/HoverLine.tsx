@@ -1,6 +1,6 @@
 import { type ComponentProps, forwardRef } from 'react';
 
-import { hoverLineColor } from '@/consts/colors';
+import { blue } from '@/consts/colors';
 
 type Props = ComponentProps<'rect'>;
 
@@ -12,7 +12,7 @@ export default forwardRef<SVGRectElement, Props>(function HoverLine(
     <rect
       ref={ref}
       className={`mix-blend-color-burn transition-all duration-200 ease-out ${className}`}
-      fill={hoverLineColor}
+      fill={blue[300]}
       {...rest}
     />
   );

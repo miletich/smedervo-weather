@@ -2,11 +2,7 @@ import { type ComponentProps, forwardRef } from 'react';
 
 import { TableCell } from '@/components/Table';
 import Svg from '@/components/Svg';
-import {
-  daylightDayColor,
-  daylightMidColor,
-  daylightNightColor,
-} from '@/consts/colors';
+import { daylightDayColor, blue } from '@/consts/colors';
 
 import { daylightHeight, daylightWidth } from '../../consts';
 
@@ -37,7 +33,7 @@ export default forwardRef<HTMLTableCellElement, Props>(function Daylight(
           y1={daylightHeight / 2}
           y2={daylightHeight / 2}
           strokeWidth={daylightHeight}
-          stroke={daylightNightColor}
+          stroke={blue[900]}
           strokeLinecap="round"
         />
         <line
@@ -46,7 +42,7 @@ export default forwardRef<HTMLTableCellElement, Props>(function Daylight(
           y1={daylightHeight / 2}
           y2={daylightHeight / 2}
           strokeWidth={daylightHeight}
-          stroke={daylightMidColor}
+          stroke={blue[400]}
           strokeLinecap="round"
         />
         <line

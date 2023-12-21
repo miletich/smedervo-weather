@@ -1,10 +1,9 @@
-import { zinc } from '@/consts/colors';
+import { zinc, white } from '@/consts/colors';
 import {
   temperatureTickLabelSize,
   temperatureLabelTickOffsetX,
   temperatureTickLabelWeight,
   temperatureTickLabelStroke,
-  white,
 } from '../../consts';
 
 type Props = {

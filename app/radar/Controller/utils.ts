@@ -16,7 +16,6 @@ import { zinc, yellow, white } from '@/consts/colors';
 
 import { getAngleForCoordinates, getCoordinatesForAngle } from '../utils/angle';
 import {
-  black,
   dimensions,
   tooltipAngleOffset,
   tooltipHeight,
@@ -127,7 +126,7 @@ export const useTooltipMetrics: UseTooltipMetrics = (datum) =>
     const precipitationProbability: TooltipMetrics = {
       name: 'Precipitation Probability',
       value: formatNumber(precipitationProbabilityAccessor(datum), 0) + '%',
-      fill: black,
+      fill: zinc[700],
     };
     const precipitationType: TooltipMetrics = {
       name: 'Precipitation Type',
