@@ -12,9 +12,9 @@ const margin: Margin = {
 export const dimensions = getDimensions(size, size, margin);
 
 export const white = '#fff';
-export const gray = '#cfd4d8';
-export const midGray = '#cbd2d7';
-export const darkGray = '#34495e';
+export const gray = '#dadadd';
+export const midGray = '#c8d6e5';
+export const black = '#34495e';
 
 // scatter plot
 export const dotSize = 4;

@@ -11,7 +11,7 @@ import {
   seasonStartDates,
   gradientLabelSize,
   gradientLabelOffset,
-  darkGray,
+  black,
   tickSize,
 } from '../../consts';
 import { getScales } from '../../utils/scalesServer';
@@ -41,7 +41,7 @@ export default async function GradientLegend({ hideLabels = false }: Props) {
         <GradientLegendText data={data}>
           {gradientTicks.map(({ label, position }) => (
             <g key={label} transform={`translate(${position} 0)`}>
-              <line stroke={darkGray} y1={0} y2={tickSize} />
+              <line stroke={black} y1={0} y2={tickSize} />
               <text
                 textAnchor="middle"
                 fontSize={gradientLabelSize}

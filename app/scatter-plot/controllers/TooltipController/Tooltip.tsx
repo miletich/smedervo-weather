@@ -12,7 +12,7 @@ import {
   tooltipFontSize,
   tooltipLineHeight,
   tooltipFontSizeLg,
-  darkGray,
+  black,
   dotSize,
   dotHighlightSize,
   dotHighlightStrokeWidth,
@@ -52,7 +52,7 @@ export default function Tooltip() {
         cy={dotSize}
         fill="transparent"
         r={dotHighlightSize}
-        stroke={darkGray}
+        stroke={black}
         strokeWidth={dotHighlightStrokeWidth}
       />
       <TooltipSvg
@@ -66,7 +66,7 @@ export default function Tooltip() {
         y={-tooltipHeight + tooltipPadding}
         textAnchor="middle"
         fontWeight={600}
-        fill={darkGray}
+        fill={black}
       >
         {formatTooltipDate(dateAccessor(datum))}
       </text>
@@ -74,7 +74,7 @@ export default function Tooltip() {
         ref={secondLineRef}
         fontSize={tooltipFontSize}
         textAnchor="middle"
-        fill={darkGray}
+        fill={black}
         fillOpacity={0.8}
         y={
           -tooltipHeight + tooltipPadding + tooltipFontSize * tooltipLineHeight

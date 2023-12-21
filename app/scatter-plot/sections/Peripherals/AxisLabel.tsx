@@ -1,6 +1,6 @@
 import { type PropsWithChildren } from 'react';
 
-import { axisLabelSize, darkGray } from '../../consts';
+import { axisLabelSize, black } from '../../consts';
 
 type Props = PropsWithChildren<{
   transform?: string;
@@ -9,7 +9,7 @@ type Props = PropsWithChildren<{
 export default function AxisLabel({ transform, children }: Props) {
   return (
     <text
-      fill={darkGray}
+      fill={black}
       textAnchor="middle"
       alignmentBaseline="middle"
       fontSize={axisLabelSize}

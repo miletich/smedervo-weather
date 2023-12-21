@@ -1,5 +1,5 @@
 import {
-  darkGray,
+  black,
   gray,
   tickLabelOffset,
   tickLabelSize,
@@ -26,7 +26,7 @@ export default function AxisLeft({ ticks, length, hideLabels = false }: Props) {
               dx={-tickLabelOffset}
               textAnchor="end"
               alignmentBaseline="middle"
-              fill={darkGray}
+              fill={black}
               fontSize={tickLabelSize}
             >
               {label}
