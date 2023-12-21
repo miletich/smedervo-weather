@@ -153,4 +153,8 @@ export const colorScheme = stylex.defineVars({
     default: gray[900],
     [DARK]: gray[100],
   },
+  loaderColor: {
+    default: purple[900],
+    [DARK]: purple[300],
+  },
 });
