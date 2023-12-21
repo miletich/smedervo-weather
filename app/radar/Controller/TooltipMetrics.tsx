@@ -1,7 +1,7 @@
 import { type PropsWithChildren } from 'react';
 
 import P from '@/components/P';
-import { zinc } from '@/consts/colors';
+import { gray } from '@/consts/colors';
 
 import {
   tooltipMetricFontSize,
@@ -16,7 +16,7 @@ export function TooltipMetrics({ children }: PropsWithChildren) {
 }
 
 type ParentProps = { i: number; fill?: string } & PropsWithChildren;
-export function TooltipMetric({ children, i, fill = zinc[300] }: ParentProps) {
+export function TooltipMetric({ children, i, fill = gray[300] }: ParentProps) {
   return (
     <text
       transform={`translate(0,${tooltipTextAdjust * i})`}

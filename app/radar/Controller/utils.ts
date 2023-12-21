@@ -12,7 +12,7 @@ import {
   cloudCoverAccessor,
   precipitationProbabilityAccessor,
 } from '@/utils/data';
-import { zinc, yellow, white } from '@/consts/colors';
+import { gray, yellow, white } from '@/consts/colors';
 
 import { getAngleForCoordinates, getCoordinatesForAngle } from '../utils/angle';
 import {
@@ -121,12 +121,12 @@ export const useTooltipMetrics: UseTooltipMetrics = (datum) =>
     const cloudCover: TooltipMetrics = {
       name: 'Cloud Cover',
       value: formatNumber(cloudCoverAccessor(datum)),
-      fill: zinc[400],
+      fill: gray[400],
     };
     const precipitationProbability: TooltipMetrics = {
       name: 'Precipitation Probability',
       value: formatNumber(precipitationProbabilityAccessor(datum), 0) + '%',
-      fill: zinc[700],
+      fill: gray[700],
     };
     const precipitationType: TooltipMetrics = {
       name: 'Precipitation Type',

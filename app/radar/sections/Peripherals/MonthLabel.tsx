@@ -1,4 +1,4 @@
-import { zinc } from '@/consts/colors';
+import { gray } from '@/consts/colors';
 
 import { monthTickLabelSize, monthTickLabelWeight } from '../../consts';
 import { type MonthTickProps } from './utilsServer';
@@ -12,7 +12,7 @@ export default function MonthLabel({ label, labelX, labelY }: Props) {
       y={labelY}
       fontSize={monthTickLabelSize}
       fontWeight={monthTickLabelWeight}
-      fill={zinc[400]}
+      fill={gray[400]}
       dominantBaseline="middle"
       textAnchor={
         Math.abs(labelX) < 7 ? 'middle' : labelX > 0 ? 'start' : 'end'

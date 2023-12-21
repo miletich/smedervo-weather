@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 
-import { zinc } from '@/consts/colors';
+import { gray } from '@/consts/colors';
 
 import { getTemperatureTickProps } from './utilsServer';
 import TemperatureLabel from './TemperatureLabel';
@@ -11,7 +11,7 @@ export default async function TemperatureTicks({ hideLabels = false }: Props) {
 
   return temperatureTicks.map(({ label, r }) => (
     <Fragment key={label}>
-      <circle r={r} fill="none" stroke={zinc[200]} />
+      <circle r={r} fill="none" stroke={gray[200]} />
       {!hideLabels && +label >= 0 && <TemperatureLabel y={-r} label={label} />}
     </Fragment>
   ));

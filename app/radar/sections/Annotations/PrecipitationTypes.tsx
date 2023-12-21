@@ -1,4 +1,4 @@
-import { zinc } from '@/consts/colors';
+import { gray } from '@/consts/colors';
 
 import {
   annotationAnglePrecipitation,
@@ -34,7 +34,7 @@ export default async function PrecipitationTypes() {
           x={x + precipitationTypeLabelXOffset}
           y={y + (i + 1) * precipitationTypeYOffsetBase}
           fontSize={annotationTextSize}
-          fill={zinc[600]}
+          fill={gray[600]}
           dominantBaseline="middle"
         >
           {d}

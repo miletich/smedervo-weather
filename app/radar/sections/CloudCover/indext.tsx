@@ -1,4 +1,4 @@
-import { zinc } from '@/consts/colors';
+import { gray } from '@/consts/colors';
 
 import { cloudOpacity } from '../../consts';
 
@@ -10,7 +10,7 @@ export default async function CloudCover() {
   return (
     <g className="cloud-cover">
       {clouds.map(({ id, ...rest }) => (
-        <circle key={id} {...rest} opacity={cloudOpacity} fill={zinc[300]} />
+        <circle key={id} {...rest} opacity={cloudOpacity} fill={gray[300]} />
       ))}
     </g>
   );

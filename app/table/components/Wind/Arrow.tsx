@@ -1,7 +1,7 @@
 import { type ComponentProps, forwardRef } from 'react';
 
 import Svg from '@/components/Svg';
-import { zinc } from '@/consts/colors';
+import { gray } from '@/consts/colors';
 
 type Props = ComponentProps<'svg'> & {
   direction: number;
@@ -33,7 +33,7 @@ export default forwardRef<SVGSVGElement, Props>(function Arrow(
         d={d}
         transform={`rotate(${direction} ${size / 2} ${size / 2})`}
         rotate={direction}
-        fill={zinc[600]}
+        fill={gray[600]}
       />
     </Svg>
   );

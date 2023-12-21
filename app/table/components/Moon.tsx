@@ -3,7 +3,7 @@ import * as SunCalc from 'suncalc';
 
 import { TableCell } from '@/components/Table';
 import Svg from '@/components/Svg';
-import { zinc } from '@/consts/colors';
+import { gray } from '@/consts/colors';
 
 import { moonSize } from '../consts';
 
@@ -14,7 +14,7 @@ type Props = ComponentProps<'td'> & {
 };
 
 export default forwardRef<HTMLTableCellElement, Props>(function Moon(
-  { className = '', children, idx, date, fill = zinc[400], ...rest },
+  { className = '', children, idx, date, fill = gray[400], ...rest },
   ref
 ) {
   const maskId = `moon-${idx}`;

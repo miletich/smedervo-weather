@@ -3,7 +3,7 @@ import { scaleLinear } from 'd3-scale';
 
 import { TableCell } from '@/components/Table';
 import Numeric from '@/components/Numeric';
-import { white, zinc } from '@/consts/colors';
+import { white, gray } from '@/consts/colors';
 
 import { Wind } from '../../utils/tableDef';
 
@@ -20,7 +20,7 @@ export default forwardRef<HTMLTableCellElement, Props>(function Wind(
 ) {
   const scale = scaleLinear<string, string>()
     .domain(windRange)
-    .range([white, zinc[400]]);
+    .range([white, gray[400]]);
 
   return (
     <TableCell

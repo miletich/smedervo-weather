@@ -11,5 +11,5 @@ export default async function FreezingMarker() {
 
   const r = radiusScale(0);
 
-  return <circle r={r} fill={green} opacity={freezingOpacity} />;
+  return <circle r={r} fill={green[400]} opacity={freezingOpacity} />;
 }

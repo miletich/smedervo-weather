@@ -1,4 +1,4 @@
-import { zinc, white } from '@/consts/colors';
+import { gray, white } from '@/consts/colors';
 import {
   temperatureTickLabelSize,
   temperatureLabelTickOffsetX,
@@ -16,7 +16,7 @@ export default function TemperatureLabel({ y, label }: Props) {
     <text
       x={temperatureLabelTickOffsetX}
       y={y}
-      fill={zinc[300]}
+      fill={gray[300]}
       paintOrder="stroke"
       strokeWidth={temperatureTickLabelStroke}
       stroke={white}

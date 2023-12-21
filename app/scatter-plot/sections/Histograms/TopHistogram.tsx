@@ -1,4 +1,4 @@
-import { zinc } from '@/consts/colors';
+import { gray } from '@/consts/colors';
 
 import {
   histogramHeight,
@@ -19,7 +19,7 @@ export default async function TopHistogram() {
 
   return (
     <g transform={`translate(0 ${-histogramHeight - histogramMargin})`}>
-      <path d={d} fill={zinc[300]} opacity={histogramOpacity} />
+      <path d={d} fill={gray[300]} opacity={histogramOpacity} />
       <TopHistogramHighlight data={data} />
     </g>
   );

@@ -1,4 +1,4 @@
-import { blue, zinc } from '@/consts/colors';
+import { blue, gray } from '@/consts/colors';
 import { getRadialDimensions } from '@/utils/dimensions';
 
 export const wrapperId = 'radar-weather';
@@ -28,7 +28,7 @@ export const uvIndexStrokeWidth = 2;
 
 // precipitation
 export const precipitationTypes = ['rain', 'sleet', 'snow'];
-export const precipitationTypeColors = [blue[400], zinc[600], zinc[300]];
+export const precipitationTypeColors = [blue[400], gray[600], gray[300]];
 export const precipitationOffset = 1.14;
 export const precipitationMaxRadius = 8;
 export const precipitationOpacity = 0.5;

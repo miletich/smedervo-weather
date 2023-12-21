@@ -5,7 +5,7 @@ import {
   tooltipTextCenter,
   tooltipTextDateSize,
 } from '../consts';
-import { zinc } from '@/consts/colors';
+import { gray } from '@/consts/colors';
 
 export default function TooltipDate({ children }: PropsWithChildren) {
   return (
@@ -16,7 +16,7 @@ export default function TooltipDate({ children }: PropsWithChildren) {
       textAnchor="middle"
       dominantBaseline="hanging"
       fontSize={tooltipTextDateSize}
-      fill={zinc[400]}
+      fill={gray[400]}
     >
       {children}
     </text>

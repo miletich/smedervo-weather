@@ -12,7 +12,7 @@ export default async function UvIndex() {
       {uvIndicesProps.map((props, i) => (
         <line
           key={i}
-          stroke={yellow}
+          stroke={yellow[300]}
           strokeWidth={uvIndexStrokeWidth}
           {...props}
         />

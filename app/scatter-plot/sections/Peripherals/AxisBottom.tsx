@@ -1,4 +1,4 @@
-import { zinc } from '@/consts/colors';
+import { gray } from '@/consts/colors';
 import { tickLabelOffset, tickLabelSize, tickSize } from '../../consts';
 
 import { type ScaleTick } from './utils';
@@ -16,17 +16,17 @@ export default function AxisBottom({
 }: Props) {
   return (
     <g className="axis-bottom">
-      <line x1={0} x2={length} y1={length} y2={length} stroke={zinc[300]} />
+      <line x1={0} x2={length} y1={length} y2={length} stroke={gray[300]} />
       {!hideLabels &&
         ticks.map(({ label, position }) => (
           <g key={label} transform={`translate(${position}, ${length})`}>
-            <line y1={0} y2={tickSize} stroke={zinc[300]} />
+            <line y1={0} y2={tickSize} stroke={gray[300]} />
             <text
               dy={tickLabelOffset}
               fontSize={tickLabelSize}
               textAnchor="middle"
               alignmentBaseline="hanging"
-              fill={zinc[400]}
+              fill={gray[400]}
             >
               {label}
             </text>
