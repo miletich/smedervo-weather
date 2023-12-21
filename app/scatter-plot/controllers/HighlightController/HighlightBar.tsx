@@ -1,4 +1,4 @@
-import { white } from '@/styles/colors';
+import { white } from '@/styles/tokens.stylex';
 
 import {
   gradientHeight,

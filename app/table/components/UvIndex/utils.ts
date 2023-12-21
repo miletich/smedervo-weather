@@ -4,7 +4,7 @@ import {
   uvIndexBarPadding,
   uvIndexBarWidth,
 } from '../../consts';
-import { green, purple, red, yellow } from '@/styles/colors';
+import { green, purple, red, yellow } from '@/styles/tokens.stylex';
 
 export type UvIndexName = 'low' | 'moderate' | 'high' | 'very high' | 'extreme';
 

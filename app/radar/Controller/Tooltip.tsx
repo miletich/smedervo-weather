@@ -6,7 +6,7 @@ import {
 } from '@/utils/data';
 import { formatTooltipDate } from '@/utils/date';
 import P from '@/components/P';
-import { white, gray } from '@/styles/colors';
+import { white, gray } from '@/styles/tokens.stylex';
 
 import { tooltipHeight, tooltipWidth } from '../consts';
 

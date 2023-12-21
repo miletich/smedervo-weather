@@ -1,4 +1,5 @@
 import type { PropsWithChildren } from 'react';
+import * as stylex from '@stylexjs/stylex';
 
 import H2 from '@/components/H2';
 import P from '@/components/P';
@@ -7,14 +8,18 @@ import MainMenuItem, { MainMenu } from '@/components/MainMenu';
 import ScatterPlotIllustration from './scatter-plot/Illustration';
 import RadarIllustration from './radar/Illustration.tsx';
 import ContentWrapper from '@/components/ContentWrapper';
+import { gray } from '@/styles/tokens.stylex';
+import { colorScheme } from '../styles/tokens.stylex';
+// SX bug
+// import { SM } from '@/styles/mediaQueries';
 
 export default async function Home() {
   return (
     <ContentWrapper>
-      <header className="flex flex-col items-center">
+      <header>
         <H2>Smederevo 2022 weather overview</H2>
       </header>
-      <main className="w-full sm:w-3/4 sm:h-3/4">
+      <main {...stylex.props(styles.main)}>
         <MainMenu>
           <MainMenuItem href="/scatter-plot">
             <ScatterPlotIllustration />
@@ -25,9 +30,7 @@ export default async function Home() {
             <P>Radar</P>
           </MainMenuItem>
           <MainMenuItem href="/table">
-            <P className="w-[90%] aspect-square flex items-center justify-center m-[5%] bg-zinc-100">
-              WIP
-            </P>
+            <P {...stylex.props(styles.wip)}>WIP</P>
             <P>Table</P>
           </MainMenuItem>
         </MainMenu>
@@ -35,3 +38,27 @@ export default async function Home() {
     </ContentWrapper>
   );
 }
+
+export const SM = '@media (min-width: 640px)';
+
+const styles = stylex.create({
+  main: {
+    width: {
+      default: '100%',
+      [SM]: '75%',
+    },
+    height: {
+      default: 'auto',
+      [SM]: '75%',
+    },
+  },
+  wip: {
+    width: '90%',
+    aspectRatio: '1 / 1',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colorScheme.wipBackground,
+    margin: '5%',
+  },
+});

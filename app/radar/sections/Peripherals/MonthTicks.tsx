@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 
-import { gray } from '@/styles/colors';
+import { gray } from '@/styles/tokens.stylex';
 
 import MonthLabel from './MonthLabel';
 

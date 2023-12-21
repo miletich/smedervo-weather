@@ -1,3 +1,14 @@
+import * as stylex from '@stylexjs/stylex';
+
+// media queries
+export const SM = '@media (min-width: 640px)';
+export const MD = '@media (min-width: 768px)';
+export const LG = '@media (min-width: 1024px)';
+export const XL = '@media (min-width: 1280px)';
+export const XXL = '@media (min-width: 1536px)';
+
+export const DARK = '@media (prefers-color-scheme: dark)';
+
 // tailwind colors
 
 export const white = '#fff';
@@ -129,3 +140,17 @@ export const purple = {
   900: '#7f1d1d',
   950: '#450a0a',
 };
+
+export const colorScheme = stylex.defineVars({
+  bodyBackground: {
+    default: `linear-gradient(to bottom, ${gray[100]}, ${gray[50]})`,
+    [DARK]: `linear-gradient(to bottom, ${gray[950]}, ${gray[900]})`,
+  },
+  wipBackground: {
+    default: gray[100],
+  },
+  text: {
+    default: gray[900],
+    [DARK]: gray[100],
+  },
+});

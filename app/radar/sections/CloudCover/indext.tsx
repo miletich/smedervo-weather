@@ -1,4 +1,4 @@
-import { gray } from '@/styles/colors';
+import { gray } from '@/styles/tokens.stylex';
 
 import { cloudOpacity } from '../../consts';
 

@@ -1,6 +1,6 @@
 import { type ComponentProps, forwardRef } from 'react';
 
-import { blue } from '@/styles/colors';
+import { blue } from '@/styles/tokens.stylex';
 
 type Props = ComponentProps<'rect'>;
 

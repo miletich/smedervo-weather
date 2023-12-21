@@ -3,7 +3,7 @@ import * as SunCalc from 'suncalc';
 
 import { TableCell } from '@/components/Table';
 import Svg from '@/components/Svg';
-import { gray } from '@/styles/colors';
+import { gray } from '@/styles/tokens.stylex';
 
 import { moonSize } from '../consts';
 

@@ -1,4 +1,4 @@
-import { yellow } from '@/styles/colors';
+import { yellow } from '@/styles/tokens.stylex';
 
 import { uvIndexStrokeWidth } from '../../consts';
 

@@ -1,4 +1,4 @@
-import { gray, white } from '@/styles/colors';
+import { gray, white } from '@/styles/tokens.stylex';
 import {
   temperatureTickLabelSize,
   temperatureLabelTickOffsetX,

@@ -1,4 +1,4 @@
-import { green } from '@/styles/colors';
+import { green } from '@/styles/tokens.stylex';
 
 import { freezingOpacity } from '../../consts';
 import { getScales } from '../../utils/scalesServer';

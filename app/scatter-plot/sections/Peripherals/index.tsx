@@ -1,4 +1,4 @@
-import { white } from '@/styles/colors';
+import { white } from '@/styles/tokens.stylex';
 
 import { axisLabelOffset, dimensions } from '../../consts';
 import { getScales } from '../../utils/scalesServer';

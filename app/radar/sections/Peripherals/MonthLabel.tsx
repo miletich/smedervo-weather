@@ -1,4 +1,4 @@
-import { gray } from '@/styles/colors';
+import { gray } from '@/styles/tokens.stylex';
 
 import { monthTickLabelSize, monthTickLabelWeight } from '../../consts';
 import { type MonthTickProps } from './utilsServer';

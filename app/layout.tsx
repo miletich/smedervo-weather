@@ -1,5 +1,8 @@
 import type { Metadata } from 'next';
+import * as stylex from '@stylexjs/stylex';
 import '@fontsource-variable/inter';
+
+import { colorScheme } from '../styles/tokens.stylex';
 
 import './globals.css';
 
@@ -16,7 +19,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`min-h-screen`}>{children}</body>
+      <body {...stylex.props(styles.body)}>{children}</body>
     </html>
   );
 }
+
+const styles = stylex.create({
+  body: {
+    fontFamily: 'Inter Variable',
+    minHeight: '100vh',
+    color: colorScheme.text,
+    backgroundImage: colorScheme.bodyBackground,
+  },
+});
