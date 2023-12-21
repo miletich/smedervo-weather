@@ -1,10 +1,10 @@
+import { white } from '@/consts/colors';
+
 import {
   gradientHeight,
   gradientHighlightOpacity,
   gradientHighlightStrokeWidth,
   gradientHighlightWidth,
-  gray,
-  white,
 } from '../../consts';
 
 type Props = {

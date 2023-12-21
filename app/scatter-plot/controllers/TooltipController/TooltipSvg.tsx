@@ -1,6 +1,6 @@
-import { type ComponentProps, forwardRef } from 'react';
+import { zinc } from '@/consts/colors';
 
-import { gray } from '../../consts';
+import { type ComponentProps, forwardRef } from 'react';
 
 type Props = ComponentProps<'path'> &
   Record<'width' | 'height' | 'offset', number>;
@@ -28,7 +28,7 @@ export default forwardRef<SVGPathElement, Props>(function TooltipSvg(
       ref={ref}
       className={`${className}`}
       d={d}
-      stroke={gray}
+      stroke={zinc[300]}
       strokeWidth={1}
       fill="white"
       {...rest}

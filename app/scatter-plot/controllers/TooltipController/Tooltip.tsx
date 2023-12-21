@@ -12,13 +12,13 @@ import {
   tooltipFontSize,
   tooltipLineHeight,
   tooltipFontSizeLg,
-  black,
   dotSize,
   dotHighlightSize,
   dotHighlightStrokeWidth,
 } from '../../consts';
 
 import TooltipSvg from './TooltipSvg';
+import { zinc } from '@/consts/colors';
 
 type Position = Record<'top' | 'left', number>;
 
@@ -52,7 +52,7 @@ export default function Tooltip() {
         cy={dotSize}
         fill="transparent"
         r={dotHighlightSize}
-        stroke={black}
+        stroke={zinc[800]}
         strokeWidth={dotHighlightStrokeWidth}
       />
       <TooltipSvg
@@ -66,7 +66,7 @@ export default function Tooltip() {
         y={-tooltipHeight + tooltipPadding}
         textAnchor="middle"
         fontWeight={600}
-        fill={black}
+        fill={zinc[800]}
       >
         {formatTooltipDate(dateAccessor(datum))}
       </text>
@@ -74,7 +74,7 @@ export default function Tooltip() {
         ref={secondLineRef}
         fontSize={tooltipFontSize}
         textAnchor="middle"
-        fill={black}
+        fill={zinc[800]}
         fillOpacity={0.8}
         y={
           -tooltipHeight + tooltipPadding + tooltipFontSize * tooltipLineHeight

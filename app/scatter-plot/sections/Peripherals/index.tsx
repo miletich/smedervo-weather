@@ -1,4 +1,6 @@
-import { axisLabelOffset, dimensions, white } from '../../consts';
+import { white } from '@/consts/colors';
+
+import { axisLabelOffset, dimensions } from '../../consts';
 import { getScales } from '../../utils/scalesServer';
 
 import AxisBottom from './AxisBottom';

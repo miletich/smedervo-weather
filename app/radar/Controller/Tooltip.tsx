@@ -6,8 +6,9 @@ import {
 } from '@/utils/data';
 import { formatTooltipDate } from '@/utils/date';
 import P from '@/components/P';
+import { white, zinc } from '@/consts/colors';
 
-import { gray, tooltipHeight, tooltipWidth, white } from '../consts';
+import { tooltipHeight, tooltipWidth } from '../consts';
 
 import { type Coordinates } from './eventHandlers';
 import {
@@ -50,7 +51,7 @@ export default function Tooltip({ coordinates, data }: Props) {
         width={tooltipWidth}
         height={tooltipHeight}
         fill={white}
-        stroke={gray}
+        stroke={zinc[300]}
       />
       <TooltipDate>{formatTooltipDate(dateAccessor(datum))}</TooltipDate>
       <TooltipTemperature>

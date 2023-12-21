@@ -1,8 +1,4 @@
-export const white = '#fff';
-export const gray = '#dadadd';
-export const midGray = '#c8d6e5';
-export const darkGray = '#8395a7';
-export const black = '#34495e';
+import { UvIndexName } from '@/app/table/components/UvIndex/utils';
 
 export const yellow = '#feca57';
 // freezing
@@ -24,6 +20,7 @@ export const uvIndexColorScheme: UvIndexColorScheme = {
   extreme: '#7d0199',
 };
 
+export const white = '#fff';
 export const zinc = {
   50: '#fafafa',
   100: '#f4f4f5',

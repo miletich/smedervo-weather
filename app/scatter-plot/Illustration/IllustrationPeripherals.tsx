@@ -1,4 +1,6 @@
-import { dimensions, white } from '../consts';
+import { white } from '@/consts/colors';
+
+import { dimensions } from '../consts';
 import GradientLegend from '../controllers/HighlightController/GradientLegend';
 import AxisBottom from '../sections/Peripherals/AxisBottom';
 import AxisLeft from '../sections/Peripherals/AxisLeft';

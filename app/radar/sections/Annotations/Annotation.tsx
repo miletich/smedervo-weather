@@ -1,11 +1,12 @@
 import { type PropsWithChildren } from 'react';
 
+import { zinc } from '@/consts/colors';
+
 import { getCoordinatesForAngle } from '../../utils/angle';
 import {
   annotationOpacity,
   annotationTextSize,
   annotationTextXOffset,
-  black,
 } from '../../consts';
 
 type Props = PropsWithChildren<
@@ -28,7 +29,7 @@ export default function Annotation({
         y1={y1}
         x2={x2}
         y2={y2}
-        stroke={black}
+        stroke={zinc[600]}
         opacity={annotationOpacity}
       />
       <text

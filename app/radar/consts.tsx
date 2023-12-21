@@ -3,14 +3,6 @@ import { getRadialDimensions } from '@/utils/dimensions';
 export const wrapperId = 'radar-weather';
 export const dimensions = getRadialDimensions(740, 120);
 
-// colors
-export const white = '#fff';
-export const black = '#34495e';
-export const gray = '#dadadd';
-export const midGray = '#c8d6e5';
-export const darkGray = '#8395a7';
-export const yellow = '#feca57';
-
 // ticks
 export const monthTickLabelOffset = 1.38;
 export const monthTickLabelSize = 14;
@@ -22,7 +14,6 @@ export const temperatureLabelTickOffsetX = 7;
 export const temperatureTickLabelWeight = 600;
 
 // freezing marker
-export const freezingColor = '#00d2d3';
 export const freezingOpacity = 0.15;
 
 // temperature

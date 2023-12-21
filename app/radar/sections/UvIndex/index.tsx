@@ -1,4 +1,6 @@
-import { uvIndexStrokeWidth, yellow } from '../../consts';
+import { yellow } from '@/consts/colors';
+
+import { uvIndexStrokeWidth } from '../../consts';
 
 import { getUvIndicesProps } from './utils';
 

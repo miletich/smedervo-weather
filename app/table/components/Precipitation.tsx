@@ -4,8 +4,9 @@ import { WiRain, WiSnow, WiSleet } from 'weather-icons-react';
 import { TableCell } from '@/components/Table';
 import Svg from '@/components/Svg';
 import { PrecipitationType } from '@/utils/data';
+import { zinc } from '@/consts/colors';
 
-import { darkGray, precipitationSize } from '../consts';
+import { precipitationSize } from '../consts';
 
 type Props = ComponentProps<'td'> & {
   type: PrecipitationType;
@@ -27,7 +28,7 @@ export default forwardRef<HTMLTableCellElement, Props>(function Precipitation(
 
   return (
     <TableCell className={`${className}`}>
-      <Component size={precipitationSize} color={darkGray} {...rest} />
+      <Component size={precipitationSize} color={zinc[400]} {...rest} />
     </TableCell>
   );
 });

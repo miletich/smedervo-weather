@@ -11,11 +11,6 @@ const margin: Margin = {
 };
 export const dimensions = getDimensions(size, size, margin);
 
-export const white = '#fff';
-export const gray = '#dadadd';
-export const midGray = '#c8d6e5';
-export const black = '#34495e';
-
 // scatter plot
 export const dotSize = 4;
 
@@ -44,7 +39,6 @@ export const tooltipPadding = 10;
 
 // hover lines
 export const hoverLineThickness = 10;
-export const hoverLineColor = '#5758bb';
 
 // gradient legend
 export const gradientId = 'legend-gradient';

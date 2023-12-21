@@ -1,8 +1,9 @@
+import { zinc } from '@/consts/colors';
+
 import {
   annotationAnglePrecipitation,
   annotationOuterOffset,
   annotationTextSize,
-  black,
   precipitationTypeAnnotationR,
   precipitationTypeCircleOpacity,
   precipitationTypeCircleXOffset,
@@ -33,7 +34,7 @@ export default async function PrecipitationTypes() {
           x={x + precipitationTypeLabelXOffset}
           y={y + (i + 1) * precipitationTypeYOffsetBase}
           fontSize={annotationTextSize}
-          fill={black}
+          fill={zinc[600]}
           dominantBaseline="middle"
         >
           {d}

@@ -1,4 +1,6 @@
-import { darkGray, tooltipArcOpacity } from '../consts';
+import { zinc } from '@/consts/colors';
+
+import { tooltipArcOpacity } from '../consts';
 import { type Coordinates } from './eventHandlers';
 import { generateTooltipArc, useTooltipAngle } from './utils';
 
@@ -13,7 +15,7 @@ export default function TooltipArc({ coordinates }: Props) {
   return (
     <path
       d={tooltipArc}
-      fill={darkGray}
+      fill={zinc[800]}
       fillOpacity={tooltipArcOpacity}
       pointerEvents="none"
       className="mix-blend-multiply"

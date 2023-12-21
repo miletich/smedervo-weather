@@ -2,14 +2,13 @@ import { type ComponentProps, forwardRef } from 'react';
 
 import { TableCell } from '@/components/Table';
 import Svg from '@/components/Svg';
-
 import {
   daylightDayColor,
-  daylightHeight,
   daylightMidColor,
   daylightNightColor,
-  daylightWidth,
-} from '../../consts';
+} from '@/consts/colors';
+
+import { daylightHeight, daylightWidth } from '../../consts';
 
 import { getDaylightConfig } from './utils';
 
