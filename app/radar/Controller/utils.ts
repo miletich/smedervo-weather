@@ -116,7 +116,7 @@ export const useTooltipMetrics: UseTooltipMetrics = (datum) =>
     const uvIndex: TooltipMetrics = {
       name: 'UV Index',
       value: formatNumber(uvIndexAccessor(datum)),
-      fill: yellow,
+      fill: yellow[300],
     };
     const cloudCover: TooltipMetrics = {
       name: 'Cloud Cover',
