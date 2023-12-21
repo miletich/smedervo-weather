@@ -8,7 +8,7 @@ import getData from '@/utils/getDataServer';
 
 import RightHistogramHighlight from './RightHistogramHighlight';
 import { getRightHistogramArea } from './utilsServer';
-import { gray } from '@/consts/colors';
+import { gray } from '@/styles/colors';
 
 export default async function RightHistogram() {
   const d = await getRightHistogramArea();

@@ -3,7 +3,7 @@ import { scaleLinear } from 'd3-scale';
 
 import { TableCell } from '@/components/Table';
 import Numeric from '@/components/Numeric';
-import { white, gray } from '@/consts/colors';
+import { white, gray } from '@/styles/colors';
 
 import { Wind } from '../../utils/tableDef';
 

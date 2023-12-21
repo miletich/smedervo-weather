@@ -1,4 +1,4 @@
-import { white } from '@/consts/colors';
+import { white } from '@/styles/colors';
 
 import {
   gradientHeight,

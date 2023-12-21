@@ -1,4 +1,4 @@
-import { gray } from '@/consts/colors';
+import { gray } from '@/styles/colors';
 
 import { type ComponentProps, forwardRef } from 'react';
 

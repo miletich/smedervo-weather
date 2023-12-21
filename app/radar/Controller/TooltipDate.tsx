@@ -5,7 +5,7 @@ import {
   tooltipTextCenter,
   tooltipTextDateSize,
 } from '../consts';
-import { gray } from '@/consts/colors';
+import { gray } from '@/styles/colors';
 
 export default function TooltipDate({ children }: PropsWithChildren) {
   return (

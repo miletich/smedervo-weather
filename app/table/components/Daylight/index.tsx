@@ -2,7 +2,7 @@ import { type ComponentProps, forwardRef } from 'react';
 
 import { TableCell } from '@/components/Table';
 import Svg from '@/components/Svg';
-import { yellow, blue } from '@/consts/colors';
+import { yellow, blue } from '@/styles/colors';
 
 import { daylightHeight, daylightWidth } from '../../consts';
 

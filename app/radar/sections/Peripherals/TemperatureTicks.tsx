@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 
-import { gray } from '@/consts/colors';
+import { gray } from '@/styles/colors';
 
 import { getTemperatureTickProps } from './utilsServer';
 import TemperatureLabel from './TemperatureLabel';

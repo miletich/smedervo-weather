@@ -1,7 +1,7 @@
 import { type PropsWithChildren } from 'react';
 
 import P from '@/components/P';
-import { gray } from '@/consts/colors';
+import { gray } from '@/styles/colors';
 
 import {
   tooltipMetricFontSize,

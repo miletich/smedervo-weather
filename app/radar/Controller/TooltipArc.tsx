@@ -1,4 +1,4 @@
-import { gray } from '@/consts/colors';
+import { gray } from '@/styles/colors';
 
 import { tooltipArcOpacity } from '../consts';
 import { type Coordinates } from './eventHandlers';

@@ -16,7 +16,7 @@ import {
 import { getScales } from '../../utils/scalesServer';
 
 import GradientLegendText from './GradientLegendText';
-import { gray } from '@/consts/colors';
+import { gray } from '@/styles/colors';
 
 type Props = { hideLabels?: boolean };
 export default async function GradientLegend({ hideLabels = false }: Props) {

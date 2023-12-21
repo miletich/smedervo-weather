@@ -1,7 +1,7 @@
 import { type PropsWithChildren } from 'react';
 
 import { axisLabelSize } from '../../consts';
-import { gray } from '@/consts/colors';
+import { gray } from '@/styles/colors';
 
 type Props = PropsWithChildren<{
   transform?: string;

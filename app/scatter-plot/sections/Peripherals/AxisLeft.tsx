@@ -1,4 +1,4 @@
-import { gray } from '@/consts/colors';
+import { gray } from '@/styles/colors';
 import { tickLabelOffset, tickLabelSize, tickSize } from '../../consts';
 
 import { type ScaleTick } from './utils';

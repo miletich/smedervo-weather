@@ -1,6 +1,6 @@
 import { type PropsWithChildren } from 'react';
 
-import { gray } from '@/consts/colors';
+import { gray } from '@/styles/colors';
 
 import { getCoordinatesForAngle } from '../../utils/angle';
 import {

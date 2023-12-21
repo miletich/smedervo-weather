@@ -4,7 +4,7 @@ import { WiRain, WiSnow, WiSleet } from 'weather-icons-react';
 import { TableCell } from '@/components/Table';
 import Svg from '@/components/Svg';
 import { PrecipitationType } from '@/utils/data';
-import { gray } from '@/consts/colors';
+import { gray } from '@/styles/colors';
 
 import { precipitationSize } from '../consts';
 

@@ -1,4 +1,4 @@
-import { gray, white } from '@/consts/colors';
+import { gray, white } from '@/styles/colors';
 import {
   temperatureTickLabelSize,
   temperatureLabelTickOffsetX,

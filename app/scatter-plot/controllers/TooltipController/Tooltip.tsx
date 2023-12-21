@@ -18,7 +18,7 @@ import {
 } from '../../consts';
 
 import TooltipSvg from './TooltipSvg';
-import { gray } from '@/consts/colors';
+import { gray } from '@/styles/colors';
 
 type Position = Record<'top' | 'left', number>;
 

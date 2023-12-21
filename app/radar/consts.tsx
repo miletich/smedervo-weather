@@ -1,4 +1,4 @@
-import { blue, gray } from '@/consts/colors';
+import { blue, gray } from '@/styles/colors';
 import { getRadialDimensions } from '@/utils/dimensions';
 
 export const wrapperId = 'radar-weather';

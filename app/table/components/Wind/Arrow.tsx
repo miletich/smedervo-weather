@@ -1,7 +1,7 @@
 import { type ComponentProps, forwardRef } from 'react';
 
 import Svg from '@/components/Svg';
-import { gray } from '@/consts/colors';
+import { gray } from '@/styles/colors';
 
 type Props = ComponentProps<'svg'> & {
   direction: number;

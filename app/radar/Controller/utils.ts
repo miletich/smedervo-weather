@@ -12,7 +12,7 @@ import {
   cloudCoverAccessor,
   precipitationProbabilityAccessor,
 } from '@/utils/data';
-import { gray, yellow, white } from '@/consts/colors';
+import { gray, yellow, white } from '@/styles/colors';
 
 import { getAngleForCoordinates, getCoordinatesForAngle } from '../utils/angle';
 import {

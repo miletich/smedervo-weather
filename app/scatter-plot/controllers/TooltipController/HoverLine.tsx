@@ -1,6 +1,6 @@
 import { type ComponentProps, forwardRef } from 'react';
 
-import { blue } from '@/consts/colors';
+import { blue } from '@/styles/colors';
 
 type Props = ComponentProps<'rect'>;
 
