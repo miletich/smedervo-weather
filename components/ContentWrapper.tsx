@@ -1,8 +1,9 @@
 import { type PropsWithChildren } from 'react';
 import * as stylex from '@stylexjs/stylex';
 
-export default function ContentWrapper({ children }: PropsWithChildren) {
-  return <div {...stylex.props(styles.wrapper)}>{children}</div>;
+type Props = { style?: stylex.StyleXStyles } & PropsWithChildren;
+export default function ContentWrapper({ children, style }: Props) {
+  return <div {...stylex.props([styles.wrapper, style])}>{children}</div>;
 }
 
 const styles = stylex.create({

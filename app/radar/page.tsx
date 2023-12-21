@@ -1,3 +1,5 @@
+import * as stylex from '@stylexjs/stylex';
+
 import ChartRadial from '@/components/ChartRadial';
 
 import { dimensions } from './consts';
@@ -12,10 +14,7 @@ import Controller from './Controller';
 
 export default function Radar() {
   return (
-    <ChartRadial
-      dimensions={dimensions}
-      className="overflow-visible w-[70vh] h-[70vh]"
-    >
+    <ChartRadial dimensions={dimensions} style={styles.wrapper}>
       <Meta />
       <Peripherals />
       <Temperature />
@@ -27,3 +26,11 @@ export default function Radar() {
     </ChartRadial>
   );
 }
+
+const styles = stylex.create({
+  wrapper: {
+    overflow: 'visible',
+    width: '70vw',
+    height: '70vh',
+  },
+});

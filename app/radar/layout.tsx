@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import * as stylex from '@stylexjs/stylex';
 
 import H2 from '@/components/H2';
 import P from '@/components/P';
@@ -20,15 +21,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ContentWrapper>
-      <div className="-mt-5">
-        <header className="flex flex-col items-center">
-          <H2>Smederevo Weather in 2022</H2>
-        </header>
-        <main id={wrapperId} className="flex justify-center">
-          {children}
-        </main>
-      </div>
+    <ContentWrapper style={styles.wrapper}>
+      <header {...stylex.props(styles.header)}>
+        <H2>Smederevo Weather in 2022</H2>
+      </header>
+      <main id={wrapperId} {...stylex.props(styles.main)}>
+        {children}
+      </main>
     </ContentWrapper>
   );
 }
+
+const styles = stylex.create({
+  wrapper: {
+    marginTop: '-1.25rem',
+  },
+  header: {
+    textAlign: 'center',
+  },
+  main: {
+    display: 'flex',
+    justifyContent: 'center',
+  },
+});
