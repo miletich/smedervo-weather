@@ -39,7 +39,7 @@ export default async function Home() {
   );
 }
 
-export const SM = '@media (min-width: 640px)';
+const SM = '@media (min-width: 640px)';
 
 const styles = stylex.create({
   main: {
