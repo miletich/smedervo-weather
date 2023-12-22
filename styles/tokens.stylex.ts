@@ -160,6 +160,14 @@ export const colorScheme = stylex.defineVars({
     default: purple[900],
     [DARK]: purple[300],
   },
+  cloud: {
+    default: gray[300],
+    [DARK]: gray[500],
+  },
+  uvIndex: {
+    default: yellow[300],
+    [DARK]: yellow[400],
+  },
 });
 
 export const sizing = stylex.defineVars({

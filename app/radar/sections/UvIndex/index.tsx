@@ -1,4 +1,6 @@
-import { yellow } from '@/styles/tokens.stylex';
+import * as stylex from '@stylexjs/stylex';
+
+import { colorScheme } from '../../../../styles/tokens.stylex';
 
 import { uvIndexStrokeWidth } from '../../consts';
 
@@ -12,11 +14,17 @@ export default async function UvIndex() {
       {uvIndicesProps.map((props, i) => (
         <line
           key={i}
-          stroke={yellow[300]}
           strokeWidth={uvIndexStrokeWidth}
+          {...stylex.props(styles.marker)}
           {...props}
         />
       ))}
     </g>
   );
 }
+
+const styles = stylex.create({
+  marker: {
+    stroke: colorScheme.uvIndex,
+  },
+});
