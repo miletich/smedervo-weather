@@ -150,8 +150,8 @@ export const colorScheme = stylex.defineVars({
     default: gray[200],
   },
   text: {
-    default: gray[900],
-    [DARK]: gray[100],
+    default: gray[700],
+    [DARK]: gray[300],
   },
   lightText: {
     default: gray[500],
@@ -198,5 +198,24 @@ export const tooltip = stylex.defineVars({
   circleStroke: {
     default: gray[800],
     [DARK]: gray[200],
+  },
+});
+
+export const peripherals = stylex.defineVars({
+  bgFill: {
+    default: gray[50],
+    [DARK]: gray[900],
+  },
+  gridLineStroke: {
+    default: gray[300],
+    [DARK]: gray[700],
+  },
+  gridLineStrokeStrong: {
+    default: gray[500],
+    [DARK]: gray[600],
+  },
+  axisValueFill: {
+    default: gray[400],
+    [DARK]: gray[600],
   },
 });

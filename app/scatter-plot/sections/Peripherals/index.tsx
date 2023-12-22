@@ -1,4 +1,6 @@
-import { white } from '@/styles/tokens.stylex';
+import * as stylex from '@stylexjs/stylex';
+
+import { peripherals } from '../../../../styles/tokens.stylex';
 
 import { axisLabelOffset, dimensions } from '../../consts';
 import { getScales } from '../../utils/scalesServer';
@@ -19,7 +21,7 @@ export default async function Peripherals() {
         height={dimensions.innerHeight}
         x={0}
         y={0}
-        fill={white}
+        {...stylex.props(styles.bg)}
       />
       <AxisBottom ticks={xScaleTicks} length={dimensions.innerWidth} />
       <AxisLabel
@@ -40,3 +42,9 @@ export default async function Peripherals() {
     </>
   );
 }
+
+const styles = stylex.create({
+  bg: {
+    fill: peripherals.bgFill,
+  },
+});

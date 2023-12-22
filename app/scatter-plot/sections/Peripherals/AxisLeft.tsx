@@ -1,7 +1,9 @@
-import { gray } from '@/styles/tokens.stylex';
+import * as stylex from '@stylexjs/stylex';
+
 import { tickLabelOffset, tickLabelSize, tickSize } from '../../consts';
 
 import { type ScaleTick } from './utils';
+import { peripheralsStyles } from '@/styles/peripherals';
 
 type Props = {
   ticks: ScaleTick[];
@@ -12,17 +14,27 @@ type Props = {
 export default function AxisLeft({ ticks, length, hideLabels = false }: Props) {
   return (
     <g className="axis-left">
-      <line x1={0} x2={0} y1={0} y2={length} stroke={gray[300]} />
+      <line
+        x1={0}
+        x2={0}
+        y1={0}
+        y2={length}
+        {...stylex.props(peripheralsStyles.gridLine)}
+      />
       {!hideLabels &&
         ticks.map(({ label, position }) => (
           <g key={label} transform={`translate(0, ${position})`}>
-            <line x1={-tickSize} x2={0} stroke={gray[300]} />
+            <line
+              x1={-tickSize}
+              x2={0}
+              {...stylex.props(peripheralsStyles.gridLine)}
+            />
             <text
               dx={-tickLabelOffset}
               textAnchor="end"
               alignmentBaseline="middle"
-              fill={gray[400]}
               fontSize={tickLabelSize}
+              {...stylex.props(peripheralsStyles.axisValue)}
             >
               {label}
             </text>
