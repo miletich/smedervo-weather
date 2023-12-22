@@ -153,6 +153,9 @@ export const colorScheme = stylex.defineVars({
     default: gray[900],
     [DARK]: gray[100],
   },
+  lightText: {
+    default: gray[500],
+  },
   loaderColor: {
     default: purple[900],
     [DARK]: purple[300],
@@ -165,7 +168,8 @@ export const sizing = stylex.defineVars({
     [SM]: '75vw',
   },
   radarHeight: {
-    default: '100%',
-    [SM]: '75vw',
+    default: 'auto',
+    [SM]: '75vh',
   },
+  h2Size: '1.5rem',
 });
