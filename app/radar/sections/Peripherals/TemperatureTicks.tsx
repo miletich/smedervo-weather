@@ -1,6 +1,7 @@
 import { Fragment } from 'react';
+import * as stylex from '@stylexjs/stylex';
 
-import { gray } from '@/styles/tokens.stylex';
+import { peripheralsStyles } from '@/styles/peripherals';
 
 import { getTemperatureTickProps } from './utilsServer';
 import TemperatureLabel from './TemperatureLabel';
@@ -11,7 +12,7 @@ export default async function TemperatureTicks({ hideLabels = false }: Props) {
 
   return temperatureTicks.map(({ label, r }) => (
     <Fragment key={label}>
-      <circle r={r} fill="none" stroke={gray[200]} />
+      <circle r={r} fill="none" {...stylex.props(peripheralsStyles.gridLine)} />
       {!hideLabels && +label >= 0 && <TemperatureLabel y={-r} label={label} />}
     </Fragment>
   ));

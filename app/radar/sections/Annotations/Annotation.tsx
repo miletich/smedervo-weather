@@ -1,6 +1,7 @@
 import { type PropsWithChildren } from 'react';
+import * as stylex from '@stylexjs/stylex';
 
-import { gray } from '@/styles/tokens.stylex';
+import { peripheralsStyles } from '@/styles/peripherals';
 
 import { getCoordinatesForAngle } from '../../utils/angle';
 import {
@@ -29,8 +30,8 @@ export default function Annotation({
         y1={y1}
         x2={x2}
         y2={y2}
-        stroke={gray[600]}
         opacity={annotationOpacity}
+        {...stylex.props(peripheralsStyles.gridLine)}
       />
       <text
         x={x2}
@@ -38,6 +39,7 @@ export default function Annotation({
         y={y2}
         dominantBaseline="middle"
         fontSize={annotationTextSize}
+        {...stylex.props(peripheralsStyles.axisValue)}
       >
         {children}
       </text>

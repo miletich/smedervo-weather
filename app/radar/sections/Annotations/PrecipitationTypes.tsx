@@ -1,4 +1,6 @@
-import { gray } from '@/styles/tokens.stylex';
+import * as stylex from '@stylexjs/stylex';
+
+import { peripheralsStyles } from '@/styles/peripherals';
 
 import {
   annotationAnglePrecipitation,
@@ -34,8 +36,8 @@ export default async function PrecipitationTypes() {
           x={x + precipitationTypeLabelXOffset}
           y={y + (i + 1) * precipitationTypeYOffsetBase}
           fontSize={annotationTextSize}
-          fill={gray[600]}
           dominantBaseline="middle"
+          {...stylex.props(peripheralsStyles.axisValue)}
         >
           {d}
         </text>

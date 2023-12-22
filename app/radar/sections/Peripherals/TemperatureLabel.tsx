@@ -1,3 +1,5 @@
+import * as stylex from '@stylexjs/stylex';
+
 import { gray, white } from '@/styles/tokens.stylex';
 import {
   temperatureTickLabelSize,
@@ -5,6 +7,7 @@ import {
   temperatureTickLabelWeight,
   temperatureTickLabelStroke,
 } from '../../consts';
+import { peripheralsStyles } from '@/styles/peripherals';
 
 type Props = {
   y: number;
@@ -16,13 +19,14 @@ export default function TemperatureLabel({ y, label }: Props) {
     <text
       x={temperatureLabelTickOffsetX}
       y={y}
-      fill={gray[300]}
-      paintOrder="stroke"
       strokeWidth={temperatureTickLabelStroke}
-      stroke={white}
       fontSize={temperatureTickLabelSize}
       fontWeight={temperatureTickLabelWeight}
       dominantBaseline="middle"
+      {...stylex.props([
+        peripheralsStyles.axisValue,
+        peripheralsStyles.axisValueStroke,
+      ])}
     >{`${label} ˚C`}</text>
   );
 }

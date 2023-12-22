@@ -11,4 +11,8 @@ export const peripheralsStyles = stylex.create({
   axisValue: {
     fill: peripherals.axisValueFill,
   },
+  axisValueStroke: {
+    stroke: peripherals.bgFill,
+    paintOrder: 'stroke',
+  },
 });

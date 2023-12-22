@@ -1,7 +1,8 @@
-import { gray } from '@/styles/tokens.stylex';
+import * as stylex from '@stylexjs/stylex';
 
 import { monthTickLabelSize, monthTickLabelWeight } from '../../consts';
 import { type MonthTickProps } from './utilsServer';
+import { peripheralsStyles } from '@/styles/peripherals';
 
 type Props = Pick<MonthTickProps, 'label' | 'labelX' | 'labelY'>;
 
@@ -12,11 +13,11 @@ export default function MonthLabel({ label, labelX, labelY }: Props) {
       y={labelY}
       fontSize={monthTickLabelSize}
       fontWeight={monthTickLabelWeight}
-      fill={gray[400]}
       dominantBaseline="middle"
       textAnchor={
         Math.abs(labelX) < 7 ? 'middle' : labelX > 0 ? 'start' : 'end'
       }
+      {...stylex.props(peripheralsStyles.axisValue)}
     >
       {label}
     </text>
