@@ -173,3 +173,30 @@ export const sizing = stylex.defineVars({
   },
   h2Size: '1.5rem',
 });
+
+export const tooltip = stylex.defineVars({
+  defaultFill: {
+    default: gray[600],
+    [DARK]: gray[400],
+  },
+  wrapperStroke: {
+    default: gray[300],
+    [DARK]: gray[700],
+  },
+  wrapperFill: {
+    default: white,
+    [DARK]: gray[950],
+  },
+  arcFill: {
+    default: gray[800],
+    [DARK]: gray[100],
+  },
+  arcBlendMode: {
+    default: 'multiply',
+    [DARK]: 'lighten',
+  },
+  circleStroke: {
+    default: gray[800],
+    [DARK]: gray[200],
+  },
+});

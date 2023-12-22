@@ -1,4 +1,5 @@
-import { gray } from '@/styles/tokens.stylex';
+import * as stylex from '@stylexjs/stylex';
+import { tooltip } from '../../../styles/tokens.stylex';
 
 import { tooltipArcOpacity } from '../consts';
 import { type Coordinates } from './eventHandlers';
@@ -15,10 +16,16 @@ export default function TooltipArc({ coordinates }: Props) {
   return (
     <path
       d={tooltipArc}
-      fill={gray[800]}
       fillOpacity={tooltipArcOpacity}
-      pointerEvents="none"
-      className="mix-blend-multiply"
+      {...stylex.props(styles.arc)}
     />
   );
 }
+
+const styles = stylex.create({
+  arc: {
+    fill: tooltip.arcFill,
+    mixBlendMode: tooltip.arcBlendMode,
+    pointerEvents: 'none',
+  },
+});

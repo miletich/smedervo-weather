@@ -12,10 +12,10 @@ export default function TooltipDate({ children }: PropsWithChildren) {
     <text
       x={tooltipTextCenter}
       dy={tooltipTextAdjust}
-      className="font-semibold"
       textAnchor="middle"
       dominantBaseline="hanging"
       fontSize={tooltipTextDateSize}
+      fontWeight={600}
       fill={gray[400]}
     >
       {children}

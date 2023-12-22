@@ -1,9 +1,11 @@
 'use client';
 
 import { useLayoutEffect, useRef, useState } from 'react';
+import * as stylex from '@stylexjs/stylex';
 
 import { dateAccessor, tempMaxAccessor, tempMinAccessor } from '@/utils/data';
 import { formatTooltipDate } from '@/utils/date';
+import { gray, tooltip } from '../../../../styles/tokens.stylex';
 
 import { useCurrentDateData } from '../../context/CurrentDateContext';
 import {
@@ -18,7 +20,6 @@ import {
 } from '../../consts';
 
 import TooltipSvg from './TooltipSvg';
-import { gray } from '@/styles/tokens.stylex';
 
 type Position = Record<'top' | 'left', number>;
 
@@ -50,9 +51,8 @@ export default function Tooltip() {
     >
       <circle
         cy={dotSize}
-        fill="transparent"
         r={dotHighlightSize}
-        stroke={gray[800]}
+        {...stylex.props(styles.circle)}
         strokeWidth={dotHighlightStrokeWidth}
       />
       <TooltipSvg
@@ -66,7 +66,7 @@ export default function Tooltip() {
         y={-tooltipHeight + tooltipPadding}
         textAnchor="middle"
         fontWeight={600}
-        fill={gray[800]}
+        {...stylex.props(styles.text)}
       >
         {formatTooltipDate(dateAccessor(datum))}
       </text>
@@ -74,8 +74,7 @@ export default function Tooltip() {
         ref={secondLineRef}
         fontSize={tooltipFontSize}
         textAnchor="middle"
-        fill={gray[800]}
-        fillOpacity={0.8}
+        {...stylex.props(styles.text)}
         y={
           -tooltipHeight + tooltipPadding + tooltipFontSize * tooltipLineHeight
         }
@@ -87,3 +86,13 @@ export default function Tooltip() {
     </g>
   );
 }
+
+const styles = stylex.create({
+  text: {
+    fill: tooltip.defaultFill,
+  },
+  circle: {
+    stroke: tooltip.circleStroke,
+    fill: 'transparent',
+  },
+});
