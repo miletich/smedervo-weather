@@ -1,14 +1,16 @@
-import { gray } from '@/styles/tokens.stylex';
+import * as stylex from '@stylexjs/stylex';
+
+import getData from '@/utils/getDataServer';
 
 import {
   histogramHeight,
   histogramMargin,
   histogramOpacity,
 } from '../../consts';
-import getData from '@/utils/getDataServer';
 
 import TopHistogramHighlight from './TopHistogramHighlight';
 import { getTopHistogramArea } from './utilsServer';
+import { histogramStyles } from './styes';
 
 export default async function TopHistogram() {
   // main histogram
@@ -19,7 +21,11 @@ export default async function TopHistogram() {
 
   return (
     <g transform={`translate(0 ${-histogramHeight - histogramMargin})`}>
-      <path d={d} fill={gray[300]} opacity={histogramOpacity} />
+      <path
+        d={d}
+        opacity={histogramOpacity}
+        {...stylex.props(histogramStyles.area)}
+      />
       <TopHistogramHighlight data={data} />
     </g>
   );

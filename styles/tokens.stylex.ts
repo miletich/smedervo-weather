@@ -150,8 +150,8 @@ export const colorScheme = stylex.defineVars({
     default: gray[200],
   },
   text: {
-    default: gray[700],
-    [DARK]: gray[300],
+    default: gray[500],
+    [DARK]: gray[400],
   },
   lightText: {
     default: gray[500],
@@ -167,6 +167,10 @@ export const colorScheme = stylex.defineVars({
   uvIndex: {
     default: yellow[300],
     [DARK]: yellow[400],
+  },
+  histogram: {
+    default: gray[300],
+    [DARK]: gray[600],
   },
 });
 
@@ -225,5 +229,13 @@ export const peripherals = stylex.defineVars({
   axisValueFill: {
     default: gray[400],
     [DARK]: gray[600],
+  },
+  hoverLineBlendMode: {
+    default: 'color-burn',
+    [DARK]: 'darken',
+  },
+  hoverLineFill: {
+    default: blue[300],
+    [DARK]: blue[950],
   },
 });
