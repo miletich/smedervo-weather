@@ -147,7 +147,7 @@ export const colorScheme = stylex.defineVars({
     [DARK]: `linear-gradient(to bottom, ${gray[950]}, ${gray[900]})`,
   },
   wipBackground: {
-    default: gray[100],
+    default: gray[200],
   },
   text: {
     default: gray[900],

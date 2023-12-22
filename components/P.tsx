@@ -7,11 +7,15 @@ import { colorScheme } from '../styles/tokens.stylex';
 type Props = ComponentProps<'p'> & { style?: StyleXStyles };
 
 export default forwardRef<HTMLParagraphElement, Props>(function P(
-  { className = '', children, ...rest },
+  { style, children, ...rest },
   ref
 ) {
   return (
-    <p ref={ref} {...stylex.props(styles.text)} {...rest}>
+    <p
+      ref={ref}
+      {...stylex.props([styles.text, style as StyleXStyles])}
+      {...rest}
+    >
       {children}
     </p>
   );
