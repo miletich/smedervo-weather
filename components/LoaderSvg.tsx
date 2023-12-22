@@ -1,5 +1,6 @@
 import { type ComponentProps, forwardRef } from 'react';
 import * as stylex from '@stylexjs/stylex';
+import type { StyleXStyles } from '@stylexjs/stylex/lib/StyleXTypes';
 
 import Svg from './Svg';
 import { colorScheme } from '../styles/tokens.stylex';
@@ -19,8 +20,7 @@ export default forwardRef<SVGSVGElement, Props>(function LoaderSvg(
   return (
     <Svg
       {...rest}
-      // TODO: fix
-      {...stylex.props([styles.wrapper, style as any])}
+      {...stylex.props([styles.wrapper, style as StyleXStyles])}
       width={width}
       height={height}
       ref={ref}

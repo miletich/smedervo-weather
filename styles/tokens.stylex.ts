@@ -158,3 +158,14 @@ export const colorScheme = stylex.defineVars({
     [DARK]: purple[300],
   },
 });
+
+export const sizing = stylex.defineVars({
+  radarWidth: {
+    default: '100%',
+    [SM]: '75vw',
+  },
+  radarHeight: {
+    default: '100%',
+    [SM]: '75vw',
+  },
+});

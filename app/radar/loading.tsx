@@ -1,15 +1,14 @@
+import LoaderSvg from '@/components/LoaderSvg';
 import * as stylex from '@stylexjs/stylex';
 
-import LoaderSvg from '@/components/LoaderSvg';
-
 export default function Loading() {
-  return <LoaderSvg {...stylex.props(styles.loader)} />;
+  return <LoaderSvg {...stylex.props(styles.sizing)} />;
 }
 
 const styles = stylex.create({
-  loader: {
+  sizing: {
     width: 72,
     height: 28,
-    margin: 80,
+    margin: 20,
   },
 });
