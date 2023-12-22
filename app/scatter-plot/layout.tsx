@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import '../globals.css';
+
 import H2 from '@/components/H2';
 import P from '@/components/P';
 import ContentWrapper from '@/components/ContentWrapper';

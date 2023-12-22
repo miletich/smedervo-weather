@@ -1,11 +1,14 @@
+import * as stylex from '@stylexjs/stylex';
+
 import Chart from '@/components/Chart';
+import { sizing } from '../../styles/tokens.stylex';
 
 import { dimensions } from './consts';
 import Controllers from './controllers';
 import Meta from './sections/Meta';
 import Peripherals from './sections/Peripherals';
 import TopHistogram from './sections/Histograms/TopHistogram';
-import RightHistogram from './/sections/Histograms/RightHistogram';
+import RightHistogram from './sections/Histograms/RightHistogram';
 import ScatterPlot from './sections/ScatterPlot';
 
 export default async function WeatherScatterPlot() {
@@ -14,7 +17,7 @@ export default async function WeatherScatterPlot() {
       dimensions={dimensions}
       role="img"
       aria-labelledby="sdWeatherTitle sdWeatherDescription"
-      className="w-full sm:w-[75vh] sm:h-[75vh]"
+      {...stylex.props(styles.wrapper)}
     >
       <Meta />
       <Peripherals />
@@ -26,3 +29,10 @@ export default async function WeatherScatterPlot() {
     </Chart>
   );
 }
+
+const styles = stylex.create({
+  wrapper: {
+    width: sizing.radarWidth,
+    height: sizing.radarHeight,
+  },
+});
