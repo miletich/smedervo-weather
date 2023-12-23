@@ -11,11 +11,7 @@ export default forwardRef<HTMLHeadingElement, Props>(function H2(
   ref
 ) {
   return (
-    <h2
-      ref={ref}
-      {...stylex.props([styles.h2, style as StyleXStyles])}
-      {...rest}
-    >
+    <h2 ref={ref} {...stylex.props(styles.h2, style as StyleXStyles)} {...rest}>
       {children}
     </h2>
   );
