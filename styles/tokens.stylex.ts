@@ -173,6 +173,7 @@ export const colorScheme = stylex.defineVars({
     default: gray[300],
     [DARK]: gray[600],
   },
+  numericColor: gray[500],
 });
 
 export const sizing = stylex.defineVars({
