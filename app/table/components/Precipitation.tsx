@@ -1,5 +1,7 @@
 import { type ComponentProps, forwardRef } from 'react';
 import { WiRain, WiSnow, WiSleet } from 'weather-icons-react';
+import * as stylex from '@stylexjs/stylex';
+import type { StyleXStyles } from '@stylexjs/stylex/lib/StyleXTypes';
 
 import { TableCell } from '@/components/Table';
 import Svg from '@/components/Svg';
@@ -10,6 +12,7 @@ import { precipitationSize } from '../consts';
 
 type Props = ComponentProps<'td'> & {
   type: PrecipitationType;
+  style?: StyleXStyles;
 };
 
 const componentMap = {
@@ -19,7 +22,7 @@ const componentMap = {
 } as const;
 
 export default forwardRef<HTMLTableCellElement, Props>(function Precipitation(
-  { className = '', type, ...rest },
+  { style, type, ...rest },
   ref
 ) {
   if (!type) return <TableCell />;
@@ -27,8 +30,15 @@ export default forwardRef<HTMLTableCellElement, Props>(function Precipitation(
   const Component = componentMap[type];
 
   return (
-    <TableCell className={`${className}`}>
+    <TableCell {...stylex.props(styles.wrapper, style as StyleXStyles)}>
       <Component size={precipitationSize} color={gray[400]} {...rest} />
     </TableCell>
   );
+});
+
+const styles = stylex.create({
+  wrapper: {
+    width: 82,
+    paddingEnd: '1rem',
+  },
 });

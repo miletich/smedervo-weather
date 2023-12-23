@@ -10,4 +10,13 @@ export const tableComponentStyles = stylex.create({
   gradientWrapper: {
     width: '114px',
   },
+  startAlign: {
+    alignText: 'start',
+  },
+  dateWidth: {
+    width: 96,
+  },
+  descriptionWidth: {
+    width: 860,
+  },
 });

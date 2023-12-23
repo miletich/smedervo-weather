@@ -26,6 +26,8 @@ import UvIndex from './components/UvIndex';
 import { columns } from './utils/tableDef';
 import { RawSearchParams, getTableSearchParams } from './utils/searchParams';
 import { sliceData } from './utils/tableFiltering';
+import Textual from './components/Textual';
+import { tableComponentStyles } from './components/tableComponentStyles';
 
 export default async function TableView({
   searchParams,
@@ -60,66 +62,46 @@ export default async function TableView({
                 switch (c.name) {
                   case 'datetime':
                     return (
-                      <TableCell key={c.name} className={c.className}>
+                      <Textual
+                        key={c.name}
+                        style={tableComponentStyles.dateWidth}
+                      >
                         {formatShortDate(c.accessor(d))}
-                      </TableCell>
+                      </Textual>
                     );
                   case 'description':
                     return (
-                      <TableCell key={c.name} className={c.className}>
+                      <Textual
+                        key={c.name}
+                        style={tableComponentStyles.descriptionWidth}
+                      >
                         {c.accessor(d)}
-                      </TableCell>
+                      </Textual>
                     );
                   case 'preciptype':
-                    return (
-                      <Precipitation
-                        key={c.name}
-                        type={c.accessor(d)}
-                        className={c.className}
-                      />
-                    );
+                    return <Precipitation key={c.name} type={c.accessor(d)} />;
                   case 'tempmax':
-                    return (
-                      <MaxTemp
-                        key={c.name}
-                        temperature={c.accessor(d)}
-                        className={c.className}
-                      />
-                    );
+                    return <MaxTemp key={c.name} temperature={c.accessor(d)} />;
                   case 'daylight':
-                    return (
-                      <Daylight
-                        key={c.name}
-                        date={c.accessor(d)}
-                        className={c.className}
-                      />
-                    );
+                    return <Daylight key={c.name} date={c.accessor(d)} />;
                   case 'moonphase':
                     return (
                       <Moon
                         key={c.name}
                         date={c.accessor(d)}
                         idx={d.datetime}
-                        className={c.className}
                       />
                     );
                   case 'wind':
                     return (
                       <Wind
                         key={c.name}
-                        className={c.className}
                         wind={c.accessor(d)}
                         windRange={windRange}
                       />
                     );
                   case 'uvindex':
-                    return (
-                      <UvIndex
-                        key={c.name}
-                        uvIndex={c.accessor(d)}
-                        className={c.className}
-                      />
-                    );
+                    return <UvIndex key={c.name} uvIndex={c.accessor(d)} />;
                 }
               })}
             </TableRow>
