@@ -1,3 +1,5 @@
+import * as stylex from '@stylexjs/stylex';
+
 import {
   Table,
   TableBody,
@@ -9,6 +11,7 @@ import {
 import Numeric from '@/components/Numeric';
 import getDataServer from '@/utils/getDataServer';
 import TablePager from '@/components/Table/TablePager';
+import { tableStyles } from '@/components/Table/styles';
 import { TablePagerConfig } from '@/components/Table/TablePager/utils';
 import { windSpeedAccessor } from '@/utils/data';
 import { formatShortDate } from '@/utils/date';
@@ -42,7 +45,7 @@ export default async function TableView({
     <div>
       <Table>
         <TableHeader>
-          <TableRow className="odd:!bg-indigo-900">
+          <TableRow style={tableStyles.headerRow}>
             {columns.map(({ name, label, className }) => (
               <TableHead key={name} className={className}>
                 {label}

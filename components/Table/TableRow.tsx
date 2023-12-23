@@ -1,15 +1,19 @@
 import { type ComponentProps, forwardRef } from 'react';
+import * as stylex from '@stylexjs/stylex';
+import type { StyleXStyles } from '@stylexjs/stylex/lib/StyleXTypes';
 
-type Props = ComponentProps<'tr'>;
+import { tableStyles } from './styles';
+
+type Props = ComponentProps<'tr'> & { style?: StyleXStyles };
 
 export default forwardRef<HTMLTableRowElement, Props>(function TableRow(
-  { className = '', children, ...rest },
+  { style, children, ...rest },
   ref
 ) {
   return (
     <tr
       ref={ref}
-      className={`odd:bg-slate-100 hover:bg-indigo-100 ${className}`}
+      {...stylex.props([tableStyles.rowBackground, style as StyleXStyles])}
       {...rest}
     >
       {children}

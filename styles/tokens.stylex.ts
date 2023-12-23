@@ -8,6 +8,7 @@ export const XL = '@media (min-width: 1280px)';
 export const XXL = '@media (min-width: 1536px)';
 
 export const DARK = '@media (prefers-color-scheme: dark)';
+export const HOVER = '@media (hover: hover)';
 
 // tailwind colors
 
@@ -241,6 +242,20 @@ export const peripherals = stylex.defineVars({
 });
 
 export const table = stylex.defineVars({
+  headerTextColor: { default: blue[50], [DARK]: blue[50] },
+  headerBgColor: { default: blue[900], [DARK]: blue[800] },
+  rowBackground: {
+    default: gray[50],
+    [DARK]: gray[950],
+  },
+  rowBackgroundOdd: {
+    default: gray[100],
+    [DARK]: gray[900],
+  },
+  rowBackgroundHover: {
+    default: gray[200],
+    [DARK]: gray[800],
+  },
   pagerTextColor: {
     default: blue[800],
     [DARK]: blue[200],
