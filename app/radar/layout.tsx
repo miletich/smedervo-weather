@@ -21,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ContentWrapper style={styles.wrapper}>
+    <ContentWrapper>
       <header {...stylex.props(styles.header)}>
         <H2>Smederevo Weather in 2022</H2>
       </header>
@@ -33,9 +33,6 @@ export default function RootLayout({
 }
 
 const styles = stylex.create({
-  wrapper: {
-    marginTop: '-1.25rem',
-  },
   header: {
     textAlign: 'center',
   },
