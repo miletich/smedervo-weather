@@ -17,6 +17,6 @@ export const tableComponentStyles = stylex.create({
     width: 96,
   },
   descriptionWidth: {
-    width: 860,
+    width: 680,
   },
 });

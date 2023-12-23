@@ -27,7 +27,7 @@ export default forwardRef<HTMLTableCellElement, Props>(function Moon(
 
   return (
     <TableCell
-      {...stylex.props(styles.wrapper, style as StyleXStyles)}
+      style={[styles.wrapper, style as StyleXStyles]}
       {...rest}
       ref={ref}
     >

@@ -23,12 +23,12 @@ export default forwardRef<HTMLTableCellElement, Props>(function Daylight(
 
   return (
     <TableCell
-      {...stylex.props(styles.wrapper, style as StyleXStyles)}
+      style={[styles.wrapper, style as StyleXStyles]}
       {...rest}
       ref={ref}
     >
       <Svg
-        className={` w-32 h-10`}
+        {...stylex.props(styles.graphic)}
         width={daylightWidth}
         height={daylightHeight}
         role="image"
@@ -68,6 +68,9 @@ export default forwardRef<HTMLTableCellElement, Props>(function Daylight(
 
 const styles = stylex.create({
   wrapper: {
+    paddingStart: '1.5rem',
+  },
+  graphic: {
     width: '8rem',
     height: '2.5rem',
   },

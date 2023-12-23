@@ -19,4 +19,8 @@ export const tableStyles = stylex.create({
       ':hover': table.rowBackgroundHover,
     },
   },
+  cell: {
+    padding: '1rem',
+    height: '100%',
+  },
 });

@@ -29,13 +29,13 @@ export default forwardRef<HTMLTableCellElement, Props>(function Wind(
 
   return (
     <TableCell
-      style={{ backgroundColor: scale(wind.windspeed) }}
       {...rest}
-      {...stylex.props(
+      rawStyle={{ backgroundColor: scale(wind.windspeed) }}
+      style={[
         tableComponentStyles.gradientWrapper,
         styles.wrapper,
-        style as StyleXStyles
-      )}
+        style as StyleXStyles,
+      ]}
       ref={ref}
     >
       <div {...stylex.props(generic.centerXY)}>

@@ -15,7 +15,7 @@ export default forwardRef<HTMLTableCellElement, Props>(function Textual(
 ) {
   return (
     <TableCell
-      {...stylex.props(tableComponentStyles.startAlign, style as StyleXStyles)}
+      style={[tableComponentStyles.startAlign, style as StyleXStyles]}
       {...rest}
       ref={ref}
     >

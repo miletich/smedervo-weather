@@ -30,7 +30,7 @@ export default forwardRef<HTMLTableCellElement, Props>(function Precipitation(
   const Component = componentMap[type];
 
   return (
-    <TableCell {...stylex.props(styles.wrapper, style as StyleXStyles)}>
+    <TableCell style={[styles.wrapper, style as StyleXStyles]}>
       <Component size={precipitationSize} color={gray[400]} {...rest} />
     </TableCell>
   );

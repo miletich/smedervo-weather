@@ -2,7 +2,6 @@ import { type ComponentProps, forwardRef } from 'react';
 import { scaleSequential } from 'd3';
 import { interpolateTurbo } from 'd3-scale-chromatic';
 
-import * as stylex from '@stylexjs/stylex';
 import type { StyleXStyles } from '@stylexjs/stylex/lib/StyleXTypes';
 
 import Numeric from '@/components/Numeric';
@@ -24,11 +23,8 @@ export default forwardRef<HTMLTableCellElement, Props>(function MaxTemp(
 
   return (
     <TableCell
-      {...stylex.props(
-        tableComponentStyles.gradientWrapper,
-        style as StyleXStyles
-      )}
-      style={{ backgroundColor: scale(temperature) }}
+      style={[tableComponentStyles.gradientWrapper, style as StyleXStyles]}
+      rawStyle={{ backgroundColor: scale(temperature) }}
       {...rest}
       ref={ref}
     >
