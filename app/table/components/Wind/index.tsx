@@ -5,7 +5,8 @@ import type { StyleXStyles } from '@stylexjs/stylex/lib/StyleXTypes';
 
 import { TableCell } from '@/components/Table';
 import Numeric from '@/components/Numeric';
-import { white, gray } from '@/styles/tokens.stylex';
+import { generic } from '@/styles/generic';
+import { white, gray, colorScheme } from '../../../../styles/tokens.stylex';
 
 import { Wind } from '../../utils/tableDef';
 
@@ -19,7 +20,7 @@ type Props = ComponentProps<'td'> & {
 };
 
 export default forwardRef<HTMLTableCellElement, Props>(function Wind(
-  { className = '', style, wind, windRange, ...rest },
+  { style, wind, windRange, ...rest },
   ref
 ) {
   const scale = scaleLinear<string, string>()
@@ -28,18 +29,32 @@ export default forwardRef<HTMLTableCellElement, Props>(function Wind(
 
   return (
     <TableCell
-      className={`${className}`}
       style={{ backgroundColor: scale(wind.windspeed) }}
-      {...stylex.props(style as StyleXStyles)}
       {...rest}
+      {...stylex.props(
+        tableComponentStyles.gradientWrapper,
+        styles.wrapper,
+        style as StyleXStyles
+      )}
       ref={ref}
     >
-      <div className="flex justify-between items-center">
-        <Arrow direction={wind.winddir} className="h-5 me-2" />
+      <div {...stylex.props(generic.centerXY)}>
+        <Arrow direction={wind.winddir} {...stylex.props(styles.arrow)} />
         <Numeric style={tableComponentStyles.numbers as any}>
           {wind.windspeed.toFixed(2)}
         </Numeric>
       </div>
     </TableCell>
   );
+});
+
+const styles = stylex.create({
+  wrapper: {
+    filter: colorScheme.invert,
+  },
+  arrow: {
+    width: '1.25rem',
+    height: '1.25rem',
+    marginEnd: '0.5rem',
+  },
 });

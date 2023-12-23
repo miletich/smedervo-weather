@@ -1,16 +1,20 @@
 import { type ComponentProps, forwardRef } from 'react';
 
+import * as stylex from '@stylexjs/stylex';
+import type { StyleXStyles } from '@stylexjs/stylex/lib/StyleXTypes';
+
 import Svg from '@/components/Svg';
 import { gray } from '@/styles/tokens.stylex';
 
 type Props = ComponentProps<'svg'> & {
   direction: number;
+  style?: StyleXStyles;
 };
 
 const size = 4;
 
 export default forwardRef<SVGSVGElement, Props>(function Arrow(
-  { className = '', direction, ...rest },
+  { direction, style, ...rest },
   ref
 ) {
   const d = `
@@ -23,7 +27,7 @@ export default forwardRef<SVGSVGElement, Props>(function Arrow(
 
   return (
     <Svg
-      className={` ${className}`}
+      {...stylex.props(style as StyleXStyles)}
       {...rest}
       width={size}
       height={size}

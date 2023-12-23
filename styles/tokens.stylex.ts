@@ -174,6 +174,10 @@ export const colorScheme = stylex.defineVars({
     [DARK]: gray[600],
   },
   numericColor: gray[500],
+  invert: {
+    default: 'invert(0)',
+    [DARK]: 'invert(1) hue-rotate(180deg)',
+  },
 });
 
 export const sizing = stylex.defineVars({
