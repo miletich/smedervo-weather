@@ -239,3 +239,18 @@ export const peripherals = stylex.defineVars({
     [DARK]: blue[950],
   },
 });
+
+export const table = stylex.defineVars({
+  pagerTextColor: {
+    default: blue[800],
+    [DARK]: blue[200],
+  },
+  pagerHoverBg: {
+    default: blue[100],
+    [DARK]: blue[900],
+  },
+  pagerHoverText: {
+    default: blue[600],
+    [DARK]: blue[400],
+  },
+});
