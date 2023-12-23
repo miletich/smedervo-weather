@@ -1,4 +1,6 @@
 import { type ComponentProps, forwardRef } from 'react';
+import * as stylex from '@stylexjs/stylex';
+import type { StyleXStyles } from '@stylexjs/stylex/lib/StyleXTypes';
 
 import { TableCell } from '@/components/Table';
 import Svg from '@/components/Svg';
@@ -7,19 +9,23 @@ import { uvIndexBarWidth } from '../../consts';
 
 import { getUvIndexConfig } from './utils';
 
-type Props = { uvIndex: number } & ComponentProps<'td'>;
+type Props = { uvIndex: number; style?: StyleXStyles } & ComponentProps<'td'>;
 
 export default forwardRef<HTMLTableCellElement, Props>(function UvIndex(
-  { className = '', uvIndex, ...rest },
+  { style, uvIndex, ...rest },
   ref
 ) {
   const { name, value, color, width, height, barXBase } =
     getUvIndexConfig(uvIndex);
 
   return (
-    <TableCell className={`${className}`} {...rest} ref={ref}>
+    <TableCell
+      {...stylex.props(styles.wrapper, style as StyleXStyles)}
+      {...rest}
+      ref={ref}
+    >
       <Svg
-        className={` w-24 h-6`}
+        {...stylex.props(styles.graphic)}
         width={width}
         height={height}
         fill={color}
@@ -39,4 +45,14 @@ export default forwardRef<HTMLTableCellElement, Props>(function UvIndex(
       </Svg>
     </TableCell>
   );
+});
+
+const styles = stylex.create({
+  wrapper: {
+    paddingStart: '1.5rem',
+  },
+  graphic: {
+    width: '6rem',
+    height: '1.5rem',
+  },
 });
