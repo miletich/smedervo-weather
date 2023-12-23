@@ -11,7 +11,7 @@ export const tableComponentStyles = stylex.create({
     width: '114px',
   },
   startAlign: {
-    alignText: 'start',
+    textAlign: 'start',
   },
   dateWidth: {
     width: 96,

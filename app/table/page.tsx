@@ -48,9 +48,15 @@ export default async function TableView({
       <Table>
         <TableHeader>
           <TableRow style={tableStyles.headerRow}>
-            {columns.map(({ name, label, className }) => (
-              <TableHead key={name} className={className}>
-                {label}
+            {columns.map((c) => (
+              <TableHead
+                key={c.name}
+                // TODO: fix
+                style={
+                  'startAlign' in c && (tableComponentStyles.startAlign as any)
+                }
+              >
+                {c.label}
               </TableHead>
             ))}
           </TableRow>
