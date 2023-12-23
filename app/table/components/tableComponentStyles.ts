@@ -7,4 +7,7 @@ export const tableComponentStyles = stylex.create({
     color: colorScheme.numericColor,
     mixBlendMode: 'multiply',
   },
+  gradientWrapper: {
+    width: '114px',
+  },
 });

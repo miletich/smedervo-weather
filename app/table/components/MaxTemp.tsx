@@ -15,7 +15,7 @@ type Props = ComponentProps<'td'> & {
 };
 
 export default forwardRef<HTMLTableCellElement, Props>(function MaxTemp(
-  { className = '', style, temperature, ...rest },
+  { style, temperature, ...rest },
   ref
 ) {
   const scale = scaleSequential()
@@ -24,8 +24,10 @@ export default forwardRef<HTMLTableCellElement, Props>(function MaxTemp(
 
   return (
     <TableCell
-      className={`${className}`}
-      {...stylex.props(style as StyleXStyles)}
+      {...stylex.props(
+        tableComponentStyles.gradientWrapper,
+        style as StyleXStyles
+      )}
       style={{ backgroundColor: scale(temperature) }}
       {...rest}
       ref={ref}
