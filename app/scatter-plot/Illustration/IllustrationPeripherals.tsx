@@ -1,4 +1,8 @@
-import { dimensions, white } from '../consts';
+import * as stylex from '@stylexjs/stylex';
+
+import { peripherals } from '../../../styles/tokens.stylex';
+
+import { dimensions } from '../consts';
 import GradientLegend from '../controllers/HighlightController/GradientLegend';
 import AxisBottom from '../sections/Peripherals/AxisBottom';
 import AxisLeft from '../sections/Peripherals/AxisLeft';
@@ -16,7 +20,7 @@ export default async function IllustrationPeripherals() {
         height={dimensions.innerHeight}
         x={0}
         y={0}
-        fill={white}
+        {...stylex.props(styles.bg)}
       />
       <AxisBottom
         ticks={xScaleTicks}
@@ -32,3 +36,9 @@ export default async function IllustrationPeripherals() {
     </>
   );
 }
+
+const styles = stylex.create({
+  bg: {
+    fill: peripherals.bgFill,
+  },
+});

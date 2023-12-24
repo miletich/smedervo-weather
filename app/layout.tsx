@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import './globals.css';
+import * as stylex from '@stylexjs/stylex';
+import '@fontsource-variable/inter';
 
-const inter = Inter({ subsets: ['latin'] });
+import { colorScheme } from '../styles/tokens.stylex';
+
+import './reset.css';
 
 export const metadata: Metadata = {
   title: 'Smederevo Weather in 2022',
@@ -17,7 +19,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} min-h-screen`}>{children}</body>
+      <body {...stylex.props(styles.body)}>{children}</body>
     </html>
   );
 }
+
+const styles = stylex.create({
+  body: {
+    fontFamily: 'Inter Variable',
+    minHeight: '100vh',
+    color: colorScheme.text,
+    backgroundImage: colorScheme.bodyBackground,
+  },
+});

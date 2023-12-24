@@ -1,4 +1,6 @@
-import { freezingColor, freezingOpacity } from '../../consts';
+import { green } from '@/styles/tokens.stylex';
+
+import { freezingOpacity } from '../../consts';
 import { getScales } from '../../utils/scalesServer';
 
 export default async function FreezingMarker() {
@@ -9,5 +11,5 @@ export default async function FreezingMarker() {
 
   const r = radiusScale(0);
 
-  return <circle r={r} fill={freezingColor} opacity={freezingOpacity} />;
+  return <circle r={r} fill={green[400]} opacity={freezingOpacity} />;
 }

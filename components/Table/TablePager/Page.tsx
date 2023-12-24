@@ -1,9 +1,12 @@
 import { type ComponentProps, forwardRef } from 'react';
 import Link from 'next/link';
+import * as stylex from '@stylexjs/stylex';
+import type { StyleXStyles } from '@stylexjs/stylex/lib/StyleXTypes';
 
 import { buildQueryString } from '@/app/table/utils/searchParams';
 
 import { TablePagerConfig, getCurrentPage } from './utils';
+import { styles } from './styles';
 
 type Props = ComponentProps<'a'> & {
   config: TablePagerConfig;
@@ -12,29 +15,31 @@ type Props = ComponentProps<'a'> & {
 };
 
 export default forwardRef<HTMLAnchorElement, Props>(function Page(
-  { className = '', children: label, config, path, ...rest },
+  { style, children: label, config, path, ...rest },
   ref
 ) {
   const { offset, limit } = config;
-  const styles = `p-2 w-9 h-9 text-center ${className}`;
-  const hoverStyles =
-    'hover:bg-indigo-100 hover:rounded-lg hover:font-semibold hover:text-indigo-600';
 
   const currentPage = getCurrentPage(offset, limit);
 
-  const isDisabled = +label === currentPage || label === '…';
+  const isCurrent = +label === currentPage;
+  const isDisabled = isCurrent || label === '…';
   const href = `/${path}/${buildQueryString({
     offset: limit * (+label - 1),
     limit,
   })}`;
 
   return isDisabled ? (
-    <span className={`${styles} font-bold`}>{label}</span>
+    <span
+      {...stylex.props([styles.disabledItem, isCurrent && styles.currentItem])}
+    >
+      {label}
+    </span>
   ) : (
     <Link
-      className={`${styles} ${hoverStyles}`}
       href={href}
       {...rest}
+      {...stylex.props([styles.item, style as StyleXStyles])}
       ref={ref}
       prefetch
     >

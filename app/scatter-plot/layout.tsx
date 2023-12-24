@@ -1,11 +1,10 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import '../globals.css';
+import * as stylex from '@stylexjs/stylex';
+
 import H2 from '@/components/H2';
 import P from '@/components/P';
 import ContentWrapper from '@/components/ContentWrapper';
-
-const inter = Inter({ subsets: ['latin'] });
+import { generic } from '@/styles/generic';
 
 export const metadata: Metadata = {
   title: 'Smederevo Weather Scatter Plot',
@@ -20,11 +19,9 @@ export default function RootLayout({
 }) {
   return (
     <ContentWrapper>
-      <header className="flex flex-col items-center">
+      <header {...stylex.props(generic.centerText)}>
         <H2>Daily Temperature Ranges</H2>
-        <P className="text-center">
-          Daily minimum and maximum temperatures in Smederevo in 2022
-        </P>
+        <P>Daily minimum and maximum temperatures in Smederevo in 2022</P>
       </header>
       <main>{children}</main>
     </ContentWrapper>

@@ -1,5 +1,7 @@
 import { type ComponentProps, forwardRef } from 'react';
 import Link from 'next/link';
+import * as stylex from '@stylexjs/stylex';
+import type { StyleXStyles } from '@stylexjs/stylex/lib/StyleXTypes';
 
 import { buildQueryString } from '@/app/table/utils/searchParams';
 
@@ -8,22 +10,20 @@ import {
   getHasNextOffset,
   getHasPreviousOffset,
 } from './utils';
+import { styles } from './styles';
 
 type Props = ComponentProps<'a'> & {
   config: TablePagerConfig;
   path: string;
   children: string;
+  style?: StyleXStyles;
 };
 
 export default forwardRef<HTMLAnchorElement, Props>(function Nav(
-  { className = '', children: label, config, path, ...rest },
+  { style, children: label, config, path, ...rest },
   ref
 ) {
   const { count, offset, limit } = config;
-  const styles = `w-9 h-9 p-2 text-center ${className}`;
-  const hoverStyles =
-    'hover:bg-indigo-100 hover:rounded-lg hover:font-semibold hover-text-indigo-600';
-  const disabledStyles = `${styles} pointer-events-none`;
 
   if (label === '<') {
     const hasPreviousOffset = getHasPreviousOffset(offset);
@@ -34,15 +34,15 @@ export default forwardRef<HTMLAnchorElement, Props>(function Nav(
 
     return hasPreviousOffset ? (
       <Link
-        className={`${styles} ${hoverStyles}`}
         href={href}
         {...rest}
+        {...stylex.props([styles.item, style as StyleXStyles])}
         ref={ref}
       >
         {label}
       </Link>
     ) : (
-      <span className={disabledStyles}>{label}</span>
+      <span {...stylex.props(styles.disabledItem)}>{label}</span>
     );
   } else {
     const hasNextOffset = getHasNextOffset(count, offset, limit);
@@ -53,16 +53,16 @@ export default forwardRef<HTMLAnchorElement, Props>(function Nav(
 
     return hasNextOffset ? (
       <Link
-        className={`${styles} ${hoverStyles}`}
         href={href}
         {...rest}
+        {...stylex.props([styles.item, style as StyleXStyles])}
         ref={ref}
         prefetch
       >
         {label}
       </Link>
     ) : (
-      <span className={disabledStyles}>{label}</span>
+      <span {...stylex.props(styles.disabledItem)}>{label}</span>
     );
   }
 });

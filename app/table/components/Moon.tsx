@@ -1,18 +1,23 @@
 import { type ComponentProps, forwardRef } from 'react';
 import * as SunCalc from 'suncalc';
+import * as stylex from '@stylexjs/stylex';
+import type { StyleXStyles } from '@stylexjs/stylex/lib/StyleXTypes';
 
 import { TableCell } from '@/components/Table';
 import Svg from '@/components/Svg';
-import { moonSize, gray, midGray, darkGray } from '../consts';
+import { gray } from '@/styles/tokens.stylex';
+
+import { moonSize } from '../consts';
 
 type Props = ComponentProps<'td'> & {
   date: Date;
   idx: string;
   fill?: string;
+  style?: StyleXStyles;
 };
 
 export default forwardRef<HTMLTableCellElement, Props>(function Moon(
-  { className = '', children, idx, date, fill = darkGray, ...rest },
+  { style, children, idx, date, fill = gray[400], ...rest },
   ref
 ) {
   const maskId = `moon-${idx}`;
@@ -21,8 +26,12 @@ export default forwardRef<HTMLTableCellElement, Props>(function Moon(
   const x = moonSize * fraction;
 
   return (
-    <TableCell className={` ${className}`} {...rest} ref={ref}>
-      <Svg width={moonSize} height={moonSize} className="w-8 h-8 opacity-70">
+    <TableCell
+      style={[styles.wrapper, style as StyleXStyles]}
+      {...rest}
+      ref={ref}
+    >
+      <Svg width={moonSize} height={moonSize} {...stylex.props(styles.moon)}>
         <title>{`Moon illumination: ${fraction}%`}</title>
         <mask id={maskId}>
           <circle cx={r} cy={r} r={r} fill="white" />
@@ -32,4 +41,16 @@ export default forwardRef<HTMLTableCellElement, Props>(function Moon(
       </Svg>
     </TableCell>
   );
+});
+
+const styles = stylex.create({
+  wrapper: {
+    width: 86,
+    paddingEnd: '1.5rem',
+  },
+  moon: {
+    width: '2rem',
+    height: '2rem',
+    opacity: 0.7,
+  },
 });

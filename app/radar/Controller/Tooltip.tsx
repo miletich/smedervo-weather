@@ -1,3 +1,5 @@
+import * as stylex from '@stylexjs/stylex';
+
 import {
   type Datum,
   dateAccessor,
@@ -6,8 +8,9 @@ import {
 } from '@/utils/data';
 import { formatTooltipDate } from '@/utils/date';
 import P from '@/components/P';
+import { tooltip } from '../../../styles/tokens.stylex';
 
-import { gray, tooltipHeight, tooltipWidth, white } from '../consts';
+import { tooltipHeight, tooltipWidth } from '../consts';
 
 import { type Coordinates } from './eventHandlers';
 import {
@@ -45,12 +48,11 @@ export default function Tooltip({ coordinates, data }: Props) {
   const metrics = useTooltipMetrics(datum);
 
   return (
-    <g transform={`translate(${x},${y})`} className="tooltip fill-zinc-600">
+    <g transform={`translate(${x},${y})`} {...stylex.props(styles.default)}>
       <rect
         width={tooltipWidth}
         height={tooltipHeight}
-        fill={white}
-        stroke={gray}
+        {...stylex.props(styles.wrapper)}
       />
       <TooltipDate>{formatTooltipDate(dateAccessor(datum))}</TooltipDate>
       <TooltipTemperature>
@@ -73,3 +75,13 @@ export default function Tooltip({ coordinates, data }: Props) {
     </g>
   );
 }
+
+const styles = stylex.create({
+  default: {
+    fill: tooltip.defaultFill,
+  },
+  wrapper: {
+    fill: tooltip.wrapperFill,
+    stroke: tooltip.wrapperStroke,
+  },
+});

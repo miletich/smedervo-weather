@@ -1,10 +1,10 @@
+import { white } from '@/styles/tokens.stylex';
+
 import {
   gradientHeight,
   gradientHighlightOpacity,
   gradientHighlightStrokeWidth,
   gradientHighlightWidth,
-  gray,
-  white,
 } from '../../consts';
 
 type Props = {

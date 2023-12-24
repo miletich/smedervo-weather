@@ -4,6 +4,7 @@ import {
   uvIndexBarPadding,
   uvIndexBarWidth,
 } from '../../consts';
+import { green, purple, red, yellow } from '@/styles/tokens.stylex';
 
 export type UvIndexName = 'low' | 'moderate' | 'high' | 'very high' | 'extreme';
 
@@ -36,11 +37,11 @@ export const uvIndexThresholds: UvIndexThreshold[] = [
 
 export type UvIndexColorScheme = Record<UvIndexName, string>;
 export const uvIndexColorScheme: UvIndexColorScheme = {
-  low: '#05cf79',
-  moderate: '#ffdf33',
-  high: '#fca63d',
-  ['very high']: '#fb1052',
-  extreme: '#7d0199',
+  low: green[500],
+  moderate: yellow[300],
+  high: yellow[500],
+  ['very high']: red[500],
+  extreme: purple[800],
 };
 
 type GetUvIndexName = (value: number) => UvIndexName;

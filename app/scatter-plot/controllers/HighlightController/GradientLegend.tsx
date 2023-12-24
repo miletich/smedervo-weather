@@ -1,6 +1,8 @@
 import * as d3 from 'd3';
+import * as stylex from '@stylexjs/stylex';
 
 import getData from '@/utils/getDataServer';
+import { peripheralsStyles } from '@/styles/peripherals';
 
 import {
   gradientHeight,
@@ -11,7 +13,6 @@ import {
   seasonStartDates,
   gradientLabelSize,
   gradientLabelOffset,
-  darkGray,
   tickSize,
 } from '../../consts';
 import { getScales } from '../../utils/scalesServer';
@@ -41,11 +42,16 @@ export default async function GradientLegend({ hideLabels = false }: Props) {
         <GradientLegendText data={data}>
           {gradientTicks.map(({ label, position }) => (
             <g key={label} transform={`translate(${position} 0)`}>
-              <line stroke={darkGray} y1={0} y2={tickSize} />
+              <line
+                {...stylex.props(peripheralsStyles.gridLineStronger)}
+                y1={0}
+                y2={tickSize}
+              />
               <text
                 textAnchor="middle"
                 fontSize={gradientLabelSize}
                 dy={-gradientLabelOffset}
+                {...stylex.props(peripheralsStyles.axisValue)}
               >
                 {label}
               </text>

@@ -1,10 +1,14 @@
 import { type ComponentProps, forwardRef } from 'react';
-import Svg from './Svg';
+import * as stylex from '@stylexjs/stylex';
+import type { StyleXStyles } from '@stylexjs/stylex/lib/StyleXTypes';
 
-type Props = ComponentProps<'svg'>;
+import Svg from './Svg';
+import { colorScheme } from '../styles/tokens.stylex';
+
+type Props = ComponentProps<'svg'> & { style?: stylex.StyleXStyles };
 
 export default forwardRef<SVGSVGElement, Props>(function LoaderSvg(
-  { className = '', ...rest },
+  { style, ...rest },
   ref
 ) {
   const base = 3;
@@ -15,8 +19,8 @@ export default forwardRef<SVGSVGElement, Props>(function LoaderSvg(
 
   return (
     <Svg
-      className={`fill-indigo-900 ${className}`}
       {...rest}
+      {...stylex.props([styles.wrapper, style as StyleXStyles])}
       width={width}
       height={height}
       ref={ref}
@@ -46,4 +50,10 @@ export default forwardRef<SVGSVGElement, Props>(function LoaderSvg(
       ))}
     </Svg>
   );
+});
+
+const styles = stylex.create({
+  wrapper: {
+    fill: colorScheme.loaderColor,
+  },
 });

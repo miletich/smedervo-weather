@@ -1,8 +1,11 @@
+import * as stylex from '@stylexjs/stylex';
+
+import { peripheralsStyles } from '@/styles/peripherals';
+
 import {
   annotationAnglePrecipitation,
   annotationOuterOffset,
   annotationTextSize,
-  black,
   precipitationTypeAnnotationR,
   precipitationTypeCircleOpacity,
   precipitationTypeCircleXOffset,
@@ -33,8 +36,8 @@ export default async function PrecipitationTypes() {
           x={x + precipitationTypeLabelXOffset}
           y={y + (i + 1) * precipitationTypeYOffsetBase}
           fontSize={annotationTextSize}
-          fill={black}
           dominantBaseline="middle"
+          {...stylex.props(peripheralsStyles.axisValue)}
         >
           {d}
         </text>

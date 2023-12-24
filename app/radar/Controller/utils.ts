@@ -12,18 +12,16 @@ import {
   cloudCoverAccessor,
   precipitationProbabilityAccessor,
 } from '@/utils/data';
+import { gray, yellow, white } from '@/styles/tokens.stylex';
 
 import { getAngleForCoordinates, getCoordinatesForAngle } from '../utils/angle';
 import {
-  black,
-  darkGray,
   dimensions,
   tooltipAngleOffset,
   tooltipHeight,
   tooltipOffset,
   tooltipOffsetAdjustThreshold,
   tooltipWidth,
-  yellow,
 } from '../consts';
 import { getAngleScale } from '../utils/scales';
 import { gradientScale } from '../sections/Meta/TemperatureGradient';
@@ -118,17 +116,17 @@ export const useTooltipMetrics: UseTooltipMetrics = (datum) =>
     const uvIndex: TooltipMetrics = {
       name: 'UV Index',
       value: formatNumber(uvIndexAccessor(datum)),
-      fill: yellow,
+      fill: yellow[300],
     };
     const cloudCover: TooltipMetrics = {
       name: 'Cloud Cover',
       value: formatNumber(cloudCoverAccessor(datum)),
-      fill: darkGray,
+      fill: gray[400],
     };
     const precipitationProbability: TooltipMetrics = {
       name: 'Precipitation Probability',
       value: formatNumber(precipitationProbabilityAccessor(datum), 0) + '%',
-      fill: black,
+      fill: gray[700],
     };
     const precipitationType: TooltipMetrics = {
       name: 'Precipitation Type',

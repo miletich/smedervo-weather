@@ -1,15 +1,8 @@
+import { blue, gray } from '@/styles/tokens.stylex';
 import { getRadialDimensions } from '@/utils/dimensions';
 
 export const wrapperId = 'radar-weather';
 export const dimensions = getRadialDimensions(740, 120);
-
-// colors
-export const white = '#fff';
-export const black = '#34495e';
-export const gray = '#dadadd';
-export const midGray = '#c8d6e5';
-export const darkGray = '#8395a7';
-export const yellow = '#feca57';
 
 // ticks
 export const monthTickLabelOffset = 1.38;
@@ -22,7 +15,6 @@ export const temperatureLabelTickOffsetX = 7;
 export const temperatureTickLabelWeight = 600;
 
 // freezing marker
-export const freezingColor = '#00d2d3';
 export const freezingOpacity = 0.15;
 
 // temperature
@@ -36,7 +28,7 @@ export const uvIndexStrokeWidth = 2;
 
 // precipitation
 export const precipitationTypes = ['rain', 'sleet', 'snow'];
-export const precipitationTypeColors = ['#54a0ff', '#636e72', '#b2bec3'];
+export const precipitationTypeColors = [blue[400], gray[600], gray[300]];
 export const precipitationOffset = 1.14;
 export const precipitationMaxRadius = 8;
 export const precipitationOpacity = 0.5;

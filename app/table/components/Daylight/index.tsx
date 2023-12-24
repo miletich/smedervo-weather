@@ -1,32 +1,34 @@
 import { type ComponentProps, forwardRef } from 'react';
+import * as stylex from '@stylexjs/stylex';
+import type { StyleXStyles } from '@stylexjs/stylex/lib/StyleXTypes';
 
 import { TableCell } from '@/components/Table';
 import Svg from '@/components/Svg';
+import { yellow, blue } from '@/styles/tokens.stylex';
 
-import {
-  daylightDayColor,
-  daylightHeight,
-  daylightMidColor,
-  daylightNightColor,
-  daylightWidth,
-} from '../../consts';
+import { daylightHeight, daylightWidth } from '../../consts';
 
 import { getDaylightConfig } from './utils';
 
 type Props = ComponentProps<'td'> & {
   date: Date;
+  style?: StyleXStyles;
 };
 
 export default forwardRef<HTMLTableCellElement, Props>(function Daylight(
-  { className = '', date, ...rest },
+  { style, date, ...rest },
   ref
 ) {
   const { dawn, sunrise, sunset, dusk } = getDaylightConfig(date);
 
   return (
-    <TableCell className={` ${className} w-32 h-10`} {...rest} ref={ref}>
+    <TableCell
+      style={[styles.wrapper, style as StyleXStyles]}
+      {...rest}
+      ref={ref}
+    >
       <Svg
-        className={` w-32 h-10`}
+        {...stylex.props(styles.graphic)}
         width={daylightWidth}
         height={daylightHeight}
         role="image"
@@ -38,7 +40,7 @@ export default forwardRef<HTMLTableCellElement, Props>(function Daylight(
           y1={daylightHeight / 2}
           y2={daylightHeight / 2}
           strokeWidth={daylightHeight}
-          stroke={daylightNightColor}
+          stroke={blue[900]}
           strokeLinecap="round"
         />
         <line
@@ -47,7 +49,7 @@ export default forwardRef<HTMLTableCellElement, Props>(function Daylight(
           y1={daylightHeight / 2}
           y2={daylightHeight / 2}
           strokeWidth={daylightHeight}
-          stroke={daylightMidColor}
+          stroke={blue[400]}
           strokeLinecap="round"
         />
         <line
@@ -56,10 +58,20 @@ export default forwardRef<HTMLTableCellElement, Props>(function Daylight(
           y1={daylightHeight / 2}
           y2={daylightHeight / 2}
           strokeWidth={daylightHeight}
-          stroke={daylightDayColor}
+          stroke={yellow[200]}
           strokeLinecap="round"
         />
       </Svg>
     </TableCell>
   );
+});
+
+const styles = stylex.create({
+  wrapper: {
+    paddingStart: '1.5rem',
+  },
+  graphic: {
+    width: '8rem',
+    height: '2.5rem',
+  },
 });

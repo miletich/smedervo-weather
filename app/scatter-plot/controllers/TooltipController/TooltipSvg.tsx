@@ -1,12 +1,15 @@
+import * as stylex from '@stylexjs/stylex';
+import type { StyleXStyles } from '@stylexjs/stylex/lib/StyleXTypes';
+
+import { gray, tooltip } from '../../../../styles/tokens.stylex';
+
 import { type ComponentProps, forwardRef } from 'react';
 
-import { gray } from '../../consts';
-
 type Props = ComponentProps<'path'> &
-  Record<'width' | 'height' | 'offset', number>;
+  Record<'width' | 'height' | 'offset', number> & { style?: StyleXStyles };
 
 export default forwardRef<SVGPathElement, Props>(function TooltipSvg(
-  { className = '', width, height, offset, ...rest },
+  { style, width, height, offset, ...rest },
   ref
 ) {
   const left = -width / 2;
@@ -26,12 +29,16 @@ export default forwardRef<SVGPathElement, Props>(function TooltipSvg(
   return (
     <path
       ref={ref}
-      className={`${className}`}
       d={d}
-      stroke={gray}
-      strokeWidth={1}
-      fill="white"
+      {...stylex.props([styles.wrapper, style as StyleXStyles])}
       {...rest}
     />
   );
+});
+
+const styles = stylex.create({
+  wrapper: {
+    fill: tooltip.wrapperFill,
+    stroke: tooltip.wrapperStroke,
+  },
 });

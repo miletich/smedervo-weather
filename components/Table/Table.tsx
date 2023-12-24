@@ -1,13 +1,21 @@
 import { type ComponentProps, forwardRef } from 'react';
+import * as stylex from '@stylexjs/stylex';
+import type { StyleXStyles } from '@stylexjs/stylex/lib/StyleXTypes';
 
-type Props = ComponentProps<'table'>;
+import { tableStyles } from './styles';
+
+type Props = ComponentProps<'table'> & { style?: StyleXStyles };
 
 export default forwardRef<HTMLTableElement, Props>(function Table(
-  { className = '', children, ...rest },
+  { style, children, ...rest },
   ref
 ) {
   return (
-    <table ref={ref} className={`${className} border-collapse`} {...rest}>
+    <table
+      ref={ref}
+      {...stylex.props([tableStyles.wrapper, style as StyleXStyles])}
+      {...rest}
+    >
       {children}
     </table>
   );
