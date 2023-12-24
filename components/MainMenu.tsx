@@ -9,7 +9,11 @@ type Props = PropsWithChildren & {
   style?: StyleXStyles;
 };
 export function MainMenu({ children, style }: Props) {
-  return <ul {...stylex.props([styles.wrapper, style])}>{children}</ul>;
+  return (
+    <ul {...stylex.props([generic.centerXY, styles.wrapper, style])}>
+      {children}
+    </ul>
+  );
 }
 
 type MainMenuItemProps = Props & LinkProps;
@@ -19,7 +23,7 @@ export default function MainMenuItem({
   ...rest
 }: MainMenuItemProps) {
   return (
-    <li {...stylex.props([generic.centerXY, styles.item, style])}>
+    <li {...stylex.props([styles.item, style])}>
       <Link {...rest}>{children}</Link>
     </li>
   );
