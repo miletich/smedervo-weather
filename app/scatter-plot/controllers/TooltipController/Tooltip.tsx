@@ -5,6 +5,7 @@ import * as stylex from '@stylexjs/stylex';
 
 import { dateAccessor, tempMaxAccessor, tempMinAccessor } from '@/utils/data';
 import { formatTooltipDate } from '@/utils/date';
+import { generic } from '@/styles/generic';
 import { gray, tooltip } from '../../../../styles/tokens.stylex';
 
 import { useCurrentDateData } from '../../context/CurrentDateContext';
@@ -46,8 +47,9 @@ export default function Tooltip() {
 
   return (
     <g
-      className="tooltip pointer-events-none"
+      className="tooltip"
       transform={`translate(${center[0]}, ${center[1] - dotSize})`}
+      {...stylex.props(generic.noPointerEvents)}
     >
       <circle
         cy={dotSize}

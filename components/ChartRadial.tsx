@@ -12,12 +12,11 @@ type Props = ComponentProps<'svg'> & {
 };
 
 export default forwardRef<SVGSVGElement, Props>(function Chart(
-  { className, children, style, dimensions, ...rest },
+  { children, style, dimensions, ...rest },
   ref
 ) {
   return (
     <Svg
-      className={` ${className}`}
       {...rest}
       {...stylex.props(style as StyleXStyles)}
       width={dimensions.size}

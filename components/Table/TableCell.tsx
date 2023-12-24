@@ -1,20 +1,3 @@
-// import { type ComponentProps, forwardRef, CSSProperties } from 'react';
-
-// type Props = ComponentProps<'td'>;
-
-// export default forwardRef<HTMLTableCellElement, Props>(function TableCell(
-//   { className = '', children, ...rest },
-//   ref
-// ) {
-//   return (
-//     <td ref={ref} className={`h-full py-2 px-4 ${className}`} {...rest}>
-//       {children}
-//     </td>
-//   );
-// });
-
-// don't spread on table components, just pass 'style' prop
-
 import { type ComponentProps, type CSSProperties, forwardRef } from 'react';
 import * as stylex from '@stylexjs/stylex';
 import type {

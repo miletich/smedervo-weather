@@ -1,9 +1,12 @@
 import type { Metadata } from 'next';
+import * as stylex from '@stylexjs/stylex';
+
 import '../globals.css';
 
 import H2 from '@/components/H2';
 import P from '@/components/P';
 import ContentWrapper from '@/components/ContentWrapper';
+import { generic } from '@/styles/generic';
 
 export const metadata: Metadata = {
   title: 'Smederevo Weather Scatter Plot',
@@ -18,9 +21,9 @@ export default function RootLayout({
 }) {
   return (
     <ContentWrapper>
-      <header className="flex flex-col items-center">
+      <header {...stylex.props(generic.centerXY)}>
         <H2>Daily Temperature Ranges</H2>
-        <P className="text-center">
+        <P {...stylex.props(generic.centerText)}>
           Daily minimum and maximum temperatures in Smederevo in 2022
         </P>
       </header>
