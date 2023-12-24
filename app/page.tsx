@@ -6,10 +6,11 @@ import P from '@/components/P';
 import MainMenuItem, { MainMenu } from '@/components/MainMenu';
 
 import ScatterPlotIllustration from './scatter-plot/Illustration';
-import RadarIllustration from './radar/Illustration.tsx';
+import RadarIllustration from './radar/Illustration';
 import ContentWrapper from '@/components/ContentWrapper';
 import { gray } from '@/styles/tokens.stylex';
 import { colorScheme } from '../styles/tokens.stylex';
+import TableIllustration from './table/Illustration';
 // SX bug
 // import { SM } from '@/styles/mediaQueries';
 
@@ -30,7 +31,8 @@ export default async function Home() {
             <P>Radar</P>
           </MainMenuItem>
           <MainMenuItem href="/table">
-            <P {...stylex.props(styles.wip)}>WIP</P>
+            <TableIllustration />
+            {/* <P {...stylex.props(styles.wip)}>WIP</P> */}
             <P>Table</P>
           </MainMenuItem>
         </MainMenu>

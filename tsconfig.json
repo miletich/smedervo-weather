@@ -27,7 +27,8 @@
     "weather-icons-react.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "app/radar/Illustration"
   ],
   "exclude": ["node_modules"]
 }
