@@ -42,6 +42,7 @@ export default async function TableView({
   ];
   const { offset, limit } = getTableSearchParams(searchParams);
   const pagerConfig: TablePagerConfig = { count: data.length, offset, limit };
+  console.log(data);
 
   return (
     <div>
