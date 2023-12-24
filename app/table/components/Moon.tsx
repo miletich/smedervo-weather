@@ -1,7 +1,7 @@
 import { type ComponentProps, forwardRef } from 'react';
 import * as SunCalc from 'suncalc';
 import * as stylex from '@stylexjs/stylex';
-import type { StyleXStyles } from '@stylexjs/stylex/lib/StyleXTypes';
+import type { StyleXStyles } from '@stylexjs/stylex';
 
 import { TableCell } from '@/components/Table';
 import Svg from '@/components/Svg';
@@ -13,11 +13,11 @@ type Props = ComponentProps<'td'> & {
   date: Date;
   idx: string;
   fill?: string;
-  style?: StyleXStyles;
+  styleX?: StyleXStyles;
 };
 
 export default forwardRef<HTMLTableCellElement, Props>(function Moon(
-  { style, children, idx, date, fill = gray[400], ...rest },
+  { styleX, children, idx, date, fill = gray[400], ...rest },
   ref
 ) {
   const maskId = `moon-${idx}`;
@@ -26,11 +26,7 @@ export default forwardRef<HTMLTableCellElement, Props>(function Moon(
   const x = moonSize * fraction;
 
   return (
-    <TableCell
-      style={[styles.wrapper, style as StyleXStyles]}
-      {...rest}
-      ref={ref}
-    >
+    <TableCell styleX={[styles.wrapper, styleX]} {...rest} ref={ref}>
       <Svg width={moonSize} height={moonSize} {...stylex.props(styles.moon)}>
         <title>{`Moon illumination: ${fraction}%`}</title>
         <mask id={maskId}>

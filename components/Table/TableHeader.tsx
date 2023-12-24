@@ -1,21 +1,17 @@
 import { type ComponentProps, forwardRef } from 'react';
 import * as stylex from '@stylexjs/stylex';
-import type { StyleXStyles } from '@stylexjs/stylex/lib/StyleXTypes';
+import type { StyleXStyles } from '@stylexjs/stylex';
 
 import { tableStyles } from './styles';
 
-type Props = ComponentProps<'thead'> & { style?: StyleXStyles };
+type Props = ComponentProps<'thead'> & { styleX?: StyleXStyles };
 
 export default forwardRef<HTMLTableSectionElement, Props>(function TableHeader(
-  { style, children, ...rest },
+  { styleX, children, ...rest },
   ref
 ) {
   return (
-    <thead
-      ref={ref}
-      {...stylex.props([tableStyles.header, style as StyleXStyles])}
-      {...rest}
-    >
+    <thead ref={ref} {...stylex.props([tableStyles.header, styleX])} {...rest}>
       {children}
     </thead>
   );

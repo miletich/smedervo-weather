@@ -1,6 +1,6 @@
 import { type ComponentProps, forwardRef } from 'react';
 import * as stylex from '@stylexjs/stylex';
-import type { StyleXStyles } from '@stylexjs/stylex/lib/StyleXTypes';
+import type { StyleXStyles } from '@stylexjs/stylex';
 
 import { TableCell } from '@/components/Table';
 import Svg from '@/components/Svg';
@@ -12,21 +12,17 @@ import { getDaylightConfig } from './utils';
 
 type Props = ComponentProps<'td'> & {
   date: Date;
-  style?: StyleXStyles;
+  styleX?: StyleXStyles;
 };
 
 export default forwardRef<HTMLTableCellElement, Props>(function Daylight(
-  { style, date, ...rest },
+  { styleX, date, ...rest },
   ref
 ) {
   const { dawn, sunrise, sunset, dusk } = getDaylightConfig(date);
 
   return (
-    <TableCell
-      style={[styles.wrapper, style as StyleXStyles]}
-      {...rest}
-      ref={ref}
-    >
+    <TableCell styleX={[styles.wrapper, styleX]} {...rest} ref={ref}>
       <Svg
         {...stylex.props(styles.graphic)}
         width={daylightWidth}

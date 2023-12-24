@@ -7,23 +7,19 @@ import type {
 import { tableStyles } from './styles';
 
 type Props = ComponentProps<'td'> & {
-  style?: StyleXArray<any>;
-  rawStyle?: CSSProperties;
+  styleX?: StyleXArray<any>;
+  style?: CSSProperties;
 };
 
 export default forwardRef<HTMLTableCellElement, Props>(function TableHead(
-  { style, rawStyle, children, ...rest },
+  { styleX, style, children, ...rest },
   ref
 ) {
   return (
     <td
       ref={ref}
-      style={rawStyle}
-      {...stylex.props(
-        tableStyles.cell,
-        styles.overrides,
-        style as StyleXStyles
-      )}
+      style={style}
+      {...stylex.props(tableStyles.cell, styles.overrides, styleX)}
       {...rest}
     >
       {children}

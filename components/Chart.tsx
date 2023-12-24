@@ -1,23 +1,23 @@
 import { type ComponentProps, forwardRef } from 'react';
 import * as stylex from '@stylexjs/stylex';
-import type { StyleXStyles } from '@stylexjs/stylex/lib/StyleXTypes';
+import type { StyleXStyles } from '@stylexjs/stylex';
 
 import Svg from './Svg';
 import { Dimensions } from '@/utils/dimensions';
 
 type Props = ComponentProps<'svg'> & {
   dimensions: Dimensions;
-  style?: StyleXStyles;
+  styleX?: StyleXStyles;
 };
 
 export default forwardRef<SVGSVGElement, Props>(function Chart(
-  { style, children, dimensions, ...rest },
+  { styleX, children, dimensions, ...rest },
   ref
 ) {
   return (
     <Svg
       {...rest}
-      {...stylex.props(style as StyleXStyles)}
+      {...stylex.props(styleX)}
       width={dimensions.width}
       height={dimensions.height}
       ref={ref}

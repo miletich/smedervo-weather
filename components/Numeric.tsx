@@ -1,19 +1,15 @@
 import { type ComponentProps, forwardRef } from 'react';
 import * as stylex from '@stylexjs/stylex';
-import type { StyleXStyles } from '@stylexjs/stylex/lib/StyleXTypes';
+import type { StyleXStyles } from '@stylexjs/stylex';
 
-type Props = ComponentProps<'span'> & { style?: StyleXStyles };
+type Props = ComponentProps<'span'> & { styleX?: StyleXStyles };
 
 export default forwardRef<HTMLSpanElement, Props>(function Numeric(
-  { style, children, ...rest },
+  { styleX, children, ...rest },
   ref
 ) {
   return (
-    <span
-      ref={ref}
-      {...stylex.props(styles.numbers, style as StyleXStyles)}
-      {...rest}
-    >
+    <span ref={ref} {...stylex.props(styles.numbers, styleX)} {...rest}>
       {children}
     </span>
   );

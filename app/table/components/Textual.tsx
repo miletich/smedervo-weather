@@ -1,21 +1,21 @@
 import { type ComponentProps, forwardRef } from 'react';
 
 import * as stylex from '@stylexjs/stylex';
-import type { StyleXStyles } from '@stylexjs/stylex/lib/StyleXTypes';
+import type { StyleXStyles } from '@stylexjs/stylex';
 
 import { TableCell } from '@/components/Table';
 
 import { tableComponentStyles } from './tableComponentStyles';
 
-type Props = ComponentProps<'td'> & { style?: StyleXStyles };
+type Props = ComponentProps<'td'> & { styleX?: StyleXStyles };
 
 export default forwardRef<HTMLTableCellElement, Props>(function Textual(
-  { style, children, ...rest },
+  { styleX, children, ...rest },
   ref
 ) {
   return (
     <TableCell
-      style={[tableComponentStyles.startAlign, style as StyleXStyles]}
+      styleX={[tableComponentStyles.startAlign, styleX]}
       {...rest}
       ref={ref}
     >

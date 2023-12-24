@@ -47,14 +47,11 @@ export default async function TableView({
     <div>
       <Table>
         <TableHeader>
-          <TableRow style={tableStyles.headerRow}>
+          <TableRow styleX={tableStyles.headerRow}>
             {columns.map((c) => (
               <TableHead
                 key={c.name}
-                // TODO: fix
-                style={
-                  'startAlign' in c && (tableComponentStyles.startAlign as any)
-                }
+                styleX={'startAlign' in c && tableComponentStyles.startAlign}
               >
                 {c.label}
               </TableHead>
@@ -70,7 +67,7 @@ export default async function TableView({
                     return (
                       <Textual
                         key={c.name}
-                        style={tableComponentStyles.dateWidth}
+                        styleX={tableComponentStyles.dateWidth}
                       >
                         {formatShortDate(c.accessor(d))}
                       </Textual>
@@ -79,7 +76,7 @@ export default async function TableView({
                     return (
                       <Textual
                         key={c.name}
-                        style={tableComponentStyles.descriptionWidth}
+                        styleX={tableComponentStyles.descriptionWidth}
                       >
                         {c.accessor(d)}
                       </Textual>

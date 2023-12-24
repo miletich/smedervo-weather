@@ -1,6 +1,6 @@
 import { type ComponentProps, forwardRef } from 'react';
 import * as stylex from '@stylexjs/stylex';
-import type { StyleXStyles } from '@stylexjs/stylex/lib/StyleXTypes';
+import type { StyleXStyles } from '@stylexjs/stylex';
 
 import { TableCell } from '@/components/Table';
 import Svg from '@/components/Svg';
@@ -9,21 +9,17 @@ import { uvIndexBarWidth } from '../../consts';
 
 import { getUvIndexConfig } from './utils';
 
-type Props = { uvIndex: number; style?: StyleXStyles } & ComponentProps<'td'>;
+type Props = { uvIndex: number; styleX?: StyleXStyles } & ComponentProps<'td'>;
 
 export default forwardRef<HTMLTableCellElement, Props>(function UvIndex(
-  { style, uvIndex, ...rest },
+  { styleX, uvIndex, ...rest },
   ref
 ) {
   const { name, value, color, width, height, barXBase } =
     getUvIndexConfig(uvIndex);
 
   return (
-    <TableCell
-      style={[styles.wrapper, style as StyleXStyles]}
-      {...rest}
-      ref={ref}
-    >
+    <TableCell styleX={[styles.wrapper, styleX]} {...rest} ref={ref}>
       <Svg
         {...stylex.props(styles.graphic)}
         width={width}
