@@ -14,6 +14,7 @@ export const illustrationStyles = stylex.create({
   rowText: {
     fill: tableIllustration.text,
   },
+
   // headerBG: {
   //   fill: table.headerBgColor,
   // },

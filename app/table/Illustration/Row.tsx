@@ -7,10 +7,14 @@ import {
   dimensions,
   rowHeight,
   textHeight,
-  textOffset,
+  offset,
   textRx,
   textWidth,
+  daylightX,
+  daylightY,
+  dayLightScale,
 } from './consts';
+import DayLightSvgBody from '../components/Daylight/DayLightSvgBody';
 
 type Props = ComponentProps<'g'> & {
   date: Date;
@@ -32,12 +36,16 @@ export default forwardRef<SVGGElement, Props>(function Row(
       />
       <rect
         className="text"
-        x={textOffset}
-        y={textOffset}
+        x={offset}
+        y={offset}
         width={textWidth}
         height={textHeight}
         rx={textRx}
         {...stylex.props(illustrationStyles.rowText)}
+      />
+      <DayLightSvgBody
+        date={date}
+        transform={`translate(${daylightX}, ${daylightY}) scale(${dayLightScale})`}
       />
     </g>
   );
