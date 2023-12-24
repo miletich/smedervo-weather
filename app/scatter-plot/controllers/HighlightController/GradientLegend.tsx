@@ -2,6 +2,7 @@ import * as d3 from 'd3';
 import * as stylex from '@stylexjs/stylex';
 
 import getData from '@/utils/getDataServer';
+import { peripheralsStyles } from '@/styles/peripherals';
 
 import {
   gradientHeight,
@@ -17,7 +18,6 @@ import {
 import { getScales } from '../../utils/scalesServer';
 
 import GradientLegendText from './GradientLegendText';
-import { peripheralsStyles } from '@/styles/peripherals';
 
 type Props = { hideLabels?: boolean };
 export default async function GradientLegend({ hideLabels = false }: Props) {

@@ -18,6 +18,7 @@
     "d3": "^7.8.5",
     "d3-delaunay": "^6.0.4",
     "framer-motion": "^10.16.4",
+    "modern-normalize": "^2.0.0",
     "next": "14.0.1",
     "react": "^18",
     "react-dom": "^18",
@@ -33,12 +34,9 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@types/suncalc": "^1.9.2",
-    "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.1",
-    "postcss": "^8",
     "rimraf": "^5.0.5",
-    "tailwindcss": "^3.3.0",
     "typescript": "^5"
   }
 }

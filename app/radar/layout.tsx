@@ -4,8 +4,6 @@ import * as stylex from '@stylexjs/stylex';
 import H2 from '@/components/H2';
 import P from '@/components/P';
 
-import '../globals.css';
-
 import { wrapperId } from './consts';
 import ContentWrapper from '@/components/ContentWrapper';
 

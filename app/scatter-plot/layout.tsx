@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
 import * as stylex from '@stylexjs/stylex';
 
-import '../globals.css';
-
 import H2 from '@/components/H2';
 import P from '@/components/P';
 import ContentWrapper from '@/components/ContentWrapper';
@@ -21,11 +19,9 @@ export default function RootLayout({
 }) {
   return (
     <ContentWrapper>
-      <header {...stylex.props(generic.centerXY)}>
+      <header {...stylex.props(generic.centerText)}>
         <H2>Daily Temperature Ranges</H2>
-        <P {...stylex.props(generic.centerText)}>
-          Daily minimum and maximum temperatures in Smederevo in 2022
-        </P>
+        <P>Daily minimum and maximum temperatures in Smederevo in 2022</P>
       </header>
       <main>{children}</main>
     </ContentWrapper>

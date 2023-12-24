@@ -4,7 +4,7 @@ import '@fontsource-variable/inter';
 
 import { colorScheme } from '../styles/tokens.stylex';
 
-import './globals.css';
+import './reset.css';
 
 export const metadata: Metadata = {
   title: 'Smederevo Weather in 2022',
