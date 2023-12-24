@@ -3,7 +3,14 @@ import * as stylex from '@stylexjs/stylex';
 import type { StyleXStyles } from '@stylexjs/stylex';
 
 import { illustrationStyles } from './illustrationStyles';
-import { dimensions, rowHeight } from './consts';
+import {
+  dimensions,
+  rowHeight,
+  textHeight,
+  textOffset,
+  textRx,
+  textWidth,
+} from './consts';
 
 type Props = ComponentProps<'g'> & {
   date: Date;
@@ -16,16 +23,21 @@ export default forwardRef<SVGGElement, Props>(function Row(
   ref
 ) {
   return (
-    <g
-      ref={ref}
-      {...rest}
-      {...stylex.props(illustrationStyles.rowBg(idx % 2 === 0), styleX)}
-    >
+    <g ref={ref} {...rest} transform={`translate(0, ${rowHeight * idx})`}>
       <rect
-        x={0}
-        y={rowHeight * idx + rowHeight}
+        className="bg"
         width={dimensions.innerWidth}
         height={rowHeight}
+        {...stylex.props(illustrationStyles.rowBg(idx % 2 === 0), styleX)}
+      />
+      <rect
+        className="text"
+        x={textOffset}
+        y={textOffset}
+        width={textWidth}
+        height={textHeight}
+        rx={textRx}
+        {...stylex.props(illustrationStyles.rowText)}
       />
     </g>
   );

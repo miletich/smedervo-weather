@@ -276,30 +276,18 @@ export const table = stylex.defineVars({
 });
 
 export const tableIllustration = stylex.defineVars({
-  headerTextColor: { default: blue[50], [DARK]: blue[50] },
-  headerBgColor: { default: blue[900], [DARK]: blue[800] },
+  // headerTextColor: { default: blue[50], [DARK]: blue[50] },
+  // headerBgColor: { default: blue[900], [DARK]: blue[800] },
   rowBackground: {
-    default: gray[50],
-    [DARK]: gray[950],
-  },
-  rowBackgroundOdd: {
     default: gray[100],
     [DARK]: gray[900],
   },
-  rowBackgroundHover: {
+  rowBackgroundOdd: {
     default: gray[200],
     [DARK]: gray[800],
   },
-  pagerTextColor: {
-    default: blue[800],
-    [DARK]: blue[200],
-  },
-  pagerHoverBg: {
-    default: blue[100],
-    [DARK]: blue[900],
-  },
-  pagerHoverText: {
-    default: blue[600],
-    [DARK]: blue[400],
+  text: {
+    default: gray[200],
+    [DARK]: gray[700],
   },
 });

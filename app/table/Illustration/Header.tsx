@@ -18,7 +18,7 @@ export default forwardRef<SVGRectElement, Props>(function Header(
       <rect
         width={dimensions.innerWidth}
         height={dimensions.innerHeight}
-        {...stylex.props(illustrationStyles.headerBG)}
+        // {...stylex.props(illustrationStyles.headerBG)}
       />
     </g>
   );

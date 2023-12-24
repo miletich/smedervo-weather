@@ -151,7 +151,7 @@ export const mockData: Datum[] = [
     description:
       'Partly cloudy throughout the day with early morning snow or rain.',
   },
-  /*   {
+  {
     tempmin: -8.5,
     tempmax: -0.9,
     datetime: '2022-01-13',
@@ -163,17 +163,16 @@ export const mockData: Datum[] = [
     winddir: 289.1,
     description: 'Partly cloudy throughout the day with morning snow.',
   },
-  {
-    tempmin: -6.7,
-    tempmax: 3.8,
-    datetime: '2022-01-14',
-    uvindex: 3,
-    precipprob: 100,
-    preciptype: 'snow',
-    cloudcover: 40,
-    windspeed: 10.7,
-    winddir: 283,
-    description: 'Partly cloudy throughout the day with morning snow.',
-  } */
-  ,
+  // {
+  //   tempmin: -6.7,
+  //   tempmax: 3.8,
+  //   datetime: '2022-01-14',
+  //   uvindex: 3,
+  //   precipprob: 100,
+  //   preciptype: 'snow',
+  //   cloudcover: 40,
+  //   windspeed: 10.7,
+  //   winddir: 283,
+  //   description: 'Partly cloudy throughout the day with morning snow.',
+  // },
 ];

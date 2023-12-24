@@ -1,18 +1,23 @@
 import * as stylex from '@stylexjs/stylex';
 
-import { colorScheme, table } from '../../../styles/tokens.stylex';
+import {
+  // colorScheme, table,
+  tableIllustration,
+} from '../../../styles/tokens.stylex';
 
 export const illustrationStyles = stylex.create({
   rowBg: (isEven: boolean) => ({
-    fill: isEven ? table.rowBackground : table.rowBackgroundOdd,
+    fill: isEven
+      ? tableIllustration.rowBackground
+      : tableIllustration.rowBackgroundOdd,
   }),
   rowText: {
-    fill: colorScheme.text,
+    fill: tableIllustration.text,
   },
-  headerBG: {
-    fill: table.headerBgColor,
-  },
-  headerText: {
-    fill: table.headerTextColor,
-  },
+  // headerBG: {
+  //   fill: table.headerBgColor,
+  // },
+  // headerText: {
+  //   fill: table.headerTextColor,
+  // },
 });
