@@ -16,18 +16,24 @@ import {
   moonX,
   moonY,
   moonScale,
+  uvIndexX,
+  uvIndexY,
+  uvIndexScale,
 } from './consts';
 import DayLightSvgBody from '../components/Daylight/DayLightSvgBody';
 import MoonSvgBody from '../components/Moon/MoonSvgBody';
+import UvIndexSvgBody from '../components/UvIndex/UvIndexSvgBody';
+import { uvIndexAccessor } from '@/utils/data';
 
 type Props = ComponentProps<'g'> & {
   date: Date;
+  uvIndex: number;
   idx: number;
   styleX?: StyleXStyles;
 };
 
 export default forwardRef<SVGGElement, Props>(function Row(
-  { date, styleX, idx, ...rest },
+  { date, uvIndex, styleX, idx, ...rest },
   ref
 ) {
   return (
@@ -54,6 +60,10 @@ export default forwardRef<SVGGElement, Props>(function Row(
       <MoonSvgBody
         date={date}
         transform={`translate(${moonX}, ${moonY}) scale(${moonScale})`}
+      />
+      <UvIndexSvgBody
+        uvIndex={uvIndex}
+        transform={`translate(${uvIndexX}, ${uvIndexY}) scale(${uvIndexScale})`}
       />
     </g>
   );

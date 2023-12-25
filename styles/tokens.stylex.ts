@@ -279,11 +279,11 @@ export const tableIllustration = stylex.defineVars({
   // headerTextColor: { default: blue[50], [DARK]: blue[50] },
   // headerBgColor: { default: blue[900], [DARK]: blue[800] },
   rowBackground: {
-    default: gray[100],
+    default: gray[50],
     [DARK]: gray[900],
   },
   rowBackgroundOdd: {
-    default: gray[200],
+    default: gray[100],
     [DARK]: gray[800],
   },
   text: {

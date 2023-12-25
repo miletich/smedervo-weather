@@ -18,9 +18,13 @@ export const textWidth = dimensions.innerHeight / 3;
 export const textRx = offset / 3;
 
 export const daylightY = rowHeight / 2 - offset / 3;
-export const daylightX = textWidth + offset * 2;
+export const daylightX = textWidth + offset * 3;
 export const dayLightScale = 0.4;
 
-export const moonX = daylightX + textWidth + offset;
+export const moonX = daylightX + textWidth + offset * 1.25;
 export const moonY = offset / 2;
 export const moonScale = 0.27;
+
+export const uvIndexX = dimensions.innerHeight - offset * 4;
+export const uvIndexY = offset;
+export const uvIndexScale = 0.7;

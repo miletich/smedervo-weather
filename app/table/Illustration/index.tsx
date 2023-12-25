@@ -13,16 +13,13 @@ export default function TableIllustration() {
       <Meta />
       {/* <Header /> */}
       {mockData.map((d, i) => (
-        <Row key={d.datetime} idx={i} date={dateAccessor(d)} />
+        <Row
+          key={d.datetime}
+          idx={i}
+          date={new Date(d.datetime)}
+          uvIndex={d.uvindex}
+        />
       ))}
-      <text
-        x={dimensions.innerWidth / 2}
-        y={dimensions.innerHeight / 2}
-        dominantBaseline="middle"
-        textAnchor="middle"
-      >
-        WIP
-      </text>
     </Chart>
   );
 }
