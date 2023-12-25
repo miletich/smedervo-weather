@@ -48,7 +48,7 @@ export default forwardRef<SVGGElement, Props>(function Row(
         className="text"
         x={offset}
         y={offset}
-        width={textWidth}
+        width={textWidth / 2 + (textWidth / 2) * Math.random()}
         height={textHeight}
         rx={textRx}
         {...stylex.props(illustrationStyles.rowText)}

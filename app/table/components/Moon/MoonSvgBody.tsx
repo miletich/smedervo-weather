@@ -14,7 +14,7 @@ type Props = ComponentProps<'g'> & {
 };
 
 export default forwardRef<SVGGElement, Props>(function MoonSvgBody(
-  { styleX, date, fill = gray[400], ...rest },
+  { styleX, date, fill = gray[300], ...rest },
   ref
 ) {
   const maskId = `moon-${date.toISOString()}`;

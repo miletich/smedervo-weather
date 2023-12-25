@@ -39,6 +39,5 @@ const styles = stylex.create({
   moon: {
     width: '2rem',
     height: '2rem',
-    opacity: 0.7,
   },
 });
