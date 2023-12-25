@@ -88,13 +88,7 @@ export default async function TableView({
                   case 'daylight':
                     return <Daylight key={c.name} date={c.accessor(d)} />;
                   case 'moonphase':
-                    return (
-                      <Moon
-                        key={c.name}
-                        date={c.accessor(d)}
-                        idx={d.datetime}
-                      />
-                    );
+                    return <Moon key={c.name} date={c.accessor(d)} />;
                   case 'wind':
                     return (
                       <Wind

@@ -13,8 +13,12 @@ import {
   daylightX,
   daylightY,
   dayLightScale,
+  moonX,
+  moonY,
+  moonScale,
 } from './consts';
 import DayLightSvgBody from '../components/Daylight/DayLightSvgBody';
+import MoonSvgBody from '../components/Moon/MoonSvgBody';
 
 type Props = ComponentProps<'g'> & {
   date: Date;
@@ -46,6 +50,10 @@ export default forwardRef<SVGGElement, Props>(function Row(
       <DayLightSvgBody
         date={date}
         transform={`translate(${daylightX}, ${daylightY}) scale(${dayLightScale})`}
+      />
+      <MoonSvgBody
+        date={date}
+        transform={`translate(${moonX}, ${moonY}) scale(${moonScale})`}
       />
     </g>
   );
