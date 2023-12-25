@@ -1,17 +1,17 @@
 import { type ComponentProps, forwardRef } from 'react';
 import * as stylex from '@stylexjs/stylex';
-import type { StyleXStyles } from '@stylexjs/stylex/lib/StyleXTypes';
+import type { StyleXStyles } from '@stylexjs/stylex';
 
 import { colorScheme, sizing } from '../styles/tokens.stylex';
 
-type Props = ComponentProps<'h2'> & { style?: StyleXStyles };
+type Props = ComponentProps<'h2'> & { styleX?: StyleXStyles };
 
 export default forwardRef<HTMLHeadingElement, Props>(function H2(
-  { style, children, ...rest },
+  { styleX, children, ...rest },
   ref
 ) {
   return (
-    <h2 ref={ref} {...stylex.props(styles.h2, style as StyleXStyles)} {...rest}>
+    <h2 ref={ref} {...stylex.props(styles.h2, styleX)} {...rest}>
       {children}
     </h2>
   );

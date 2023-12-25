@@ -1,6 +1,6 @@
 import { type ComponentProps, forwardRef } from 'react';
 import * as stylex from '@stylexjs/stylex';
-import type { StyleXStyles } from '@stylexjs/stylex/lib/StyleXTypes';
+import type { StyleXStyles } from '@stylexjs/stylex';
 
 import { TablePagerConfig, getPaginationLabels } from './utils';
 import Nav from './Nav';
@@ -10,11 +10,11 @@ import { styles } from './styles';
 type Props = ComponentProps<'div'> & {
   config: TablePagerConfig;
   path: string;
-  style?: StyleXStyles;
+  styleX?: StyleXStyles;
 };
 
 export default forwardRef<HTMLDivElement, Props>(function Pager(
-  { style, config, path, ...rest },
+  { styleX, config, path, ...rest },
   ref
 ) {
   const labels = getPaginationLabels(
@@ -27,11 +27,7 @@ export default forwardRef<HTMLDivElement, Props>(function Pager(
   if (config.count <= config.limit) return null;
 
   return (
-    <div
-      ref={ref}
-      {...rest}
-      {...stylex.props([styles.wrapper, style as StyleXStyles])}
-    >
+    <div ref={ref} {...rest} {...stylex.props([styles.wrapper, styleX])}>
       <Nav path={path} config={config}>{`<`}</Nav>
       {labels.map((label, i) => (
         // there are 2 '…'

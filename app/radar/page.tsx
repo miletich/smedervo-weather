@@ -14,7 +14,7 @@ import Controller from './Controller';
 
 export default function Radar() {
   return (
-    <ChartRadial dimensions={dimensions} style={styles.wrapper}>
+    <ChartRadial dimensions={dimensions} styleX={styles.wrapper}>
       <Meta />
       <Peripherals />
       <Temperature />

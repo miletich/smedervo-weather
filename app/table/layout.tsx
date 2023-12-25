@@ -17,7 +17,9 @@ export default function PageLayout({
   return (
     <div {...stylex.props(styles.wrapper)}>
       <header {...stylex.props(styles.header)}>
-        <H2 style={styles.heading}>2022 Daily Weather Overview in Smederevo</H2>
+        <H2 styleX={styles.heading}>
+          2022 Daily Weather Overview in Smederevo
+        </H2>
       </header>
       <main {...stylex.props(styles.main)}>{children}</main>
     </div>

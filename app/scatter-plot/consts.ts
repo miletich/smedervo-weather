@@ -1,6 +1,6 @@
 import * as d3 from 'd3';
 
-import { type Margin, getDimensions } from '../../utils/dimensions';
+import { type Margin, getDimensions } from '@/utils/dimensions';
 
 const size = 740;
 const margin: Margin = {

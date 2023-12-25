@@ -6,6 +6,7 @@
     "clean": "rimraf .next",
     "predev": "npm run clean",
     "prebuild": "npm run clean",
+    "tsc": "tsc",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",

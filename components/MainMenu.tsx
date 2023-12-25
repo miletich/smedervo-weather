@@ -1,16 +1,16 @@
 import Link, { type LinkProps } from 'next/link';
 import { type PropsWithChildren } from 'react';
 import * as stylex from '@stylexjs/stylex';
-import type { StyleXStyles } from '@stylexjs/stylex/lib/StyleXTypes';
+import type { StyleXStyles } from '@stylexjs/stylex';
 
 import { generic } from '@/styles/generic';
 
 type Props = PropsWithChildren & {
-  style?: StyleXStyles;
+  styleX?: StyleXStyles;
 };
-export function MainMenu({ children, style }: Props) {
+export function MainMenu({ children, styleX }: Props) {
   return (
-    <ul {...stylex.props([generic.centerXY, styles.wrapper, style])}>
+    <ul {...stylex.props([generic.centerXY, styles.wrapper, styleX])}>
       {children}
     </ul>
   );
@@ -19,11 +19,11 @@ export function MainMenu({ children, style }: Props) {
 type MainMenuItemProps = Props & LinkProps;
 export default function MainMenuItem({
   children,
-  style,
+  styleX,
   ...rest
 }: MainMenuItemProps) {
   return (
-    <li {...stylex.props([styles.item, style])}>
+    <li {...stylex.props([styles.item, styleX])}>
       <Link {...rest}>{children}</Link>
     </li>
   );

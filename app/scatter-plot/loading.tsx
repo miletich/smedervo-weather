@@ -2,7 +2,7 @@ import LoaderSvg from '@/components/LoaderSvg';
 import * as stylex from '@stylexjs/stylex';
 
 export default function Loading() {
-  return <LoaderSvg style={styles.sizing} />;
+  return <LoaderSvg styleX={styles.sizing} />;
 }
 
 const styles = stylex.create({

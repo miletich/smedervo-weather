@@ -1,47 +1,32 @@
 import { type ComponentProps, forwardRef } from 'react';
 import * as stylex from '@stylexjs/stylex';
-import type { StyleXStyles } from '@stylexjs/stylex/lib/StyleXTypes';
+import type { StyleXStyles } from '@stylexjs/stylex';
 
 import { TableCell } from '@/components/Table';
 import Svg from '@/components/Svg';
 
-import { uvIndexBarWidth } from '../../consts';
-
 import { getUvIndexConfig } from './utils';
+import UvIndexSvgBody from './UvIndexSvgBody';
 
-type Props = { uvIndex: number; style?: StyleXStyles } & ComponentProps<'td'>;
+type Props = { uvIndex: number; styleX?: StyleXStyles } & ComponentProps<'td'>;
 
 export default forwardRef<HTMLTableCellElement, Props>(function UvIndex(
-  { style, uvIndex, ...rest },
+  { styleX, uvIndex, ...rest },
   ref
 ) {
-  const { name, value, color, width, height, barXBase } =
-    getUvIndexConfig(uvIndex);
+  const { value, width, height } = getUvIndexConfig(uvIndex);
 
   return (
-    <TableCell
-      style={[styles.wrapper, style as StyleXStyles]}
-      {...rest}
-      ref={ref}
-    >
+    <TableCell styleX={[styles.wrapper, styleX]} {...rest} ref={ref}>
       <Svg
         {...stylex.props(styles.graphic)}
         width={width}
         height={height}
-        fill={color}
         preserveAspectRatio="xMinYMin meet"
         role="image"
       >
-        <title>{`UV Index: ${name} - ${value}`}</title>
-        {new Array(value).fill(0).map((_, i) => (
-          <rect
-            key={`${name}-${i}`}
-            x={i * barXBase}
-            y={0}
-            width={uvIndexBarWidth}
-            height={height}
-          />
-        ))}
+        <title>{`UV Index: ${value}`}</title>
+        <UvIndexSvgBody uvIndex={uvIndex} />
       </Svg>
     </TableCell>
   );

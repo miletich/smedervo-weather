@@ -274,3 +274,20 @@ export const table = stylex.defineVars({
     [DARK]: blue[400],
   },
 });
+
+export const tableIllustration = stylex.defineVars({
+  // headerTextColor: { default: blue[50], [DARK]: blue[50] },
+  // headerBgColor: { default: blue[900], [DARK]: blue[800] },
+  rowBackground: {
+    default: gray[50],
+    [DARK]: gray[900],
+  },
+  rowBackgroundOdd: {
+    default: gray[100],
+    [DARK]: gray[800],
+  },
+  text: {
+    default: gray[200],
+    [DARK]: gray[700],
+  },
+});

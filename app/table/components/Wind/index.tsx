@@ -1,7 +1,7 @@
 import { type ComponentProps, forwardRef } from 'react';
 import { scaleLinear } from 'd3-scale';
 import * as stylex from '@stylexjs/stylex';
-import type { StyleXStyles } from '@stylexjs/stylex/lib/StyleXTypes';
+import type { StyleXStyles } from '@stylexjs/stylex';
 
 import { TableCell } from '@/components/Table';
 import Numeric from '@/components/Numeric';
@@ -16,11 +16,11 @@ import { tableComponentStyles } from '../tableComponentStyles';
 type Props = ComponentProps<'td'> & {
   wind: Wind;
   windRange: [number, number];
-  style?: StyleXStyles;
+  styleX?: StyleXStyles;
 };
 
 export default forwardRef<HTMLTableCellElement, Props>(function Wind(
-  { style, wind, windRange, ...rest },
+  { styleX, wind, windRange, ...rest },
   ref
 ) {
   const scale = scaleLinear<string, string>()
@@ -30,17 +30,13 @@ export default forwardRef<HTMLTableCellElement, Props>(function Wind(
   return (
     <TableCell
       {...rest}
-      rawStyle={{ backgroundColor: scale(wind.windspeed) }}
-      style={[
-        tableComponentStyles.gradientWrapper,
-        styles.wrapper,
-        style as StyleXStyles,
-      ]}
+      style={{ backgroundColor: scale(wind.windspeed) }}
+      styleX={[tableComponentStyles.gradientWrapper, styles.wrapper, styleX]}
       ref={ref}
     >
       <div {...stylex.props(generic.centerXY)}>
         <Arrow direction={wind.winddir} {...stylex.props(styles.arrow)} />
-        <Numeric style={tableComponentStyles.numbers as any}>
+        <Numeric styleX={tableComponentStyles.numbers}>
           {wind.windspeed.toFixed(2)}
         </Numeric>
       </div>

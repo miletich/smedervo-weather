@@ -1,15 +1,15 @@
 import { type ComponentProps, forwardRef } from 'react';
 import * as stylex from '@stylexjs/stylex';
-import type { StyleXStyles } from '@stylexjs/stylex/lib/StyleXTypes';
+import type { StyleXStyles } from '@stylexjs/stylex';
 
-type Props = ComponentProps<'tbody'> & { style?: StyleXStyles };
+type Props = ComponentProps<'tbody'> & { styleX?: StyleXStyles };
 
 export default forwardRef<HTMLTableSectionElement, Props>(function TableBody(
-  { children, style, ...rest },
+  { children, styleX, ...rest },
   ref
 ) {
   return (
-    <tbody ref={ref} {...stylex.props(style as StyleXStyles)} {...rest}>
+    <tbody ref={ref} {...stylex.props(styleX)} {...rest}>
       {children}
     </tbody>
   );

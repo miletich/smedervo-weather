@@ -1,7 +1,7 @@
 import { type ComponentProps, forwardRef } from 'react';
 import Link from 'next/link';
 import * as stylex from '@stylexjs/stylex';
-import type { StyleXStyles } from '@stylexjs/stylex/lib/StyleXTypes';
+import type { StyleXStyles } from '@stylexjs/stylex';
 
 import { buildQueryString } from '@/app/table/utils/searchParams';
 
@@ -12,10 +12,11 @@ type Props = ComponentProps<'a'> & {
   config: TablePagerConfig;
   path: string;
   children: string;
+  styleX?: StyleXStyles;
 };
 
 export default forwardRef<HTMLAnchorElement, Props>(function Page(
-  { style, children: label, config, path, ...rest },
+  { styleX, children: label, config, path, ...rest },
   ref
 ) {
   const { offset, limit } = config;
@@ -39,7 +40,7 @@ export default forwardRef<HTMLAnchorElement, Props>(function Page(
     <Link
       href={href}
       {...rest}
-      {...stylex.props([styles.item, style as StyleXStyles])}
+      {...stylex.props([styles.item, styleX])}
       ref={ref}
       prefetch
     >

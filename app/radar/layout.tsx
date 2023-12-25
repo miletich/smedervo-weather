@@ -3,9 +3,10 @@ import * as stylex from '@stylexjs/stylex';
 
 import H2 from '@/components/H2';
 import P from '@/components/P';
+import ContentWrapper from '@/components/ContentWrapper';
+import { generic } from '@/styles/generic';
 
 import { wrapperId } from './consts';
-import ContentWrapper from '@/components/ContentWrapper';
 
 export const metadata: Metadata = {
   title: 'Smederevo Weather Radar',
@@ -20,22 +21,12 @@ export default function RootLayout({
 }) {
   return (
     <ContentWrapper>
-      <header {...stylex.props(styles.header)}>
+      <header {...stylex.props(generic.centerText)}>
         <H2>Smederevo Weather in 2022</H2>
       </header>
-      <main id={wrapperId} {...stylex.props(styles.main)}>
+      <main id={wrapperId} {...stylex.props(generic.centerXY)}>
         {children}
       </main>
     </ContentWrapper>
   );
 }
-
-const styles = stylex.create({
-  header: {
-    textAlign: 'center',
-  },
-  main: {
-    display: 'flex',
-    justifyContent: 'center',
-  },
-});
