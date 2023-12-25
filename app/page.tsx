@@ -3,7 +3,7 @@ import * as stylex from '@stylexjs/stylex';
 
 import H2 from '@/components/H2';
 import P from '@/components/P';
-import MainMenuItem, { MainMenu } from '@/components/MainMenu';
+import { MainGalleryItem, MainGallery } from '@/components/MainGallery';
 
 import ScatterPlotIllustration from './scatter-plot/Illustration';
 import RadarIllustration from './radar/Illustration';
@@ -21,21 +21,20 @@ export default async function Home() {
         <H2>Smederevo 2022 weather overview</H2>
       </header>
       <main {...stylex.props(styles.main)}>
-        <MainMenu>
-          <MainMenuItem href="/scatter-plot">
+        <MainGallery>
+          <MainGalleryItem href="/scatter-plot">
             <ScatterPlotIllustration />
             <P>Scatter Plot</P>
-          </MainMenuItem>
-          <MainMenuItem href="/radar">
+          </MainGalleryItem>
+          <MainGalleryItem href="/radar">
             <RadarIllustration />
             <P>Radar</P>
-          </MainMenuItem>
-          <MainMenuItem href="/table">
+          </MainGalleryItem>
+          <MainGalleryItem href="/table">
             <TableIllustration />
-            {/* <P {...stylex.props(styles.wip)}>WIP</P> */}
             <P>Table</P>
-          </MainMenuItem>
-        </MainMenu>
+          </MainGalleryItem>
+        </MainGallery>
       </main>
     </ContentWrapper>
   );

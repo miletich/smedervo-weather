@@ -8,7 +8,7 @@ import { generic } from '@/styles/generic';
 type Props = PropsWithChildren & {
   styleX?: StyleXStyles;
 };
-export function MainMenu({ children, styleX }: Props) {
+export function MainGallery({ children, styleX }: Props) {
   return (
     <ul {...stylex.props([generic.centerXY, styles.wrapper, styleX])}>
       {children}
@@ -16,12 +16,12 @@ export function MainMenu({ children, styleX }: Props) {
   );
 }
 
-type MainMenuItemProps = Props & LinkProps;
-export default function MainMenuItem({
+type MainGalleryItemProps = Props & LinkProps;
+export function MainGalleryItem({
   children,
   styleX,
   ...rest
-}: MainMenuItemProps) {
+}: MainGalleryItemProps) {
   return (
     <li {...stylex.props([styles.item, styleX])}>
       <Link {...rest}>{children}</Link>
