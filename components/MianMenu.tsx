@@ -4,6 +4,7 @@ import * as stylex from '@stylexjs/stylex';
 import type { StyleXStyles } from '@stylexjs/stylex';
 
 import { generic } from '@/styles/generic';
+import { colorScheme } from '../styles/tokens.stylex';
 
 type Props = PropsWithChildren & {
   styleX?: StyleXStyles;
@@ -33,6 +34,10 @@ const styles = stylex.create({
     gap: '2.5rem',
   },
   item: {
-    textAlign: 'center',
+    color: colorScheme.text,
+    textDecoration: {
+      default: null,
+      ':hover': 'underline',
+    },
   },
 });

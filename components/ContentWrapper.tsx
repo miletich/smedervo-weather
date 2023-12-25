@@ -15,6 +15,7 @@ export default function ContentWrapper({ children, styleX }: Props) {
 const styles = stylex.create({
   wrapper: {
     flexDirection: 'column',
-    height: '100vh',
+    flexGrow: 1,
+    // height: '100vh',
   },
 });

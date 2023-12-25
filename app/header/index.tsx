@@ -1,13 +1,21 @@
-import { MainMenu, MainMenuItem } from '@/components/MianMenu';
+import * as stylex from '@stylexjs/stylex';
+
+import HeaderTitle from './HeaderTitle';
+import Navigation from './Navigation';
 
 export default function Header() {
   return (
-    <header>
-      <MainMenu>
-        <MainMenuItem href="/scatter-plot">Scatter Plot</MainMenuItem>
-        <MainMenuItem href="/radio">Radio</MainMenuItem>
-        <MainMenuItem href="/table">Table</MainMenuItem>
-      </MainMenu>
+    <header {...stylex.props(styles.wrapper)}>
+      <HeaderTitle />
+      <Navigation />
     </header>
   );
 }
+
+const styles = stylex.create({
+  wrapper: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    padding: '1rem',
+  },
+});

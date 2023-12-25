@@ -3,25 +3,33 @@ import * as stylex from '@stylexjs/stylex';
 import type { StyleXStyles } from '@stylexjs/stylex';
 import Link from 'next/link';
 
-type Props = ComponentProps<'div'> & { styleX?: StyleXStyles };
+import { colorScheme } from '../../styles/tokens.stylex';
 
-export default forwardRef<HTMLDivElement, Props>(function HeaderTitle(
+type Props = ComponentProps<'a'> & { styleX?: StyleXStyles };
+
+export default forwardRef<HTMLAnchorElement, Props>(function HeaderTitle(
   { styleX, ...rest },
   ref
 ) {
   return (
-    <div ref={ref} {...stylex.props(styleX)} {...rest}>
-      <Link href="/">
-        <h1>
-          <span {...stylex.props(styles.first)}>SD</span>
-          <span {...stylex.props(styles.second)}>Weather</span>
-        </h1>
-      </Link>
-    </div>
+    <Link
+      href="/"
+      {...stylex.props(styles.wrapper, styleX)}
+      {...rest}
+      ref={ref}
+    >
+      <h1>
+        <span {...stylex.props(styles.first)}>SD</span>
+        <span {...stylex.props(styles.second)}>Weather</span>
+      </h1>
+    </Link>
   );
 });
 
 const styles = stylex.create({
+  wrapper: {
+    color: colorScheme.text,
+  },
   first: {
     fontWeight: 700,
   },
