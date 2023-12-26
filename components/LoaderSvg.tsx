@@ -5,10 +5,13 @@ import type { StyleXStyles } from '@stylexjs/stylex';
 import Svg from './Svg';
 import { colorScheme } from '../styles/tokens.stylex';
 
-type Props = ComponentProps<'svg'> & { styleX?: StyleXStyles };
+type Props = ComponentProps<'svg'> & {
+  styleX?: StyleXStyles;
+  fullPage?: boolean;
+};
 
 export default forwardRef<SVGSVGElement, Props>(function LoaderSvg(
-  { styleX, ...rest },
+  { styleX, fullPage, ...rest },
   ref
 ) {
   const base = 3;
@@ -20,7 +23,7 @@ export default forwardRef<SVGSVGElement, Props>(function LoaderSvg(
   return (
     <Svg
       {...rest}
-      {...stylex.props([styles.wrapper, styleX])}
+      {...stylex.props(styles.wrapper, fullPage && styles.fullPage, styleX)}
       width={width}
       height={height}
       ref={ref}
@@ -55,5 +58,11 @@ export default forwardRef<SVGSVGElement, Props>(function LoaderSvg(
 const styles = stylex.create({
   wrapper: {
     fill: colorScheme.loaderColor,
+  },
+  fullPage: {
+    width: 72,
+    height: 28,
+    position: 'fixed',
+    top: '47vh',
   },
 });

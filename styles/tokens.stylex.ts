@@ -114,8 +114,8 @@ export const colorScheme = stylex.defineVars({
     default: gray[500],
   },
   loaderColor: {
-    default: purple[900],
-    [DARK]: purple[300],
+    default: blue[900],
+    [DARK]: blue[400],
   },
   cloud: {
     default: gray[300],
