@@ -19,6 +19,6 @@ export default forwardRef<HTMLParagraphElement, Props>(function P(
 
 const styles = stylex.create({
   text: {
-    color: colorScheme.lightText,
+    color: colorScheme.text,
   },
 });

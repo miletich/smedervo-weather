@@ -1,4 +1,5 @@
 import * as stylex from '@stylexjs/stylex';
+import { colorScheme } from './tokens.stylex';
 
 export const generic = stylex.create({
   centerXY: {
@@ -11,5 +12,14 @@ export const generic = stylex.create({
   },
   noPointerEvents: {
     pointerEvents: 'none',
+  },
+  headerHover: {
+    color: {
+      default: colorScheme.text,
+      ':hover': colorScheme.textHeaderHover,
+    },
+  },
+  headerActive: {
+    color: colorScheme.textHeaderActive,
   },
 });

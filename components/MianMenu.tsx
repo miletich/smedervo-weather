@@ -22,7 +22,7 @@ export function MainMenu({ children, styleX }: Props) {
 type MainMenuItemProps = Props & LinkProps;
 export function MainMenuItem({ children, styleX, ...rest }: MainMenuItemProps) {
   return (
-    <li {...stylex.props([styles.item, styleX])}>
+    <li {...stylex.props(generic.headerHover, styles.item, styleX)}>
       <Link {...rest}>{children}</Link>
     </li>
   );
@@ -31,13 +31,9 @@ export function MainMenuItem({ children, styleX, ...rest }: MainMenuItemProps) {
 const styles = stylex.create({
   wrapper: {
     width: '100%',
-    gap: '2.5rem',
+    gap: '1rem',
   },
   item: {
-    color: colorScheme.text,
-    textDecoration: {
-      default: null,
-      ':hover': 'underline',
-    },
+    fontWeight: 600,
   },
 });

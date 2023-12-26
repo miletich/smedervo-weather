@@ -4,6 +4,7 @@ import type { StyleXStyles } from '@stylexjs/stylex';
 import Link from 'next/link';
 
 import { colorScheme } from '../../styles/tokens.stylex';
+import { generic } from '@/styles/generic';
 
 type Props = ComponentProps<'a'> & { styleX?: StyleXStyles };
 
@@ -14,7 +15,7 @@ export default forwardRef<HTMLAnchorElement, Props>(function HeaderTitle(
   return (
     <Link
       href="/"
-      {...stylex.props(styles.wrapper, styleX)}
+      {...stylex.props(generic.headerHover, styleX)}
       {...rest}
       ref={ref}
     >
@@ -27,14 +28,10 @@ export default forwardRef<HTMLAnchorElement, Props>(function HeaderTitle(
 });
 
 const styles = stylex.create({
-  wrapper: {
-    color: colorScheme.text,
-  },
   first: {
     fontWeight: 700,
   },
   second: {
     fontWeight: 400,
-    textTransform: 'uppercase',
   },
 });

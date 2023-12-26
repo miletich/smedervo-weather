@@ -110,8 +110,13 @@ export const colorScheme = stylex.defineVars({
     default: gray[500],
     [DARK]: gray[400],
   },
-  lightText: {
-    default: gray[500],
+  textHeaderHover: {
+    default: gray[600],
+    [DARK]: gray[300],
+  },
+  textHeaderActive: {
+    default: gray[700],
+    [DARK]: gray[200],
   },
   loaderColor: {
     default: blue[900],

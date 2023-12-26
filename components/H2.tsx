@@ -19,7 +19,7 @@ export default forwardRef<HTMLHeadingElement, Props>(function H2(
 
 const styles = stylex.create({
   h2: {
-    color: colorScheme.lightText,
+    color: colorScheme.text,
     fontSize: sizing.h2Size,
     fontWeight: 700,
   },
