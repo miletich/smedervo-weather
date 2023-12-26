@@ -17,7 +17,10 @@ import TableIllustration from './table/Illustration';
 export default async function Home() {
   return (
     <ContentWrapper>
-      <H2 styleX={styles.title}>Smederevo 2022 Weather Overview</H2>
+      <header {...stylex.props(styles.header)}>
+        <H2 styleX={styles.title}>Smederevo Weather Overview</H2>
+        <P>Yearly Overview of Weather in Smedervo, Serbia</P>
+      </header>
       <main {...stylex.props(styles.main)}>
         <MainGallery>
           <MainGalleryItem href="/scatter-plot">
@@ -53,6 +56,9 @@ const styles = stylex.create({
     marginBottom: '6rem',
   },
   title: {
-    marginBottom: '4rem',
+    marginBottom: '0.25rem',
+  },
+  header: {
+    marginBottom: '3rem',
   },
 });
