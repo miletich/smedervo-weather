@@ -2,6 +2,7 @@ import type { PropsWithChildren } from 'react';
 import type { Metadata } from 'next';
 import * as stylex from '@stylexjs/stylex';
 
+import PageTransition from '@/components/PageTransition';
 import ContentWrapper from '@/components/ContentWrapper';
 import { generic } from '@/styles/generic';
 
@@ -14,9 +15,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <ContentWrapper>
-      <main id={wrapperId} {...stylex.props(generic.centerXY)}>
-        {children}
-      </main>
+      <PageTransition>
+        <main id={wrapperId} {...stylex.props(generic.centerXY)}>
+          {children}
+        </main>
+      </PageTransition>
     </ContentWrapper>
   );
 }
