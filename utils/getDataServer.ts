@@ -1,6 +1,7 @@
 import { readFile } from 'fs/promises';
 import { unstable_cache } from 'next/cache';
 import * as d3 from 'd3';
+import 'server-only';
 
 import { type Datum, dataSchema } from './data';
 
@@ -15,5 +16,9 @@ const getCachedData: GetDataServer = unstable_cache(
   async () => getDataServer(),
   ['weather-data']
 );
+
+export const preloadDataServer = () => {
+  void getCachedData();
+};
 
 export default getDataServer;

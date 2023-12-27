@@ -1,10 +1,10 @@
 import type { PropsWithChildren } from 'react';
 import * as stylex from '@stylexjs/stylex';
 
+import { preloadDataServer } from '@/utils/getDataServer';
 import H2 from '@/components/H2';
 import P from '@/components/P';
 import { MainGalleryItem, MainGallery } from '@/components/MainGallery';
-
 import ContentWrapper from '@/components/ContentWrapper';
 import PageTransition from '@/components/PageTransition';
 import { gray } from '@/styles/tokens.stylex';
@@ -19,6 +19,8 @@ import RadarIllustration from './radar/Illustration';
 // import { SM } from '@/styles/mediaQueries';
 
 export default async function Home() {
+  await preloadDataServer();
+
   return (
     <ContentWrapper>
       <PageTransition {...stylex.props(styles.wrapper, generic.centerXY)}>
