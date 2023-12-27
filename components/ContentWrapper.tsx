@@ -16,6 +16,5 @@ const styles = stylex.create({
   wrapper: {
     flexDirection: 'column',
     flexGrow: 1,
-    // height: '100vh',
   },
 });
