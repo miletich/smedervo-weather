@@ -4,9 +4,9 @@ import type { PropsWithChildren } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
 const variants = {
-  enter: { opacity: 0, y: '-40vh' },
+  enter: { opacity: 0, y: '20vh' },
   animate: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: '40vh' },
+  exit: { opacity: 0, y: '-20vh' },
 };
 
 export default function PageTransition({ children }: PropsWithChildren) {
@@ -14,7 +14,7 @@ export default function PageTransition({ children }: PropsWithChildren) {
     <AnimatePresence>
       <motion.div
         variants={variants}
-        initial="initial"
+        initial="enter"
         animate="animate"
         exit="exit"
       >

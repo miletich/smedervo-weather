@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Smederevo Weather Overview | Scatter Plot',
 };
 
-export default function RootLayout({ children }: PropsWithChildren) {
+export default function Layout({ children }: PropsWithChildren) {
   return (
     <ContentWrapper>
       <PageTransition>
