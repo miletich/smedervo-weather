@@ -44,7 +44,7 @@ export default async function TableView({
   const pagerConfig: TablePagerConfig = { count: data.length, offset, limit };
 
   return (
-    <div>
+    <>
       <Table>
         <TableHeader>
           <TableRow styleX={tableStyles.headerRow}>
@@ -106,6 +106,6 @@ export default async function TableView({
         </TableBody>
       </Table>
       <TablePager config={pagerConfig} path="table" />
-    </div>
+    </>
   );
 }

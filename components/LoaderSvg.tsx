@@ -62,7 +62,5 @@ const styles = stylex.create({
   fullPage: {
     width: 72,
     height: 28,
-    position: 'fixed',
-    top: '47vh',
   },
 });
