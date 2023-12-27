@@ -1,4 +1,5 @@
 import * as stylex from '@stylexjs/stylex';
+import { unstable_cache } from 'next/cache';
 
 import {
   Table,
@@ -29,12 +30,17 @@ import { sliceData } from './utils/tableFiltering';
 import Textual from './components/Textual';
 import { tableComponentStyles } from './components/tableComponentStyles';
 
+const getCachedData = unstable_cache(
+  async () => getDataServer(),
+  ['weather-data']
+);
+
 export default async function TableView({
   searchParams,
 }: {
   searchParams: RawSearchParams;
 }) {
-  const data = await getDataServer();
+  const data = await getCachedData();
   const windSpeeds = data.map(windSpeedAccessor);
   const windRange: [number, number] = [
     Math.min(...windSpeeds),
