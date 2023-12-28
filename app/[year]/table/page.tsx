@@ -19,6 +19,7 @@ import { tableStyles } from '@/components/Table/styles';
 import { TablePagerConfig } from '@/components/Table/TablePager/utils';
 import { windSpeedAccessor } from '@/utils/data';
 import { formatShortDate } from '@/utils/date';
+import { selectedYear } from '@/utils/selectedYear';
 
 import Moon from './components/Moon';
 import Precipitation from './components/Precipitation';
@@ -36,6 +37,7 @@ export default async function TableView({
 }: {
   searchParams: RawSearchParams;
 }) {
+  const year = selectedYear.getYear();
   const data = await getDataServer();
   const windSpeeds = data.map(windSpeedAccessor);
   const windRange: [number, number] = [
@@ -107,7 +109,7 @@ export default async function TableView({
           ))}
         </TableBody>
       </Table>
-      <TablePager config={pagerConfig} path="table" />
+      <TablePager config={pagerConfig} path={`${year}/table`} />
     </>
   );
 }
