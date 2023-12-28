@@ -32,6 +32,6 @@ export default function PageTransition({
       </motion.div>
     </AnimatePresence>
   ) : (
-    <div {...rest}>children</div>
+    <div {...rest}>{children}</div>
   );
 }
