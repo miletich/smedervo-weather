@@ -17,9 +17,16 @@ import RadarIllustration from './radar/Illustration';
 
 // SX bug
 // import { SM } from '@/styles/mediaQueries';
+export const generateStaticParams = () => [{ slug: '2022' }, { slug: '2021' }];
 
-export default async function Home() {
-  const year = selectedYear.getYear();
+type Props = {
+  params: {
+    year: string;
+  };
+};
+
+export default async function Home({ params }: Props) {
+  const year = +params.year;
 
   return (
     <ContentWrapper>
