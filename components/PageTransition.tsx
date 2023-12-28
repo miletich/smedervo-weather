@@ -1,6 +1,6 @@
 'use client';
 
-import type { PropsWithChildren } from 'react';
+import { useState, type PropsWithChildren, useLayoutEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
 const variants = {
@@ -13,7 +13,13 @@ export default function PageTransition({
   children,
   ...rest
 }: PropsWithChildren) {
-  return (
+  const [hasClientJs, setHasClientJs] = useState(false);
+
+  useLayoutEffect(() => {
+    setHasClientJs(true);
+  }, []);
+
+  return hasClientJs ? (
     <AnimatePresence>
       <motion.div
         {...rest}
@@ -25,5 +31,7 @@ export default function PageTransition({
         {children}
       </motion.div>
     </AnimatePresence>
+  ) : (
+    <div {...rest}>children</div>
   );
 }
