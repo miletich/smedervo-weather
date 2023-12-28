@@ -3,7 +3,7 @@ import Link from 'next/link';
 import * as stylex from '@stylexjs/stylex';
 import type { StyleXStyles } from '@stylexjs/stylex';
 
-import { buildQueryString } from '@/app/table/utils/searchParams';
+import { buildQueryString } from '../searchParams';
 
 import {
   TablePagerConfig,
