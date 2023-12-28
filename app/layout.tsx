@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description: 'Yearly overview of weather in Smederevo, Serbia',
 };
 
-export default function RootLayout({ children }: PropsWithChildren) {
+export default function Layout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
       <body {...stylex.props(styles.body)}>

@@ -47,7 +47,7 @@ export default async function TableView({
     <>
       <Table>
         <TableHeader>
-          <TableRow styleX={tableStyles.headerRow}>
+          <TableRow styleX={tableStyles.headerRow} animated>
             {columns.map((c) => (
               <TableHead
                 key={c.name}
@@ -59,8 +59,8 @@ export default async function TableView({
           </TableRow>
         </TableHeader>
         <TableBody>
-          {sliceData(data, offset, limit).map((d) => (
-            <TableRow key={d.datetime}>
+          {sliceData(data, offset, limit).map((d, i) => (
+            <TableRow key={d.datetime} animated idx={i}>
               {columns.map((c) => {
                 switch (c.name) {
                   case 'datetime':
