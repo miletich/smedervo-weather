@@ -1,6 +1,9 @@
-import { readdirSync, writeFileSync } from 'fs';
+import { readFileSync, readdirSync, writeFileSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import * as d3 from 'd3';
+// @ts-ignore
+import { dataSchema } from '../utils/data.ts';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -35,3 +38,35 @@ export const saveYears = () => {
 
   writeFileSync(join(__dirname, 'years.ts'), content);
 };
+
+const domainNames = ['tempmin', 'tempmax', 'precipprob', 'windspeed'] as const;
+
+type DomainName = (typeof domainNames)[number];
+type Domains = Record<DomainName, [number, number]>;
+
+type GetDomains = () => Domains;
+export const getDomains: GetDomains = () => {
+  const fileList = getFileList();
+
+  const rawResults = fileList.map((file) => {
+    const filePath = join(__dirname, sourceDir, file);
+    const contents = readFileSync(filePath, 'utf8');
+    const parsed = d3.csvParse(contents);
+
+    return parsed;
+  });
+
+  const results = rawResults.map((r) => dataSchema.parse(r));
+
+  return domainNames.reduce<Domains>(
+    (acc, cur) => ({
+      ...acc,
+      [cur]: d3.extent([
+        ...results.reduce((acc, cur) => [...cur]).map((r) => r[cur]),
+      ]) as [number, number],
+    }),
+    {} as Domains
+  );
+};
+
+console.log(getDomains());
