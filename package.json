@@ -2,11 +2,13 @@
   "name": "smederevo-weather",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "clean": "rimraf .next",
     "predev": "npm run clean",
     "prebuild": "npm run clean",
     "tsc": "tsc",
+    "ts-node": "NODE_OPTIONS=\"--loader ts-node/esm\" ts-node",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -31,13 +33,14 @@
     "@stylexjs/eslint-plugin": "^0.3.0",
     "@stylexjs/nextjs-plugin": "^0.3.0",
     "@types/d3": "^7.4.2",
-    "@types/node": "^20",
+    "@types/node": "^20.10.5",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@types/suncalc": "^1.9.2",
     "eslint": "^8",
     "eslint-config-next": "^14.0.4",
     "rimraf": "^5.0.5",
-    "typescript": "^5"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
   }
 }
