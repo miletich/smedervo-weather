@@ -42,7 +42,7 @@ export const saveYears = () => {
 const domainNames = ['tempmin', 'tempmax', 'precipprob', 'windspeed'] as const;
 
 type DomainName = (typeof domainNames)[number];
-type Domains = Record<DomainName, [number, number]>;
+export type Domains = Record<DomainName, [number, number]>;
 
 type GetDomains = () => Domains;
 export const getDomains: GetDomains = () => {
@@ -69,4 +69,15 @@ export const getDomains: GetDomains = () => {
   );
 };
 
-console.log(getDomains());
+const saveDomains = () => {
+  const domains = getDomains();
+  const content = `
+${warning}
+import type { Domains } from './utils.js';
+
+export const domains: Domains = {
+${Object.entries(domains).map(([k, v]) => `${k}: [${v.join(', ')}]`)}
+}`;
+
+  writeFileSync(join(__dirname, 'domains.ts'), content);
+};
