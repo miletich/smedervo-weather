@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "add-year": "npm run ts-node ./static/script.ts",
     "clean": "rimraf .next",
     "predev": "npm run clean",
     "prebuild": "npm run clean",

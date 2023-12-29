@@ -69,7 +69,7 @@ export const getDomains: GetDomains = () => {
   );
 };
 
-const saveDomains = () => {
+export const saveDomains = () => {
   const domains = getDomains();
   const content = `
 ${warning}
