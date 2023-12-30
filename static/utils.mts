@@ -37,7 +37,13 @@ export const saveYears = () => {
   writeFileSync(join(__dirname, 'years.ts'), content);
 };
 
-const domainNames = ['tempmin', 'tempmax', 'precipprob', 'windspeed'] as const;
+const domainNames = [
+  'tempmin',
+  'tempmax',
+  'precipprob',
+  'windspeed',
+  'cloudcover',
+] as const;
 
 type DomainName = (typeof domainNames)[number];
 export type Domains = Record<DomainName, [number, number]>;

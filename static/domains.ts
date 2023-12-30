@@ -6,4 +6,5 @@ export const domains: Domains = {
   tempmax: [-4.1, 38.6],
   precipprob: [0, 100],
   windspeed: [5.9, 44.7],
+  cloudcover: [0, 99.8],
 };
