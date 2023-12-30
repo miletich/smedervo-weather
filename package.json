@@ -2,9 +2,8 @@
   "name": "smederevo-weather",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
   "scripts": {
-    "add-year": "npm run ts-node ./static/script.ts",
+    "add-year": "npm run ts-node ./static/script.mts",
     "clean": "rimraf .next",
     "predev": "npm run clean",
     "prebuild": "npm run clean",

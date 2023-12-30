@@ -22,6 +22,12 @@
       "@/*": ["./*"]
     }
   },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "esnext",
+      "esModuleInterop": true
+    }
+  },
   "include": [
     "next-env.d.ts",
     "weather-icons-react.d.ts",

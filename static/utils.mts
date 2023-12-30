@@ -2,8 +2,6 @@ import { readFileSync, readdirSync, writeFileSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import * as d3 from 'd3';
-// @ts-ignore
-import { dataSchema } from '../utils/data.ts';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -56,24 +54,23 @@ export const getDomains: GetDomains = () => {
     return parsed;
   });
 
-  const results = rawResults.map((r) => dataSchema.parse(r));
+  const results = rawResults.flat();
 
   return domainNames.reduce<Domains>(
     (acc, cur) => ({
       ...acc,
-      [cur]: d3.extent([
-        ...results.reduce((acc, cur) => [...cur]).map((r) => r[cur]),
-      ]) as [number, number],
+      [cur]: d3.extent(results.map((r) => +r[cur])),
     }),
     {} as Domains
   );
+  return {} as Domains;
 };
 
 export const saveDomains = () => {
   const domains = getDomains();
   const content = `
 ${warning}
-import type { Domains } from './utils.js';
+import type { Domains } from './utils.mts';
 
 export const domains: Domains = {
 ${Object.entries(domains).map(([k, v]) => `${k}: [${v.join(', ')}]`)}
