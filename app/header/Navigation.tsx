@@ -1,11 +1,10 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
+import { usePathname, useParams } from 'next/navigation';
 import { type ComponentProps, forwardRef } from 'react';
 
 import { MainMenu, MainMenuItem } from '@/components/MianMenu';
 import { navigation } from '@/utils/navigation';
-import { selectedYear } from '@/utils/selectedYear';
 import { generic } from '@/styles/generic';
 
 type Props = ComponentProps<'nav'>;
@@ -15,7 +14,7 @@ export default forwardRef<HTMLElement, Props>(function Navigation(
   ref
 ) {
   const currentPath = usePathname();
-  const year = selectedYear.getYear();
+  const { year } = useParams<{ year: string }>();
 
   return (
     <MainMenu>

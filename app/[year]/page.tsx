@@ -6,7 +6,6 @@ import { MainGalleryItem, MainGallery } from '@/components/MainGallery';
 
 import ContentWrapper from '@/components/ContentWrapper';
 import PageTransition from '@/components/PageTransition';
-import { selectedYear } from '@/utils/selectedYear';
 import { gray } from '@/styles/tokens.stylex';
 import { generic } from '@/styles/generic';
 import { colorScheme } from '../../styles/tokens.stylex';
@@ -14,10 +13,11 @@ import { colorScheme } from '../../styles/tokens.stylex';
 import TableIllustration from './table/Illustration';
 import ScatterPlotIllustration from './scatter-plot/Illustration';
 import RadarIllustration from './radar/Illustration';
+import { years } from '@/static/years';
 
 // SX bug
 // import { SM } from '@/styles/mediaQueries';
-export const generateStaticParams = () => [{ slug: '2022' }, { slug: '2021' }];
+export const generateStaticParams = () => years.map((year) => ({ slug: year }));
 
 type Props = {
   params: {
@@ -25,15 +25,15 @@ type Props = {
   };
 };
 
-export default async function Home({ params }: Props) {
-  const year = +params.year;
+export default async function Year({ params }: Props) {
+  const year = params.year;
 
   return (
     <ContentWrapper>
       <PageTransition {...stylex.props(styles.wrapper, generic.centerXY)}>
         <header {...stylex.props(styles.header)}>
           <H2 styleX={styles.title}>Smederevo Weather Overview</H2>
-          <P>Yearly Overview of Weather in Smedervo, Serbia</P>
+          <P>{`Yearly Overview of Weather in Smedervo, Serbia in ${year}`}</P>
         </header>
         <main {...stylex.props(styles.main)}>
           <MainGallery>
