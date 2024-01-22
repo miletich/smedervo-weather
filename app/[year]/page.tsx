@@ -76,6 +76,7 @@ const styles = stylex.create({
   },
   title: {
     marginBottom: '0.25rem',
+    textAlign: 'center',
   },
   header: {
     marginBottom: '3rem',
