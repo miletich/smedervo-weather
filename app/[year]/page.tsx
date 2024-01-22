@@ -4,16 +4,15 @@ import H2 from '@/components/H2';
 import P from '@/components/P';
 import { MainGalleryItem, MainGallery } from '@/components/MainGallery';
 
+import { years } from '@/static/years';
+import { setYear } from '@/utils/yearContext';
 import ContentWrapper from '@/components/ContentWrapper';
 import PageTransition from '@/components/PageTransition';
-import { gray } from '@/styles/tokens.stylex';
 import { generic } from '@/styles/generic';
-import { colorScheme } from '../../styles/tokens.stylex';
 
 import TableIllustration from './table/Illustration';
 import ScatterPlotIllustration from './scatter-plot/Illustration';
 import RadarIllustration from './radar/Illustration';
-import { years } from '@/static/years';
 
 // SX bug
 // import { SM } from '@/styles/mediaQueries';
@@ -27,6 +26,7 @@ type Props = {
 
 export default async function Year({ params }: Props) {
   const year = params.year;
+  setYear(+year);
 
   return (
     <ContentWrapper>

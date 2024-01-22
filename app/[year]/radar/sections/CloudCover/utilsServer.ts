@@ -1,5 +1,6 @@
 import * as d3 from 'd3';
 
+import { domains } from '@/static/domains';
 import getDataServer from '@/utils/getDataServer';
 import { cloudCoverAccessor, dateAccessor } from '@/utils/data';
 
@@ -15,7 +16,7 @@ export const getCloudsProps: GetCloudsProps = async () => {
 
   const cloudScale = d3
     .scaleSqrt()
-    .domain(<[number, number]>d3.extent(data, cloudCoverAccessor))
+    .domain(domains.cloudcover)
     .range([0, cloudMaxRadius]);
 
   return data.map((d) => ({
