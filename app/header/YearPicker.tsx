@@ -16,9 +16,8 @@ export default forwardRef<HTMLElement, Props>(function YearPicker(
   ref
 ) {
   const path = usePathname();
-  const graphSegment = path.match(/[a-z]/g)?.join('');
+  const graphSegment = path.match(/[a-z-]/g)?.join('');
   const { year: currentYear } = useParams<{ year: string }>();
-  console.log(path, path.replace(/(\d+)/i, String(2000)), graphSegment);
 
   return (
     <MainMenu styleX={styles.wrapper}>
