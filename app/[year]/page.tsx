@@ -16,7 +16,7 @@ import RadarIllustration from './radar/Illustration';
 
 // SX bug
 // import { SM } from '@/styles/mediaQueries';
-export const generateStaticParams = () => years.map((year) => ({ slug: year }));
+export const generateStaticParams = () => years.map((year) => ({ year }));
 
 type Props = {
   params: {
