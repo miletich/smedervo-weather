@@ -11,10 +11,8 @@ type Props = PropsWithChildren & {
 };
 export function MainMenu({ children, styleX }: Props) {
   return (
-    <nav aria-label="Main Navigation">
-      <ul {...stylex.props([generic.centerXY, styles.wrapper, styleX])}>
-        {children}
-      </ul>
+    <nav aria-label="Main Navigation" {...stylex.props(styleX)}>
+      <ul {...stylex.props([generic.centerXY, styles.wrapper])}>{children}</ul>
     </nav>
   );
 }

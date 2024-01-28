@@ -1,6 +1,7 @@
 import * as stylex from '@stylexjs/stylex';
 
 import ChartRadial from '@/components/ChartRadial';
+import { getYear } from '@/utils/yearContext';
 
 import { dimensions } from './consts';
 import Peripherals from './sections/Peripherals';
@@ -16,7 +17,11 @@ export { yearGenerateStaticParams as generateStaticParams } from '@/static/yearG
 
 export default function Radar() {
   return (
-    <ChartRadial dimensions={dimensions} styleX={styles.wrapper}>
+    <ChartRadial
+      key={getYear()}
+      dimensions={dimensions}
+      styleX={styles.wrapper}
+    >
       <Meta />
       <Peripherals />
       <Temperature />
