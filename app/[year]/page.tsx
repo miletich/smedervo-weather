@@ -14,10 +14,10 @@ import TableIllustration from './table/Illustration';
 import ScatterPlotIllustration from './scatter-plot/Illustration';
 import RadarIllustration from './radar/Illustration';
 
+export { yearGenerateStaticParams as generateStaticParams } from '@/static/yearGenerateStaticParams';
+
 // SX bug
 // import { SM } from '@/styles/mediaQueries';
-export const generateStaticParams = () =>
-  years.map((year) => ({ year: String(year) }));
 
 type Props = {
   params: {

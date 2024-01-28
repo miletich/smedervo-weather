@@ -12,6 +12,8 @@ import CloudCover from './sections/CloudCover/indext';
 import Annotations from './sections/Annotations';
 import Controller from './Controller';
 
+export { yearGenerateStaticParams as generateStaticParams } from '@/static/yearGenerateStaticParams';
+
 export default function Radar() {
   return (
     <ChartRadial dimensions={dimensions} styleX={styles.wrapper}>

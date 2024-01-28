@@ -11,6 +11,8 @@ import TopHistogram from './sections/Histograms/TopHistogram';
 import RightHistogram from './sections/Histograms/RightHistogram';
 import ScatterPlot from './sections/ScatterPlot';
 
+export { yearGenerateStaticParams as generateStaticParams } from '@/static/yearGenerateStaticParams';
+
 export default async function WeatherScatterPlot() {
   return (
     <Chart
