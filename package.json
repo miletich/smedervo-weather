@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "add-year": "npm run ts-node ./static/script.mts",
     "clean": "rimraf .next",
     "predev": "npm run clean",
     "prebuild": "npm run clean",
     "tsc": "tsc",
+    "ts-node": "NODE_OPTIONS=\"--loader ts-node/esm\" ts-node",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -14,7 +16,9 @@
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.0.16",
-    "@stylexjs/stylex": "^0.3.0",
+    "@stylexjs/eslint-plugin": "^0.4.1",
+    "@stylexjs/nextjs-plugin": "^0.4.1",
+    "@stylexjs/stylex": "^0.4.1",
     "@types/d3-delaunay": "^6.0.3",
     "d3": "^7.8.5",
     "d3-delaunay": "^6.0.4",
@@ -23,21 +27,21 @@
     "next": "^14.0.4",
     "react": "^18",
     "react-dom": "^18",
+    "server-only-context": "^0.1.0",
     "suncalc": "^1.9.0",
     "weather-icons-react": "^1.2.0",
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@stylexjs/eslint-plugin": "^0.3.0",
-    "@stylexjs/nextjs-plugin": "^0.3.0",
     "@types/d3": "^7.4.2",
-    "@types/node": "^20",
+    "@types/node": "^20.10.5",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@types/suncalc": "^1.9.2",
     "eslint": "^8",
     "eslint-config-next": "^14.0.4",
     "rimraf": "^5.0.5",
-    "typescript": "^5"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
   }
 }

@@ -3,7 +3,7 @@ import { type Metadata } from 'next';
 import * as stylex from '@stylexjs/stylex';
 import '@fontsource-variable/inter';
 
-import { MainMenu, MainMenuItem } from '@/components/MianMenu';
+import { MainMenu, MainMenuItem } from '@/components/MainMenu';
 import { colorScheme } from '../styles/tokens.stylex';
 
 import Header from './header';
