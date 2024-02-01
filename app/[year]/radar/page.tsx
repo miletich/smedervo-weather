@@ -15,7 +15,7 @@ import Controller from './Controller';
 
 export { yearGenerateStaticParams as generateStaticParams } from '@/static/yearGenerateStaticParams';
 
-export default function Radar() {
+export default async function Radar() {
   return (
     <ChartRadial
       key={getYear()}

@@ -31,6 +31,8 @@ import { columns } from './utils/tableDef';
 import { sliceData } from './utils/tableFiltering';
 import { tableComponentStyles } from './components/tableComponentStyles';
 
+export { yearGenerateStaticParams as generateStaticParams } from '@/static/yearGenerateStaticParams';
+
 type Props = {
   searchParams: RawSearchParams;
   params: {
@@ -38,7 +40,7 @@ type Props = {
   };
 };
 export default async function TableView({ params, searchParams }: Props) {
-  const data = await getDataServer();
+  const data = await getDataServer(+params.year);
   const windSpeeds = data.map(windSpeedAccessor);
   const windRange: [number, number] = [
     Math.min(...windSpeeds),
