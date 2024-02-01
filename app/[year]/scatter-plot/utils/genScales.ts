@@ -9,6 +9,7 @@ import {
 } from '@/utils/data';
 
 import { dimensions, gradientWidth } from '../consts';
+import { domains } from '@/static/domains';
 
 export type Scales = {
   xScale: d3.ScaleLinear<number, number>;
@@ -25,10 +26,7 @@ export interface AnyScale<T> {
 
 type GenScales = (data: Datum[]) => Scales;
 const genScales: GenScales = (data) => {
-  const temperatureExtent = [
-    Math.min(...data.map(tempMinAccessor)),
-    Math.max(...data.map(tempMaxAccessor)),
-  ];
+  const temperatureExtent = [domains.tempmin[0], domains.tempmax[1]];
   const dateExtent = [
     dateAccessor(data[0]),
     dateAccessor(data[data.length - 1]),

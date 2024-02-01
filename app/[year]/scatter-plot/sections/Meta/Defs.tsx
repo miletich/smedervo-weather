@@ -1,9 +1,4 @@
-import {
-  gradientId,
-  gradientStops,
-  gradientYear,
-  seasonStartDates,
-} from '../../consts';
+import { gradientId, gradientStops, gradientYear } from '../../consts';
 
 export default function Defs() {
   return (

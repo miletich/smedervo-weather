@@ -1,5 +1,6 @@
 import * as d3 from 'd3';
 
+import { domains } from '@/static/domains';
 import getDataServer from '@/utils/getDataServer';
 import { dateAccessor, tempMaxAccessor, tempMinAccessor } from '@/utils/data';
 
@@ -17,11 +18,7 @@ export const getScales: GetScales = async () => {
 
   const radiusScale = d3
     .scaleLinear()
-    .domain(
-      <[number, number]>(
-        d3.extent([...data.map(tempMinAccessor), ...data.map(tempMaxAccessor)])
-      )
-    )
+    .domain([domains.tempmin[0], domains.tempmax[1]])
     .range([0, dimensions.radius])
     .nice();
 

@@ -60,9 +60,8 @@ export const gradientY =
 export const gradientLabelSize = 12;
 export const gradientLabelOffset = 6;
 export const gradientYear = 2022;
-export const seasonStartDates = ['4-1', '7-1', '10-1'].map(
-  (d) => new Date(`2022-${d}`)
-);
+export const getSeasonStartDates = (year: number) =>
+  ['4-1', '7-1', '10-1'].map((d) => new Date(`${year}-${d}`));
 export const gradientHighlightStrokeWidth = 1;
 export const gradientHighlightWidth =
   gradientWidth * 0.05 - gradientHighlightStrokeWidth;

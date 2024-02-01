@@ -41,11 +41,6 @@ type Props = {
 };
 export default async function TableView({ params, searchParams }: Props) {
   const data = await getDataServer(+params.year);
-  const windSpeeds = data.map(windSpeedAccessor);
-  const windRange: [number, number] = [
-    Math.min(...windSpeeds),
-    Math.max(...windSpeeds),
-  ];
   const { offset, limit } = getTableSearchParams(searchParams);
   const pagerConfig: TablePagerConfig = { count: data.length, offset, limit };
 
@@ -96,13 +91,7 @@ export default async function TableView({ params, searchParams }: Props) {
                   case 'moonphase':
                     return <Moon key={c.name} date={c.accessor(d)} />;
                   case 'wind':
-                    return (
-                      <Wind
-                        key={c.name}
-                        wind={c.accessor(d)}
-                        windRange={windRange}
-                      />
-                    );
+                    return <Wind key={c.name} wind={c.accessor(d)} />;
                   case 'uvindex':
                     return <UvIndex key={c.name} uvIndex={c.accessor(d)} />;
                 }

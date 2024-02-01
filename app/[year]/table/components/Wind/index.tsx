@@ -12,19 +12,19 @@ import { Wind } from '../../utils/tableDef';
 
 import Arrow from './Arrow';
 import { tableComponentStyles } from '../tableComponentStyles';
+import { domains } from '@/static/domains';
 
 type Props = ComponentProps<'td'> & {
   wind: Wind;
-  windRange: [number, number];
   styleX?: StyleXStyles;
 };
 
 export default forwardRef<HTMLTableCellElement, Props>(function Wind(
-  { styleX, wind, windRange, ...rest },
+  { styleX, wind, ...rest },
   ref
 ) {
   const scale = scaleLinear<string, string>()
-    .domain(windRange)
+    .domain(domains.windspeed)
     .range([white, gray[400]]);
 
   return (

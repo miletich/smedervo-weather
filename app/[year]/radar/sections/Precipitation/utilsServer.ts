@@ -11,6 +11,7 @@ import getDataServer from '@/utils/getDataServer';
 import { precipitationMaxRadius, precipitationOffset } from '../../consts';
 import { getCoordinatesForDataPoint } from '../../utils/angleServer';
 import { precipitationTypeScale } from './utils';
+import { domains } from '@/static/domains';
 
 type PrecipitationProps = Record<'r' | 'cx' | 'cy', number> &
   Record<'id' | 'fill', string>;
@@ -22,7 +23,7 @@ export const getPrecipitationsProps: GetPrecipitationsProps = async () => {
 
   const precipitationRadiusScale = d3
     .scaleSqrt()
-    .domain(<[number, number]>d3.extent(data, precipitationProbabilityAccessor))
+    .domain(domains.precipprob)
     .range([1, precipitationMaxRadius]);
 
   return data.map((d) => ({
